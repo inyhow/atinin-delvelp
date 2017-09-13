@@ -1,0 +1,82 @@
+{template "nheader.html"}
+<script type="text/javascript">
+    $(function(){
+        {if $result_error}
+        dr_tips('{$result_error.msg}', 3);
+        {/if}
+    });
+    function dr_my_auth(value) {
+        if (value) {
+            // 公司
+        } else {
+            // 个人
+        }
+    }
+</script>
+
+<div class="row">
+    <div class="col-md-12">
+
+        <form action="" method="post" class="form-horizontal" novalidate="novalidate">
+            <div class="form-body">
+                <div class="form-group">
+                    <label class="control-label col-md-2">账号：</label>
+                    <div class="col-md-10"><div class="form-control-static ">{$member.username}</div></div>
+                </div>
+            </div>
+            {if $groupid == 4}
+            <!-- 企业认证 -->
+            <div class="form-body">
+                <div class="form-group">
+                    <label class="control-label col-md-2">认证类型：</label>
+                    <input type="hidden" value="4" name="data[auth_type]" />
+                    <div class="col-md-10"><div class="form-control-static ">企业</div></div>
+                </div>
+            </div>
+            <div class="form-body">
+                <div class="form-group">
+                    <label class="control-label col-md-2">认证证书：</label>
+                    <div class="col-md-10"><div class="form-control-static ">企业营业执照</div></div>
+                </div>
+            </div>
+
+            {else}
+            <!-- 个人认证-->
+            <div class="form-body">
+                <div class="form-group">
+                    <label class="control-label col-md-2">认证类型：</label>
+                    <input type="hidden" value="1" name="data[auth_type]" />
+                    <div class="col-md-10"><div class="form-control-static ">个人</div></div>
+                </div>
+            </div>
+              
+            {/if}
+
+            <div class="form-body">
+                {$myfield}
+            </div>
+            <div class="form-body">
+                <div class="form-group">
+                    {if $data.uid}
+                    {if $data.status==0}
+                        <div  class="col-md-12 col-md-offset-1"><span class="form-control-static " style="color:blue">您的资料已经提交，系统审核之后将无法修改认证资料</span></div>
+                    {else if $data.status==1}
+                        <div class="col-md-2 col-md-offset-1">审核失败：</div>
+                        <div class="col-md-10 col-md-offset-1"><span style="color:red">{$data.note}</span></div>
+                    {/if}
+                    {/if}
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <div class="row">
+                    <div class="col-md-offset-2 col-md-3">
+                        <button type="submit" class="mysubmit btn orange"><i class="fa fa-user"></i> 提交</button>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+{template "nfooter.html"}

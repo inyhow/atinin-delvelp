@@ -1,0 +1,294 @@
+{template "header1_b.html"}
+      
+    <!--slogan-->
+    <div class="sloganWrapper">
+        <!-- <div class="ad11 " >
+          <img src="{THEME_PATH}home/img/ad11.png" style="width:100%;height: 100%;">
+         
+        </div>   -->
+    </div>
+    
+                <div class="iiTax taxTool  clear">
+              <h1 > 
+                    <span class="taxTool_title on">个人所得税</span>
+                  
+                    <span class="more">
+                      <img src="{THEME_PATH}home/img/icon_home.png">
+                      <a >您所在的位置</a>：<a href="/">首页  </a> > <a href="/index.php?c=taxtool">财税工具  </a> > <a > 个人所得税</a>
+                    </span>
+              </h1>
+              <div class="iiTaxWrapper">
+                    <div class="iiTax01">
+                        <section class="iiTaxCalculator">
+                            <div class="iiTax_title">年终奖个人所得税计算器</div>
+                            <div class="row03Box clear">
+                                  <div class="row03 clear">
+                                      <div class="text">收入类型</div>
+                                      <div class="input dropDownMenu02 ">
+                                        <input  class="dropDownText dropDownButton" value="年终奖个人所得税" type="" name="" readonly="readonly">
+                                        <span class="dropDownButton addon">
+                                          <img src="{THEME_PATH}home/img/triangle06.png">
+                                        </span>
+                                        <ul id="iiTax_type" class="dropDownList" style="display: none;">
+                                        <li data-name="m_wages" class="on">工资、薪金所得（月薪）
+                                        </li>
+                                        <li data-name="m_bonus" >年终奖个人所得税</li>
+                                        <li data-name="m_labor_remuneration" >劳务报酬所得</li>
+                                        <li data-name="m_franchise" >特许权使用费所得</li>
+                                        <li data-name="m_property_lease" >财产租赁</li>
+                                        <li data-name="m_property_transfer" >财产转让所得税</li>
+                                        <li data-name="m_interest" >利息、股息、红利所得</li>
+                                        <li data-name="m_accidental" >偶然所得税（中彩，中奖税）</li>
+                                    </ul>
+                                      </div>
+                                      
+                                  </div>
+                                  <div class="row03 clear">
+                                      <div class="text">年终奖金</div>
+                                      <div class="input ">
+                                        <input class="num" placeholder="" type="text" id="money" name="money" value="">
+                                        <span class="addon"></span>
+                                        <span style="padding-left:10px;line-height:33px;">
+                                        元</span>
+                                      </div>
+                                  </div>
+                                  
+                                  <div class="row03 clear">
+                                      <div class="text"></div>
+                                      <div class="input">
+                                          <div class="btnBox02">
+                                            <a class="orangeBg" id="calculate" href="javascript:;" >计算</a>
+                                            <a class="greenBg reset" href="#">重置</a>
+                                          </div>
+                                          
+                                      </div>
+                                  </div>
+                                  
+                            </div>
+                            
+                        </section>
+
+                        <section class="iiTaxResult">
+                            <div class="iiTax_title">计算结果</div>
+                            <div class="row03Box clear">
+                                  <div class="row03 clear">
+                                      <div class="text">平均每月</div>
+                                      <div class="input">
+                                          <span class="r_text" id="average" style="">0</span>
+                                          <span class="r_text">元</span>
+                                      </div>
+                                  </div>
+                                  <div class="row03 clear">
+                                      <div class="text">适用税率</div>
+                                      <div class="input">
+                                          <span class="r_text" id="rate" style="">0</span>
+                                          <span class="r_text">%</span>
+                                      </div>
+                                  </div>
+                                  <div class="row03 clear">
+                                      <div class="text">速算扣除数</div>
+                                      <div class="input">
+                                          <span class="r_text" id="susuan" style="">0</span>
+                                          <span class="r_text">%</span>
+                                      </div>
+                                  </div>
+                                  <div class="row03 clear">
+                                      <div class="text">应缴税款
+</div>
+                                      <div class="input">
+                                        <input type="text" name="yingjiao" value=""><span class="addon"></span><span style="padding-left:10px;line-height:33px;">
+                                        元</span></div>
+                                  </div>
+                                  <div class="row03 clear">
+                                      <div class="text">税后收入</div>
+                                      <div class="input">
+                                        <input type="text" name="income" value=""><span class="addon"></span><span style="padding-left:10px;line-height:33px;">
+                                        元</span>
+                                      </div>
+                                  </div>
+                                  
+                            </div>
+                            
+                        </section>
+
+                    </div>
+                    <div class="iiTax02 clear">
+                        <section class="">
+                            <div class="iiTax_title">计算公式</div>
+                            <div class="iiTax_text">
+                                <p class="strong">应纳税所得额 = 年终奖金</p>
+                                <p class="strong">应纳税额 = 应纳税所得额 × 适用税率 - 速算扣除数</p>
+                            </div>
+                            
+                        </section>
+                    </div>
+                    
+                    <div class="iiTax02 clear">
+                        <section class="">
+                            <div class="iiTax_title">年终奖个税案例说明</div>
+                            <div class="iiTax_text">
+                                
+                                <p class="iiTax_h">一、征收范围</p>
+                                <p>
+根据《国家税务总局关于调整个人取得全年一次性奖金等计算征收个人所得税方法问题的通知》（国税发[2005]9号）文件的规定，纳税人取得全年一次性奖金，单独作为一个月工资、薪金所得计算纳税，由扣缴义务人发放时代扣代缴。</p>
+                                <p class="iiTax_h">二、税率</p>
+                                <p>
+年终奖所得，将年终奖金额除以12个月，以每月平均收入金额来确定税率和速度扣除数，年终奖所得税率表与工资、薪金所得的税率表相同，只是他们的计 算方式不同。</p>
+                            </div>
+
+                            <div class="table_head">个人所得税税率表（一）</div>
+                            <table class="table_iiTax">
+                            <thead>
+                              <tr>
+                                <th>级数 </th>
+                                <th>平均每月收入  </th>
+                               
+                                <th>税率(%) </th>
+                                <th>速算扣除数</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                                <tr >
+                                <td>1</td>
+                                <td>不超过1500元的</td>
+                                
+                                <td>3 </td>
+                                <td>0</td>
+                              </tr>
+                               
+                               <tr >
+                                <td>2   </td>
+                                <td>超过1500元至4,500元的部分   </td>
+                                
+                                <td>10 </td>
+                                <td>105</td>
+                              </tr>
+                               <tr >
+                                <td>3 </td>
+                                <td>超过4,500元至9,000元的部分</td>
+                               
+                                <td>20  </td>
+                                <td>555</td>
+                              </tr>
+                               <tr >
+                                <td>4 </td>
+                                <td>超过9,000元至35,000元的部分</td>
+                               
+                                <td>25 </td>
+                                <td>1,005</td>
+                              </tr>
+                               <tr >
+                                <td>5</td>
+                                <td>超过35,000元至55,000元的部分</td>
+                                
+                                <td>30 </td>
+                                <td>2,775</td>
+                              </tr>
+                               <tr >
+                                <td> 6 </td>
+                                <td>超过55,000元至80,000元的部分</td>
+                               
+                                <td>35  </td>
+                                <td>  5,505</td>
+                              </tr>
+                               <tr >
+                                <td>7 </td>
+                                <td>超过80,000元的部分  </td>
+                                
+                                <td> 45</td>
+                                <td>13,505</td>
+                              </tr>
+                               
+                            </tbody>
+                              
+                            
+                         </table>
+                         <div class="t_comments">
+                             <div style="line-height:30px;">
+                                说明：  
+                             </div>
+                             <div>
+                               <p>1、本表平均每月收入为年终奖所得金额除以12个月后的平均值。</p>
+                               <p>2、税率表与工资、薪金所得税率表相同。 </p>
+                             </div>
+           
+                         </div>
+
+                         <div class="iiTax_text">
+                                
+                                <p class="iiTax_h">三、应纳税所得额及应纳税额的计算</p>
+                                <p>（一）先将雇员当月内取得的全年一次性奖金，除以12个月，按其商数确定适用税率和速算扣除数。
+如果在发放年终一次性奖金的当月，雇员当月工资薪金所得低于税法规定的费用扣除额，应将全年一次性奖金减除"雇员当月工资薪金所得与费用扣除额的差额"后的余额，按上述办法确定全年一次性奖金的适用税率和速算扣除数。</p>
+                                
+                                <p>（二）将雇员个人当月内取得的全年一次性奖金，按上述确定的适用税率和速算扣除数计算征税，计算公式如下：
+1、如果雇员当月工资薪金所得高于（或等于）税法规定的费用扣除额的，适用公式为：
+应纳税额=雇员当月取得全年一次性奖金×适用税率-速算扣除数
+2、如果雇员当月工资薪金所得低于税法规定的费用扣除额的，适用公式为：
+应纳税额=(雇员当月取得全年一次性奖金-雇员当月工资薪金所得与费用扣除额的差额)×适用税率-速算扣除数
+在一个纳税年度内，对每一个纳税人，该计税办法只允许采用一次。</p>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="iiTax02 clear">
+                        <section class="">
+                            <div class="iiTax_title">案例说明</div>
+                            <div class="iiTax_text">
+                                <p class="text">1、张三2016年1月份工资4000元，2015年度的年终奖金12000元，当月需缴纳的各项社会保险费400元，那么张三1月应缴纳多少个人所得税？</p>
+                                <p class="text">工资应纳税所得额 = 4000 － 400 － 3500 = 100元。</p>
+                                <p class="text">年终奖金12000元，除以12后，每月平均1200元，对照上述年终奖税率表得到，税率3%，速算扣除数为0，则应纳个税为：</p>
+                                <p class="text"> 年终奖金应纳税额 = 12000 × 3% － 0= 360元。</p>
+
+
+                                <p class="text">2、李四2016年1月份工资4000元，2015年度的年终奖金36000元，当月需缴纳的各项社会保险费700元，那么李四1月应缴纳多少个人所得税？</p>
+                                <p class="text">工资应纳税所得额 = 4000 － 700 － 3500 = -200元，小于0。</p>
+                                <p class="text"> 年终奖应纳税所得额 = 36000 － 200 = 35800元。</p>
+                                <p class="text">
+平均每月收入 = 35800 / 12 = 2983，适用税率10%，速算扣除数105。</p>
+                                <p class="text">年终奖应纳税额 = 35800 × 10% － 105 = 3475元。</p>
+
+                            </div>
+                            
+                        </section>
+                    </div>
+
+                    <div class="iiTax02 clear">
+                        <section class="">
+                            <div class="iiTax_title">年终奖所得(全年一次性奖金)简介</div>
+                            <div class="iiTax_text">
+                                <p class="text">个税计算器2016，年终奖、全年一次性奖金所得个人所得税计算器，年终奖税率表与工资税率表相同，只是计算方法不一样，是最专业、最好用的个税计算器。</p>
+                                
+
+                            </div>
+                            
+                        </section>
+                    </div>
+              </div> 
+        </div>
+             
+    
+    <script type="text/javascript">
+        $(function(){
+            $(".container .post_demands img").click();
+
+            $("#calculate").click(function(){
+                var money = $("#money").val();
+                $.ajax({
+                   type: "POST",
+                   url: "/index.php?c=taxtool&m=ajax_bonus",
+                   data: {'money':money},
+                   dataType: "JSON",
+                   success: function(data){ 
+                    $("#average").html(data['average']);
+                    $("#rate").html(data['rate']);
+                    $("#susuan").html(data['susuan']);
+                    $("input[name=yingjiao]").val(data['yingjiao']);
+                    $("input[name=income]").val(data['income']);
+                  }
+               });
+            })
+            
+        })
+
+    </script>
+
+    {template "footer1.html"}

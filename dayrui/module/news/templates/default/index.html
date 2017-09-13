@@ -1,0 +1,84 @@
+{template "header1.html", "/"}
+<link rel="stylesheet" type="text/css" href="{THEME_PATH}home/css/affixBeta.css">
+<script type="text/javascript" src="{THEME_PATH}home/js/affixBeta.js"></script>
+    <!--slogan-->
+    <div class="sloganWrapper">
+        <div class="ad11 " >
+        {dr_poster(18)}
+          <!-- <img src="{THEME_PATH}home/img/ad11.png" style="width:100%;height: 100%;">
+          <div class="adButton"></div> -->
+        </div>  
+    </div>
+    
+    <div class="floatWindow appointment" data-spy="affix" data-offset-top="662" data-offset-bottom="972">
+        <div class="post_demands"><a href="#contact"><img src="{THEME_PATH}home/img/post_demands.png"></a></div>
+    </div>
+    
+    <div class="taxTool taxNews ">
+        <h1 > 
+            <span class="taxTool_title on">最新动态</span>
+              
+            <span class="more"><img src="{THEME_PATH}home/img/icon_home.png"><a>您所在的位置：</a><a href="{SITE_URL}" >首页  > </a><a href="/index.php?s=news" > 新闻资讯</a></span>
+        </h1>
+          
+        <div class="news_l new_pic newsLeft">
+            {list action=module module=news catid=3 order=updatetime page=1}
+            <div class="news_row box_row">
+                {if $t['thumb']!=''}
+                <div class="img_left"><img src="{dr_thumb($t.thumb, 224, 134)}"></div>
+                {/if}
+                <div class="text_right">
+                    <div class="policy_header">
+                        <a target="_blank" href="{$t['url']}">{dr_strcut($t.title, 60)}</a>
+                    </div>
+                    <div class="policy_body">
+                        {dr_strcut($t.description, 140)}
+                    </div>
+                    <div class="policy_footer">发布时间：{$t['updatetime']}   &nbsp;  阅读数量：{$t.hits} 次</div>
+                </div>
+            </div>
+            {/list}
+                
+            {if $pages}
+            <div class="news_row box_row">
+                <ul class="pagination">
+                    {$pages}
+                    <li class="jumpTo">跳转到:</li>
+                    <li class="pageInput"><input class="inset" id="inset" type="text" value=""></li>
+                    <li class="last"><a id="goto" href="/index.php?s=news&c=category&id=1&page=1">Go</a></li>
+                </ul> 
+            </div>
+            {/if}
+      </div>
+
+      <div class="adRight">
+            <a href="/index.php?s=news&c=category&id=3"><div class="adRight_title on">最新动态</div></a>
+            <a href="/index.php?s=news&c=category&id=1"><div class="adRight_title">行业新闻</div></a>
+            <a href="/index.php?s=news&c=category&id=2"><div class="adRight_title">工作提醒</div></a>
+            <a href="/index.php?s=news&c=category&id=14"><div class="adRight_title">培训课程</div></a>
+             <a href="/index.php?s=news&c=category&id=10"><div class="adRight_title">帮助中心</div></a>
+          
+
+            <div class="adRightImg">
+              <!-- <img src="{THEME_PATH}home/img/ad12.png" style="width:100%;height: 100%;"> -->
+              {dr_poster(19)}
+            </div>
+      </div>
+          
+          
+    </div> 
+       
+    <script type="text/javascript">
+        $(function(){
+            $(".taxTool").height($(".newsLeft").height()+75 );
+
+            $("#inset").bind('input propertychange', function(){
+            var hr = '/index.php?s=news&c=category&id=1&page='+ $("#inset").val();
+            $("#goto").attr('href',hr);
+
+            });
+        })
+    </script>
+
+
+{template "footer1.html"}

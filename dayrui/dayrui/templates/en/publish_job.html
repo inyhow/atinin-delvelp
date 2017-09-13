@@ -1,0 +1,135 @@
+{template "header1.html"}
+
+<link rel="stylesheet" type="text/css" href="{THEME_PATH}home/css/affixBeta.css">
+<script type="text/javascript" src="{THEME_PATH}home/js/affixBeta.js"></script>
+<script type="text/javascript" src="{THEME_PATH}home/js/jquery.SuperSlide.2.1.1.js"></script>
+<style type="text/css">
+    body{
+        position: relative;
+    }
+    .container .post_demands {
+    height: 163px;
+    width: 100%;
+    cursor: pointer;
+    position: absolute;
+    /* margin-top: -163px; */
+    left: 0;
+    bottom: 214px;
+    padding-left: 0;
+}
+</style>
+
+<!-- <div class="banner full-screen">
+  <div id="adScreen" >
+    <img src="{THEME_PATH}home/img/banner06.PNG" style="width:100%;height:100%;">       
+  </div>
+</div> -->
+<div class="sloganWrapper">
+    <div class="ad11 " >
+      {dr_poster(18)}
+    </div>  
+</div>
+    
+<div class=" banner05 " style="height: 89px;line-height: 68px;">
+  <div class="full-width" style="border-bottom: 1px solid #e2e0e0;background-color: #fff;"> 
+    <span style="font-size: 25px;">
+
+      <a href="{if $uid}{if $groupid==4}/index.php?s=member&mod=job&c=home&m=add{else}/index.php?s=member&mod=qiuzhi&c=home&m=add{/if}{else}{dr_member_url('login/index')}{/if}" class="addon need" target="_blank">
+    <img src="/uploadfile/zj/xqfb.png"></a> 
+
+    </span>
+      <div class="btnBox">
+        <a href="/publish.html"><span>个人窗口</span></a>
+        <span class="on">企业窗口</span>
+      </div>
+    </div>
+  </div>
+<div class="floatWindow appointment" data-spy="affix" data-offset-top="662" data-offset-bottom="972">
+        <div class="post_demands"><a href="#contact"><img src="{THEME_PATH}home/img/post_demands.png"></a></div>
+    </div>
+  
+  <div class="publish_content clear">
+
+    <div class="inf_type">
+      {list action=category module=job order=updatetime num=25}  
+        <div class="type01 {if $t['id']==$catid}on{/if}"><a href="{$t['url']}">{$t['name']}</a></div>
+      {/list}
+    </div>
+
+    <!-- 置顶 -->
+    <div class="inf_m_content">
+      <div class="inf_m">
+        <div class="scrollPic_top">
+              <div class="infBtn hd">
+            置顶
+            <div class="triggerBtn">
+              <span class="prev"><img src="{THEME_PATH}home/img/up_arrow.png"></span>
+              <span class="next"><img src="{THEME_PATH}home/img/down_arrow.png"></span>
+            </div>
+        </div>
+        <div class="bd">
+          <ul >
+          {list action=module module=job join=member on=uid flag=1 order=updatetime num=12}
+          <li>
+          <div class="news_row clear onTop ">
+            <div class="triBg">置顶</div>
+            <div class="news_left"><img src="{dr_avatar($t['avatar'], 90, 90)}"></div>
+            <div class="news_right">
+              <div class="policy_header">
+                  <a href="{$t['url']}" target="_blank"><span class="jobs_title">{$t['title']}</span></a>
+                  <a class="on btn_s f_right" href="{$t['url']}" target="_blank">查看详细</a>
+              </div>
+              <div class="policy_body">
+                <p>职位：{$t['zpzw']}</p>
+                <p>区域：{dr_linkagepos('fujian', $t['work_area'],' ')}  
+                  <span class="pay">期待佣金：{get_qzsallary_type($t['xzdy'])}</span>
+                  <span class="pubDate">发布时间：{$t['inputtime']}</span>
+                </p>
+              </div>
+            </div>
+          </div>
+          </li>
+          {/list}
+        </ul>
+        </div>
+      </div>
+      </div>
+      <script type="text/javascript">
+         $(function(){
+              jQuery(".scrollPic_top").slide({titCell:".hd ul",mainCell:".bd ul",autoPage:true,effect:"topLoop",autoPlay:true,vis:3
+                ,trigger:"click"});
+         })
+      </script>
+    
+      <!-- 最新需求 -->
+      <div class="inf_m01">
+        <div class="infBtn" style="color:#f48000">最新
+          <div class="triggerBtn"> </div>
+        </div>
+        {list action=module module=job catid=$catid order=updatetime num=15}
+        <div class="news_row clear">
+          <div class="news_right">
+            <div class="policy_header">
+              <a href="{$t['url']}" target="_blank"><span class="jobs_title">{$t['title']}</span></a>
+              <a class="btn_s f_right" href="{$t['url']}" target="_blank">查看详细</a>
+            </div>
+            <div class="policy_body">
+              <p>职位：{$t['zpzw']} </p>
+              <p>区域：{dr_linkagepos('fujian', $t['work_area'],' ')}   <span class="pay">期待佣金：{get_qzsallary_type($t['xzdy'])}</span>
+                <span class="pubDate">发布时间：{$t['inputtime']}</span>
+              </p>
+            </div>
+          </div>
+        </div>
+        {/list}
+        
+
+      </div>
+
+    </div>
+
+{template "publish_com.html"}
+    
+{template "footer1.html"}
+
+

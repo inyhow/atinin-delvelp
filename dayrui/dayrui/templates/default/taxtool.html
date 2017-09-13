@@ -1,0 +1,42 @@
+{template "header1.html"}
+<link rel="stylesheet" type="text/css" href="{THEME_PATH}home/css/affixBeta.css">
+<script type="text/javascript" src="{THEME_PATH}home/js/affixBeta.js"></script>
+    <!--slogan-->
+    <div class="sloganWrapper">
+        <div class="ad11 " >
+          {dr_poster(18)}
+        </div>  
+    </div>
+    <div class="floatWindow appointment" data-spy="affix" data-offset-top="662" data-offset-bottom="972">
+        <div class="post_demands"><a href="#contact"><img src="{THEME_PATH}home/img/post_demands.png"></a></div>
+    </div>
+    <div class="taxTool clear" style="padding-bottom:30px;">
+          <h1 > 
+               <span class="taxTool_title on">财税工具</span>
+                <span class="more">
+                    <img src="{THEME_PATH}home/img/icon_home.png">
+                    <a>您所在的位置：</a>
+                    <a href="/">首页> </a>  
+                    <a href="/index.php?c=taxtool">财税工具</a>
+                </span>
+          </h1>
+          
+          <div class="taxToolWrapper ">
+            {php $poster = dr_poster_list(21);}
+            {loop $poster $i $t}
+            {php $id=explode('=',$t.url);}
+            {php $post[$id[3]]=$t;}
+            {/loop}
+            {php ksort($post);}
+            {loop $post $i $t} 
+                <div class="taxTool_link">
+                    <a href="{$t.url}" target="_blank"><img src="{$t.file}"></a>
+                    <span class="tool_title"><a href="{$t.url}" target="_blank">{$t.name}</a></span>  
+                </div>
+            {/loop}      
+          </div>
+          
+    </div>          
+    
+
+{template "footer1.html"}

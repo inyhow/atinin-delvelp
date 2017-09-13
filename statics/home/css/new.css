@@ -1,0 +1,55 @@
+#picList li{
+	padding-top: 25px;
+
+}
+#picList .pic{background:#f3f0ef;
+    }
+#picList .character{
+	padding-left: 36px;
+    padding-right: 36px;text-align: center;height: 100px;overflow: visible;background: #fff;}
+#picList .c_box00{
+	height: 200px;
+	width: 250px;
+	
+}
+#picList .character img{
+	width:170px;
+	height: 170px;
+	border-radius: 50%;
+	display: inline-block;
+	border:3px solid #f3f0ef;
+
+	
+}
+#picList .intern_t{
+	font-size: 22px;
+    color: #00aa3c;
+    font-weight: 700;
+    /* height: 45px; */
+    line-height: 41px;
+    padding-top: 21px;
+}
+#picList .intern_l{
+	padding-top: 5px;
+	font-size: 15px;
+    color: #000;
+    font-weight: 600;
+    min-height: 100px;
+    width: 200px;
+    margin: 0 auto;
+    white-space: normal;
+    text-align: left;		
+}
+#picList .intern_link img{
+	width: 25px;
+	height: 25px;
+	vertical-align: middle;
+	display: inline-block;
+}
+#picList .intern_link{
+	padding-bottom: 20px;
+}
+#picList .intern_link a{cursor: pointer;color:#00aa3c;
+	font-weight: 600;}
+
+

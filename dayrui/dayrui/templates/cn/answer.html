@@ -1,0 +1,207 @@
+
+<div>
+    <div class="full-width" style="border-top: 4px solid #f48000;padding-top:15px;">
+        <!-- <div class="content_head " style="border:1px solid #ffe1cb;">
+            <p class="askInf">共接收问题：<span>15504</span> 条  
+            已解决问题：<span>9481</span>条</p>
+            <div class="search">
+                <div class="box_row">
+                <form class="input_group ">
+                    <span class="addon"><img src="{THEME_PATH}home/img/iconVoice.png">免费提问</span>
+                    <input type="text" name="" placeholder="快速解答 请在这里输入您的问题">
+                    <input type="submit" class="addon" value="提问">
+                    <span style="line-height:45px;margin-left:14px;font-size:16px;">或</span>
+                </form>
+        
+                <a type="submit" class="addon need">搜索</a>
+                </div>
+            </div>
+        </div> -->
+    </div>
+</div>
+
+    
+    <div class="consulting_body clear">
+        <section class="consulting_l">
+            <div class="consulting_category">
+                按服务类别咨询
+            </div>
+            {list action=category module=answer pid=0 return=c1}
+            <div class="category_list">
+                <a href="{$c1['url']}"><h1 class="category_title">{$c1['name']}<span style="float:right;color:#919191;">></span></h1></a>
+
+                <div class="category_details">
+                    {list action=category module=answer pid=$c1['id'] return=c2}
+                    <a href="{$c2['url']}" {if $catid==$c2['id']}class="on"{/if}>{$c2['name']}</a>
+                    {/list}
+                </div>
+                
+            </div>
+            {/list}
+        </section>
+
+        <section class="consulting_r">
+
+            <div class="contactUs">
+                <div class="contactUs_l ">
+                    <div class="contactUs_head box_row" >
+                        <div style="height:60px;">
+                            <img style="margin-top:-7px;" src="{THEME_PATH}home/img/iconQMark.png">  
+                        </div>
+                        
+                        <div class="title_text">
+                            <span style="font-size:30px;">把您的困惑告诉顾问吧</span>
+                            <span style="color:#A4A3A3;">专业顾问为您在线解答</span>
+                        </div>
+                    </div>
+
+                    <form class="contact_form" action="/index.php?s=member&mod=answer&c=home&m=add"  method="post" novalidate="novalidate">
+                        <input name="action" id="dr_action" type="hidden" value="" />
+                        <input name="dr_id" id="dr_id" type="hidden" value="" />
+                        <input name="catid" type="hidden" value="{$catid}" />
+                        <input name="dr_module" id="dr_module" type="hidden" value="answer" />
+                        <label >当前服务：{dr_cat_value('1-answer', $catid, 'name')}</label>
+                        <input style="margin: 14px 0;height:48px;"  type="text" name="data[title]" id="dr_title" value="" placeholder="在这里概述您的问题" required="required" />
+                        <label >问题补充<span style="font-size:13px">（选填）</span>
+                            <textarea style="font-size:14px" name="data[description]" id="dr_description" placeholder="您可以继续在这里补充您的问题细节"></textarea> 
+                        </label>
+                        <div class="input_group" style="margin-top:20px">
+                            <span style="float: left;line-height:38px;margin-right:10px;color:#707070">手机号码:</span>
+                            <input style="width:323px;height:38px;float: left;padding-left:12px;margin-right:5px;" type="text" name="data[mobile]" id="dr_mobile" value="" required="required" />
+                            <input type="submit" name="" value="提交问题" style="margin-left: 13px;font-size: 16px;color:#fff;width:116px;height:38px;float: left;padding:0px;background:#f48000;">
+                        </div>
+                    </form>
+
+                </div>
+                <div class="contactUs_r">
+                     <img src="{THEME_PATH}home/img/contactUsBg.png"> 
+                </div>
+            </div>
+
+
+            <div class="contactUs02 box_row">
+                <div class="consultingBox">
+                    
+                    <div class="box0 topBorderOrange">
+                        <h1><span class = "on" >网友正在问</span>
+                        <!-- <span ><a>更多 ></a></span> --></h1>
+                        <ul>
+                            {list action=module module=answer order=updatetime}
+                            <li><img class="littleIcon" src="{THEME_PATH}home/img/iconFire.png"><a href="{$t['url']}" target="_blank">{dr_strcut($t['title'],100)}</a> <span class="time">{$t['updatetime']}</span></li>
+                            {/list}
+                        </ul>
+                        
+                    </div>
+                    <div class="box0 topBorderOrange">
+                        <h1 class="box0Nav">
+                        当前服务：<span class="on">{dr_cat_value('1-answer', $catid, 'name')}</span>
+                            <!-- {list action=category module=answer pid=0}
+                            <a href="{$t['url']}"><span class="on">{$t['name']}</span></a>
+                            {/list} -->
+                        </h1>
+                            
+                        <ul class="box_row">
+                            {list action=module module=answer catid=$catid order=updatetime num=20}
+                            <li><img class="littleIcon" src="{THEME_PATH}home/img/iconFire.png"><a href="{$t['url']}" target="_blank">{dr_strcut($t['title'],100)}</a> <span class="time">{$t['updatetime']}</span></li>
+                            {/list}
+                        </ul>
+
+                    </div>
+                </div>
+
+
+                <div class="contactMe">
+                    <div class="contactSlider ">
+                        <!--picRow03图片展示-->
+                        <div class="picRow03_wrapper" id="consulting">
+                            <div class="contactMeButton clear">
+                                <div style="float:left;font-size:16px;font-weight:600;">找顾问解答</div>
+                                <!-- <div style="float:right;">
+                                    <span class="arrow_left" style="margin-right:5px;"><img src="{THEME_PATH}home/img/iconleftArrow.png"></span>
+                                    <span class="arrow_right"><img src="{THEME_PATH}home/img/iconRightArrow.png"></span>
+                                </div> -->
+                            </div>
+                            
+                            <div class="picRow03">
+                                  <ul >
+                                      <li>
+                                          <div class="picBox">
+                                              <img src="{THEME_PATH}home/img/advisor.png">  
+                                          </div>
+                                          <div class="textBox">
+                                              <span class="textRow name">顾问</span>
+                                              <span class="textRow ">联标国际联标国际联标国际联标国际联标国际</span>
+                                          </div>
+                                      </li>
+                                      <li>
+                                          <div class="picBox">
+                                              <img src="{THEME_PATH}home/img/advisor.png">  
+                                          </div>
+                                          <div class="textBox">
+                                              <span class="textRow name">顾问的名字</span>
+                                              <span class="textRow ">联标国际联标国际联标国际联标国际联标国际</span>
+                                          </div>
+                                      </li>
+                                      
+                                  </ul>
+                            </div>
+                            <script type="text/javascript">
+                                $(document).ready(function(){
+                                    scrollLink(20,1500,"#consulting");
+                                });
+                                
+
+                            </script>
+                        </div>
+                        <!--picRow03图片展示end-->
+                        <div class="contactMeNum">联系电话：1800000000</div>
+                        <div class="buttonRow">
+                            <a style="background:url(../statics/home/img/qqButton.png)no-repeat;margin-right:5px;">
+                                2222222
+                            </a>
+                            <a style="background:url(../statics/home/img/weChatButton.png)no-repeat;padding-left:34px;">
+                                扫描二维码
+                            </a>
+
+                            <a style="margin-top: 12px;width: 226px;background:url(../statics/home/img/contactMeBtn.png)no-repeat;padding-left:34px;"></a>
+                        </div>
+                    </div>
+
+                    <div class="contact_form contact_form02">
+                        <form action="/index.php?c=form_adviser" method="post" name="myform" id="myform">
+                            <p>有什么疑问咨询顾问</p>
+                            <input type="text" name="data[title]" id="dr_title" value="" required="required" placeholder="请输入主题" />
+                            <textarea placeholder="请详细说明" name="data[detail]" id="dr_detail" ></textarea>
+                            <p>留下您的联系方式</p>
+                            <input type="text" name="data[a_phone]" id="dr_a_phone" value="" required="required" placeholder="请输入您的电话" />
+                            <input style="color:#fff;" type="submit" name="" value="提交问题">
+                        </form>
+                        
+                    </div>
+                </div>
+            </div>
+            
+
+        </section>
+
+    </div>
+
+
+     <script type="text/javascript">
+    $(function(){
+        $(".container .post_demands img").click();
+
+        $(".taxTool").height($(".newsLeft").height()+75 );
+
+        $("#inset").bind('input propertychange', function(){
+            var hr = '/index.php?s=answer&c=category&id={$catid}&page='+ $("#inset").val();
+            $("#goto").attr('href',hr);
+
+        });
+
+    });
+
+</script>
+
+
+

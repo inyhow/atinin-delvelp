@@ -1,0 +1,87 @@
+{template "header.html"}
+<div style="background:url(skin/images/banner_in_002.jpg) center center no-repeat; height:204px;">
+    <div style="width:1000px; margin:0px auto; position:relative">
+        <div style=" position:absolute; top:37px; left:-30px;">
+            <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0" width="700" height="120">
+                <param name="movie" value="skin/images/fonts3.swf" />
+                <param name="wmode" value="transparent">
+                <param name="quality" value="high" />
+                <embed src="skin/images/fonts3.swf" quality="high" wmode="transparent" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="700" height="120" value="transparent"></embed>
+            </object>
+        </div>
+        <div style="position:absolute; top:13px; left:236px; z-index:10">
+            <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0" width="689" height="158">
+                <param name="movie" value="skin/images/fly.swf" />
+                <param name="wmode" value="transparent">
+                <param name="quality" value="high" />
+                <embed src="skin/images/fly.swf" quality="high" wmode="transparent" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="689" height="158" value="transparent"></embed>
+            </object>
+        </div>
+    </div>
+</div>
+<div id="container2">
+    <div id="mainBody_in">
+        <div class="right_in_right_titile">
+            <div class="weizhi_now">{$name}</div>
+            <div class="position_now"> <img src="skin/images/home_btnsd.gif" width="10" height="9" align="absmiddle" />&nbsp; <img src="skin/images/jiantou.gif" align="absmiddle" />&nbsp; 关于创捷&nbsp;<img src="skin/images/jiantou.gif" align="absmiddle" /> &nbsp;<span class="color4c5560"></span> {dr_page_catpos($id, '', '{name}')}
+            </div>
+        </div>
+        <!--中间内容开始-->
+        <div id="left">
+            <div class="left_in_nav">
+                <!--左边二级导航栏开始-->
+                <div id="pro_nav_content">
+                    <div id="DivList">
+                        {list action=navigator type=0 pid=6}
+                        <div id="yiji_nav">
+                            <div>
+                                <a href="{$t.url}" class="pro_menubg_{if $catid==3 || $catid =='' }over{/if}">{$t.name}</a>
+                            </div>
+                        </div>
+                        <div id="Div_173" class="sub" style="display:none; width:100%;">
+                            <div style="">
+                            </div>
+                        </div>
+                        {/list}
+                    </div>
+                    <script type="text/javascript">
+                        $(document).ready(function() {
+                            var fid = '173';
+                            $("#" + fid + "").attr("class", "pro_menubg_over");
+                            $("#Div_" + fid + "").css("display", "");
+                            var sid = '';
+                            $("#show" + sid + "").css("display", "");
+                        });
+                    </script>
+                </div>
+                <!--左边二级导航栏END-->
+            </div>
+            <div>
+                <div class="fast_links">
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                </div>
+            </div>
+        </div>
+        <div id="right">
+            <div class="right_in_right">
+                <div class="right_in_right_content">
+                    <div class="about_us_content_right">
+                        <p><span style="font-size: 14px;"><span style="font-family:SimSun;">　　{$content}</span></span>
+                        </p>
+                    </div>
+                </div>
+                <div style="clear:both"></div>
+            </div>
+        </div>
+        <div class="clearfloat"></div>
+    </div>
+</div>
+<div>
+    {template "footer1.html"}

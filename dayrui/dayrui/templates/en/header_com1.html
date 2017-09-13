@@ -1,0 +1,92 @@
+
+<div class="g-topbar full-width">
+  <div style="width:1200px; margin:0 auto">
+              你好，欢迎来到联标国际！
+              <div class="g-topbar-r">
+                {if !$uid}
+                <span><a href="{dr_member_url('login/index')}" style="color: #fff;">[登录]</a></span>
+                <span><a target="_blank" href="{dr_member_url('register/index')}" style="color: #fff;">[注册]</a></span>
+                {else}
+                <span><a href="/index.php?s=member" target="_blank" class="arrow_down" style="color: #fff;">{$username}</a></span>
+                <span><a href="/index.php?s=member" target="_blank" class="arrow_down" style="color: #fff;">我的空间</a></span>
+                <span><a href="{dr_member_url('login/out')}" class="arrow_down" style="color: #fff;">我要退出</a></span>
+                {/if} 
+                <span><a href="/index.php?s=news&c=category&id=10" class="arrow_down" style="color: #fff;">帮助中心</a></span>
+              </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="head">
+        <!--*页头-->
+        <div id="common_head" >
+            {if get_ad_status(2)}
+            <div class="full-screen">
+              <div class="ad topAd" data="top">
+              {php $poster = dr_poster_list(2, 1);}
+              {loop $poster $i $t} 
+              <div id="dr_poster_2" style="width:1200px;height:70px"><a href="{$t.url}" target="_blank"><img src="{$t.file}" width="1200" height="70"></a>
+              </div>
+              {/loop}
+              <div class="close"><img src="{THEME_PATH}home/img/icon_close.png"></div>
+              </div>
+            </div>
+            {/if} 
+            <div class="g-header">
+                 <div class="box_row clearfix logo">
+                    <a class="g-header-logo" href="/"><img src="{THEME_PATH}home/img/tao_logo.png"></a>
+                    <div class="search">
+                      <div class="box_row">
+                        <form class="input_group" method="get" target="_blank" action="{SITE_URL}index.php">
+                            <div class="dropDownMenu">
+                            <div class="dropDownButton">
+                                  <span class="dropDownText"></span><span class="caret"></span>
+                                </div>
+                                <ul>
+                                    <li data="news">新闻</li>
+                                    <li data="job">企业</li>
+                                    <li data="qiuzhi">个人</li>
+                                    <li data="shop">商品</li>
+                                    <li data="answer">咨询</li>
+                                    <li data="video">培训</li>
+                                </ul>
+                            </div>
+                            <input name="c" type="hidden" value="so">
+                            <input name="module" id="module" type="hidden" value="news">
+                            <input type="text" name="keyword" placeholder="请输入关键字搜索" >
+                            <input type="submit" class="addon" value="搜索">
+                        </form>
+                        <script type="text/javascript">
+                            $(function(){
+                                $(".dropDownMenu li").click(function(){
+                                    var data = $(this).attr("data");
+                                    $("#module").val(data);
+                                })
+                            })
+                        </script>
+
+                        <a href="{if $uid}{if $groupid==4}/index.php?s=member&mod=job&c=home&m=add{else}/index.php?s=member&mod=qiuzhi&c=home&m=add{/if}{else}{dr_member_url('login/index')}{/if}" class="addon need">办事窗口</a> 
+                        </div>
+
+                        <span style="color: #000">热门搜索：</span>
+                        <span><a target="_blank" href="/index.php?c=so&module=video&keyword=联邦企业培训">联标企业培训</a></span>
+                        <span><a target="_blank" href="/index.php?c=so&module=shop&keyword=联邦商品">联邦商品</a></span>
+                        <span><a target="_blank" href="/index.php?c=so&module=shop&keyword=联邦产业">联邦产业</a></span>
+                    </div>
+
+                 </div>   
+                 <div class="box_row clearfix" style="margin-top:5px;"> 
+                    
+                    <nav  class="g-header-nav">
+                     <a href="{SITE_URL}" title="{SITE_TITLE}" class="g-header-nav-link" id="menu_a_id_1">首页</a>
+                    {list action=navigator type=0 pid=0}
+                    <a href="{$t.url}" class="g-header-nav-link" title="{$t.title}" {if $t.target}target="_blank"{/if}>{$t.name}</a>
+                    {/list}
+                    </nav>
+                  
+                 </div>
+            </div>
+        </div>
+    </div>
+
+

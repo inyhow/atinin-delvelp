@@ -1,0 +1,31 @@
+{loop $list $t}
+<?php
+$c=dr_string2array($t.content);
+if ($t.eid) {
+	$title=$c.name;
+	if ($t.eid == -1) {
+		$url=dr_member_url(APP_DIR.'/extend/add',array('cid'=>$t.cid, 'catid'=>$t.catid, 'did'=>$t.id));
+	} else {
+		$url=dr_member_url(APP_DIR.'/extend/edit',array('cid'=>$t.cid, 'catid'=>$t.catid, 'id'=>$t.eid, 'did'=>$t.id));
+	}
+	$gurl=SITE_URL.'index.php?s='.APP_DIR.'&c=extend&type=draft&id='.$t['id'];
+} else {
+	$title=$c.title;
+	if ($t.cid) {
+		$url=dr_member_url(APP_DIR.'/home/edit',array('id'=>$t.cid, 'did'=>$t.id));
+	} else {
+		$url=dr_member_url(APP_DIR.'/home/add',array('did'=>$t.id));
+	}
+	$gurl=SITE_URL.'index.php?s='.APP_DIR.'&c=show&type=draft&id='.$t['id'];
+}
+?>
+<tr id="dr_row_{$t.id}">
+	<td class="algin_r" style="padding-top:7px;padding-left:15px"><input type="checkbox" value="{$t.id}" class="dr_select toggle md-check" name="ids[]"></td>
+	<td class="algin_l">{$title}</td>
+	<td class="algin_l">{CATEGORY.$t[catid].name}</td>
+	<td class="algin_l">{dr_date($t.inputtime, '', 'red')}</td>
+	<td class="algin_l">
+		<a href="{$gurl}" target="_blank" class="btn red-mint btn-xs" ><i class="fa fa-search"></i> 预览</a>
+        <a href="{$url}" class="btn green btn-xs" ><i class="fa fa-plus"></i> 发布</a></td>
+</tr>
+{/loop}

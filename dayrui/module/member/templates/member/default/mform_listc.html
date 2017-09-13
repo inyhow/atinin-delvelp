@@ -1,0 +1,104 @@
+{template "nheader.html"}
+<script type="text/javascript">
+	$(function(){
+		$("#dr_loadmore").click(function(){
+			var page = $("#dr_page").val();
+			$("#dr_loadmore").html('<img src="{MEMBER_THEME_PATH}loading.gif">');
+			$.get("{$moreurl}", {page:page}, function(data){
+				if (data != "null") {
+					$("#dr_body").append(data);
+					$("#dr_page").val(Number(page) + 1);
+					$("#dr_loadmore").html('<i class="fa fa-refresh"></i> 加载更多');
+				} else {
+					$("#dr_loadmore_html").hide();
+				}
+			});
+		});
+		// 排序操作
+		$('.dr_table th').click(function(e) {
+			var _class = $(this).attr("class");
+			if (_class == undefined) return;
+			var _name = $(this).attr("name");
+			var _order = '';
+			if (_class == "sorting") {
+				_order = 'desc';
+			} else if (_class == "sorting_desc") {
+				_order = 'asc';
+			} else {
+				_order = 'desc';
+			}
+			var url = "{dr_member_order($moreurl)}&order="+_name+" "+_order;
+			location.href=url;
+		});
+	});
+</script>
+
+<input name="page" id="dr_page" type="hidden" value="{$page}" />
+<input name="order" id="dr_order" type="hidden" value="{$get.order}" />
+
+<div class="row">
+	<div class="col-md-12">
+
+		<div class="portlet-body">
+			<div class="table-toolbar">
+				<form method="get" action="">
+					<input name="s" type="hidden" value="member" />
+					<input name="mod" type="hidden" value="{APP_DIR}" />
+					<input name="c" type="hidden" value="{$this->ci->router->class}" />
+					<input name="m" type="hidden" value="listc" />
+					<input name="cid" type="hidden" value="{$get.cid}" />
+					<input name="order" type="hidden" value="{$get.order}" />
+					<div class="row">
+						<div class="col-md-5 col-sm-5">
+							<label>
+								<div class="input-group">
+									<input type="text" class="form-control" name="kw" value="{$get.kw}" placeholder="输入关键字搜索">
+									<span class="input-group-btn">
+										<button class="btn orange mysubmit" type="submit"><i class="fa fa-search"></i> 搜索</button>
+									</span>
+								</div>
+							</label>
+						</div>
+
+					</div>
+				</form>
+			</div>
+
+			<div class="table-responsive">
+				<table class="table">
+					<thead>
+					<tr>
+
+						<th style="width:60px;text-align:center" class="{ns_sorting('id')}" name="id">Id</th>
+						<th class="{ns_sorting('subject')}" name="subject">主题</th>
+						<th class="{ns_sorting('uid')}" name="uid">发布人</th>
+						<th  class="{ns_sorting('inputtime')}" name="inputtime">更新时间</th>
+						<th></th>
+					</tr>
+					</thead>
+					<tbody id="dr_body">
+					{template "$datatpl"}
+					</tbody>
+				</table>
+				</table>
+			</div>
+
+		</div>
+
+
+	</div>
+</div>
+
+
+<div class="row" id="dr_loadmore_html" style="margin-top:20px">
+	<div class="col-md-offset-4 col-md-4 text-center">
+		<a href="javascript:;" class="btn default btn-block" id="dr_loadmore"> <i class="fa fa-refresh"></i> 加载更多 </a>
+	</div>
+</div>
+
+{if IS_MOBILE}
+<div class="alert alert-info" style="margin-top: 15px">
+	左右滑动表格可以查看更多的内容
+</div>
+{/if}
+{template "nfooter.html"}

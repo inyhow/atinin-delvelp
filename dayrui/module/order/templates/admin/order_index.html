@@ -1,0 +1,130 @@
+{template order_header.html}
+<script type="text/javascript">
+	$(function() {
+		$(".table-list tr").last().removeClass("dr_border_none");
+	});
+</script>
+<div class="page-bar">
+	<ul class="page-breadcrumb mylink">
+		{$menu.link}
+	</ul>
+	<ul class="page-breadcrumb myname">
+		{$menu.name}
+	</ul>
+	<div class="page-toolbar">
+		<div class="btn-group pull-right">
+			<button type="button" class="btn green btn-sm btn-outline dropdown-toggle" data-toggle="dropdown" aria-expanded="false"> {fc_lang('操作菜单')}
+				<i class="fa fa-angle-down"></i>
+			</button>
+			<ul class="dropdown-menu pull-right" role="menu">
+				{loop $menu.quick $t}
+				<li>
+					<a href="{$t.url}">{$t.icon} {$t.name}</a>
+				</li>
+				{/loop}
+				<li class="divider"> </li>
+				<li>
+					<a href="javascript:window.location.reload();">
+						<i class="icon-refresh"></i> {fc_lang('刷新页面')}</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="mytopsearch">
+	<form method="post" class="row" action="" name="searchform" id="searchform">
+		<input name="search" id="search" type="hidden" value="1" />
+		<div class="col-md-12">
+			<label>{lang('mod-133')}</label>
+			<label style="padding-right: 5px;"><i class="fa"></i></label>
+			<label style="padding-right: 10px;">
+				<select name="data[mid]" class="form-control">
+					{loop $module $t}
+					<option value="{$t.dirname}" {if $param.mid==$t.dirname}selected{/if}>{$t.name}</option>
+					{/loop}
+				</select>
+			</label>
+			<label>
+				<select name="data[field]" class="form-control">
+					{loop $field $key=>$t}
+					{if $key!=sell_username && $key!=shipping_name && $key!=shipping_phone && $key!=id}
+					<option value="{$t.fieldname}" {if $param.field==$t.fieldname}selected{/if}>{$t.name}</option>
+					{/if}
+					{/loop}
+				</select>
+			</label>
+			<label><i class="fa fa-caret-right"></i></label>
+			<label style="padding-right: 20px;"><input type="text" class="form-control" placeholder="{fc_lang('')}" value="{$param['keyword']}" name="data[keyword]" /></label>
+			<label>{lang('mod-006')} ：</label>
+			<label>{dr_field_input('start', 'Date', array('option'=>array('format'=>'Y-m-d','width'=>'100')), (int)$param.start)}</label>
+			<label><i class="fa fa-minus"></i></label>
+			<label style="margin-right:10px">{dr_field_input('end', 'Date', array('option'=>array('format'=>'Y-m-d','width'=>'100')), (int)$param.end)}</label>
+			<label><button type="submit" class="btn green btn-sm" name="submit" > <i class="fa fa-search"></i> {fc_lang('搜索')}</button></label>
+		</div>
+	</form>
+</div>
+
+<div class="row myrow">
+
+	{loop $list $t}
+	<div class="portlet box green" style="border:1px solid #8bb4e7">
+		<div class="portlet-title" style="background-color:#8bb4e7; ">
+			<div class="tools" style="float: left">
+				<label><i class="fa fa-calendar"></i> {dr_date($t.order_time, '', '')}</label>
+				&nbsp;&nbsp;
+				<label><i class="fa fa-shopping-cart"></i> {lang('mod-000')}：<a style="color: #fff" href="{dr_url('order/home/info', array('id'=>$t.id))}">{$t.sn}</a></label>
+				&nbsp;&nbsp;
+				
+			</div>
+			<div class="tools">
+				{dr_order_status($t)}
+				<a href="javascript:;" class="collapse" data-original-title="开启/隐藏"> </a>
+			</div>
+		</div>
+		<div class="portlet-body dr_order">
+			<div class="row">
+				<div class="col-md-6">
+					{loop $t.goods $ii $g}
+					<div class="media">
+						<a class="pull-left" href="javascript:;">
+							<img src="{dr_thumb($g.thumb, 55, 55)}" width="55" height="55">
+						</a>
+						<div class="media-body">
+							<h5 class="media-heading"><a href="{$g.url}" target="_blank">{$g.title}</a></h5>
+							<?php $sku=dr_string2array($g.sku);?>
+							{loop $sku $s $u}
+							<lable>{$s}：{$u}&nbsp;&nbsp;</lable>
+							{/loop}
+							<p>x{$g.quantity}</p>
+						</div>
+					</div>
+					{/loop}
+				</div>
+				<div class="col-md-2 order_p">
+					<p><a href="javascript:;" onclick="dr_dialog_member('{$t.buy_uid}')">{$t.buy_username}</a></p>
+				</div>
+				<div class="col-md-2 order_p">
+					<p><strong>{if $t.order_score}{intval($t.order_price)}{SITE_SCORE}{else}¥{number_format($t.order_price, 2)}{/if}</strong></p>
+					{if $t.pay_type == 3}
+					<p><a href="{dr_url('order/transfer/info',array('id' => $t['id']))}">{$paytype[$t.pay_type]['name']}</a></p>
+					{else}
+					<p>{if $paytype[$t.pay_type]}{$paytype[$t.pay_type]['name']}{else}未知{/if}</p>
+					{/if}
+				</div>
+				<div class="col-md-2 order_p">
+					{dr_order_member_option($t.sell_uid, $t)}
+
+					<p><a href="{dr_url('order/home/info', array('id'=>$t.id))}" class="btn blue btn-xs"> <i class="fa fa-shopping-cart"></i> {lang('mod-057')}</a></p>
+				</div>
+			</div>
+		</div>
+	</div>
+	{/loop}
+
+	<div id="pages"><a>{fc_lang('共%s条', $param.total)}</a>{$pages}</div>
+
+</div>
+
+
+{template nfooter.html}

@@ -1,0 +1,196 @@
+@charset "utf-8";
+/* CSS Document */
+body {
+	margin: 0px;
+	padding: 0px;
+	font-family: "微软雅黑", "宋体";
+	font-size: 12px;
+}
+a {
+	text-decoration: none;
+	color: #333;
+	outline: none;
+	cursor: pointer;
+bblr:expression(this.onFocus=this.blur());
+}
+a:hover {
+	color: #0070d9;
+	text-decoration:underline;
+}
+* {
+	padding: 0px;
+	margin: 0px;
+}
+ul, li {
+	list-style: none;
+	padding: 0px;
+	margin: 0px;
+}
+img {
+	border: none;
+    vertical-align: middle;
+}
+input, label {
+    vertical-align: middle;
+}
+input, label {
+    display: inline-block;
+    vertical-align: middle;
+}
+input, button, select, textarea {
+    outline: medium none;
+}
+input, select, textarea {
+    font-size: 100%;
+}
+.clear {
+	clear:both
+}
+.container{width:1200px; margin: 0px auto;}
+.head2 {
+    height: 54px;
+    margin: 20px auto;
+    width: 1000px;
+}
+.head2 a {
+    float: left;
+}
+.head2 h1 {
+    border-left: 1px solid #c8c8c8;
+    display: block;
+    float: left;
+    font-family: "微软雅黑";
+    font-size: 25px;
+    height: 33px;
+    line-height: 33px;
+    margin-left: 20px;
+    padding-left: 20px; color:#666; font-weight:normal; margin-top:12px;
+}
+.clearfix::after {
+    clear: both;
+    content: " ";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+.new_login_con {
+    background: #fff none repeat scroll 0 0;
+    border-radius: 3px;
+    padding: 20px 25px;
+}
+.n_title span {
+    color: #444444;
+    float: left;
+    font-family: "微软雅黑";
+    font-size: 18px;
+}
+.n_title p {
+    color: #888888;
+    float: right;
+    margin-top: 2px;
+}
+.n_title p a {
+    color: #ec6a1e;
+}
+.mt20 {
+    margin-top: 20px;
+}
+.n_row {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+
+
+
+
+
+.n_rg{ position: absolute; width: 74px; height: 38px; line-height: 38px; top:0px; left: 10px; color: #666; font-size: 14px;}
+.n_row .n_text {
+  width: 100%;
+  height: 36px;
+  border: 1px solid #d3d3d3;
+  border-radius: 3px;
+  line-height: 36px;
+  text-indent: 74px;
+  *width:250px;
+  *text-indent:0;
+}
+.n_row .form_tips {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 41px;
+  height: 16px;
+  line-height: 16px;
+  padding-left: 25px;
+  background: url(../images/tips_icon.png) no-repeat left top;
+  color: #969696;
+}
+.n_tips {
+    background:url(../images/ero.png) no-repeat left center;
+    color: #f2445d;
+    display: none;
+    left: 0;
+    padding-left: 20px;
+    position: absolute;
+    top: 41px;
+}
+		.phonecode{
+            border: 1px solid #d9d9d9;
+            text-decoration: none;
+            cursor: pointer;
+            width: 130px;
+            border-radius: 3px;
+            background: linear-gradient(to bottom,#fcfcfc,#f2f2f2);
+            display: inline-block;
+            line-height: 36px;
+            height: 36px;
+            font-weight: 700;
+            color: #666;
+            text-align: center;
+            float: right;
+		}
+		.new_register {
+			border: 5px solid rgba(255, 255, 255, 0.4);
+			border-radius: 3px;
+			float: right;
+			margin-top: 10px;
+			width: 350px;
+		}
+		.n_row .n_btn {
+    background: #ec6a1e none repeat scroll 0 0;
+    border: medium none;
+    border-radius: 3px;
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    font-family: "微软雅黑";
+    font-size: 16px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    width: 100%;
+}
+
+.register_ul{
+margin: 15px 0px;" id="bq"> <a style="color:#666666;font-family:tahoma, arial, 宋体;line-height:normal;text-align:center;background-color:#FFFFFF; }
+.register_ul span{
+color:#666666;font-family:tahoma, arial, 宋体;line-height:normal;text-align:center;background-color:#FFFFFF;}
+.register_ul ul{color:#666666;font-family:tahoma, arial, 宋体;line-height:normal;text-align:center;margin:0px;padding:0px;list-style:none;background-color:#FFFFFF;margin-bottom:15px;}
+.register_ul ul li{ margin:0px 5px;padding:0px;display:inline-block;zoom:1;}
+.reg_footer{text-align: center; margin: 10px 0px 0px;}
+.reg_footer p{color: rgb(102, 102, 102); font-family: tahoma, arial, 宋体; line-height:26px;}
+.re_footer_tool{color: rgb(102, 102, 102); font-family: tahoma, arial, 宋体; line-height: normal; text-align: center; margin: 0px; padding: 0px; background-color: rgb(255, 255, 255);}
+.re_footer_tool a {margin:0px 5px;padding:0px;color:#666666;text-decoration:none;font-family:Arial, Verdana, 宋体;}
+.re_footer_tool a img{
+margin:0px;padding:0px;vertical-align:middle;}
+
+
+
+
+
+
+
+
+

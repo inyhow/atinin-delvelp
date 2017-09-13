@@ -1,0 +1,20 @@
+{loop $list $t}
+<li style="padding: 10px 0">
+	<div class="col1">
+		<div class="cont">
+			<div class="cont-col1" style="padding-left:5px;">
+				<div class="label label-sm label-default">
+					<i class="{$ci->get_cache('member-menu', 'uri', $get[c].'/'.$get[m], 'icon')}"></i>
+				</div>
+			</div>
+			<div class="cont-col2">
+				<div class="desc"> {$t.content}
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col2">
+		<div class="date"> {dr_fdate($t.inputtime)} </div>
+	</div>
+</li>
+{/loop}

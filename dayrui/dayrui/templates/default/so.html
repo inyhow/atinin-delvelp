@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh-cn">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<title>搜索 - “{$keyword}” - {$meta_title}_联标</title>
+<link rel="shortcut icon" href="{THEME_PATH}home/img/top.ico" type="image/x-icon" />
+<meta name="keywords" content="{$meta_keywords}" />
+<meta name="description" content="{$meta_description}" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<link  href="{THEME_PATH}home/css/base.css"  rel="stylesheet">
+<link href="{THEME_PATH}home/css/index.css"  rel="stylesheet">
+<link href="{THEME_PATH}home/css/banner.css"  rel="stylesheet">
+<link href="{THEME_PATH}home/css/ie.css"  rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="{THEME_PATH}home/css/glide.core.css">
+<link rel="stylesheet" type="text/css" href="{THEME_PATH}home/css/glide.theme.css">
+<script type="text/javascript" src="{THEME_PATH}home/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="{THEME_PATH}home/js/glide.min.js"></script>
+<script type="text/javascript" src="{THEME_PATH}home/js/jquery.JPlaceholder.js"></script>
+<script type="text/javascript" src="{THEME_PATH}home/js/indexNew.js"></script>
+<link rel="stylesheet" type="text/css" href="{THEME_PATH}home/css/affixBeta.css">
+<script type="text/javascript" src="{THEME_PATH}home/js/affixBeta.js"></script>
+
+</head>
+<body>
+
+<div class="g-topbar full-width">
+  <div style="width:1200px; margin:0 auto">
+              你好，欢迎来到联标！
+              <div class="g-topbar-r">
+                {if !$uid}
+                <span><a href="{dr_member_url('login/index')}" style="color: #fff;">[登录]</a></span>
+                <span><a target="_blank" href="{dr_member_url('register/index')}" style="color: #fff;">[注册]</a></span>
+                {else}
+                <span><a href="/index.php?s=member" target="_blank" class="arrow_down" style="color: #fff;">{$username}</a></span>
+                <span><a href="/index.php?s=member" target="_blank" class="arrow_down" style="color: #fff;">我的空间</a></span>
+                <span><a href="{dr_member_url('login/out')}" class="arrow_down" style="color: #fff;">我要退出</a></span>
+                {/if} 
+                <span><a href="/index.php?s=news&c=category&id=10" class="arrow_down" style="color: #fff;">帮助中心</a></span>
+              </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="head" >
+        <!--*页头-->
+        <div id="common_head" >
+            
+             {if get_ad_status(2)}
+            <div class="full-screen">
+              <div class="ad topAd" data="top">
+              {php $poster = dr_poster_list(2, 1);}
+              {loop $poster $i $t} 
+              <div id="dr_poster_2" style="width:1200px;height:70px"><a href="{$t.url}" target="_blank"><img src="{$t.file}" width="1200" height="70"></a>
+              </div>
+              {/loop}
+              <div class="close"><img src="{THEME_PATH}home/img/icon_close.png"></div>
+              </div>
+            </div>
+            {/if} 
+             
+            <div class="g-header">
+                 <div class="box_row clearfix logo">
+                    <a class="g-header-logo" href="/"><img src="{THEME_PATH}home/img/tao_logo.png"></a>
+                    <div class="search">
+                      <div class="box_row">
+                        <form class="input_group" method="get" target="_blank" action="{SITE_URL}index.php">
+                            <div class="dropDownMenu">
+                            <div class="dropDownButton">
+                                  <span class="dropDownText"></span><span class="caret"></span>
+                                </div>
+                                <ul>
+                                    <li data="news">新闻</li>
+                                    <li data="job">招聘</li>
+                                    <li data="qiuzhi">求职</li>
+                                    <li data="shop">商品</li>
+                                    <li data="answer">咨询</li>
+                                    <li data="video">培训</li>
+                                </ul>
+                            </div>
+                            <input name="c" type="hidden" value="so">
+                            <input name="module" id="module" type="hidden" value="news">
+                            <input type="text" name="keyword" placeholder="请输入关键字搜索" >
+                            <input type="submit" class="addon" value="搜索">
+                        </form>
+                        <script type="text/javascript">
+                            $(function(){
+                                $(".dropDownMenu li").click(function(){
+                                    var data = $(this).attr("data");
+                                    $("#module").val(data);
+                                })
+                            })
+                        </script>
+
+                        <a href="{if $uid}{if $groupid==4}/index.php?s=member&mod=job&c=home&m=add{else}/index.php?s=member&mod=qiuzhi&c=home&m=add{/if}{else}{dr_member_url('login/index')}{/if}" class="addon need">免费发需求</a> 
+                        </div>
+                        
+                        <span style="color: #000">热门搜索：</span>
+                        <span><a target="_blank" href="/index.php?c=so&module=video&keyword=会计视频教程">会计视频教程</a></span>
+                        <span><a target="_blank" href="/index.php?c=so&module=shop&keyword=公司注册">公司注册</a></span>
+                        <span><a target="_blank" href="/index.php?c=so&module=shop&keyword=代理记账">代理记账</a></span>
+                        
+                    </div>
+
+                 </div>   
+                 
+            </div>
+        </div>
+    </div>
+
+  
+  <div class="taxTool taxNewsDetails" style="min-height:200px;">
+          <h1 > 
+            <span class="taxTool_title on">搜索结果页</span>
+            <span class="more"><img src="{THEME_PATH}home/img/icon_home.png">
+            <a>您所在的位置：</a>
+            <a href="/" >首页 ></a>  
+            <a href="#" >搜索结果页</a>
+            </span>
+          </h1>
+          
+          <div class="resultBox">
+                <div class="resultList"><h2>请输入搜索关键词</h2></div>
+          </div>
+    </div>
+
+{template "footer1.html"}

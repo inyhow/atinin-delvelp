@@ -1,0 +1,275 @@
+/***********************************************************************************
+*********************************mall商城******************************
+***********************************************************************************/
+#adScreen{
+	/* height: 370px; */
+	width: 100%;
+	position: relative;
+}
+.ad19{
+	position: absolute;
+    left: 30%;
+    top: 66%;
+    width: 33%;
+    height: 33%;
+    background-size: cover;
+}
+a.adButton{
+	display:inline-block; 
+	width: 132px;
+	height: 37px;
+	line-height: 37px;
+	text-align: center;
+	font-size: 15px;
+	color: #327aba;
+	background:url(../img/bg09.png) no-repeat;
+	margin-right: 20px;
+}
+.hotTitle{padding-top: 30px;}
+.hotTitle>span{display:inline-block;}
+
+.hotTitle .fire{font-size:20px;} 
+.hotTitle .fire img{vertical-align:middle;margin-top: -7px;} 
+.hotTitle .fire .fireText{margin-left: 11px;} 
+.hotTitle .leftRight{
+	background:url(../img/leftright.png);
+	width: 63px;
+	height: 20px;
+	float: right; 
+}
+.leftRight .leftButton,.leftRight .RightButton{
+	display: block;
+	float: left;
+	width: 50%;
+	height: 100%;
+}
+/*common*/
+/*picRow01:无文字*/
+.picRow01{width:100%;height: 100%;white-space: nowrap;overflow: hidden;}
+.picRow01 ul{overflow: visible;font-size:0px;/*li间有空隙*/}
+.picRow01 li{
+	display: inline-block;
+    width: 240px;
+    height: 325px;
+}
+.picRow01 li img{width:100%;height: 100%;}
+
+
+/*picRow02:有文字*/
+.picRow02{
+	width:100%;height: 100%;white-space: nowrap;overflow: hidden;padding-top: 16px;
+	position: relative;	
+}
+.picRow02 ul{
+	overflow: visible;font-size:0px;/*li间有空隙*/
+	display: block;
+}
+.picRow02>ul>li{
+	font-size:15px;
+	display: inline-block;
+    width: 240px;
+    height: 300px;
+    border:1px solid #E9E6E6;
+}
+.picRow02 li .picBox{
+	height: 238px;
+}
+.picRow02 li .textBox{
+	white-space: normal;
+	width: 100%;
+	padding: 0px 10px;
+	height: 32%;
+	color: #000;
+}
+.picRow02 li .textBox .textRow{
+	display: block;
+    text-align: left;
+    line-height: 23px;
+}
+.picRow02 li .textBox .textRow.price{
+	color:#f7a244;font-size: 16px;
+
+}
+.picRow02 li .picBox img{width:100%;height: 90%;}
+
+.productBox{padding-top: 44px;}
+.productBox .affix_p{
+	min-height: 1px;   
+    position: relative;
+}
+.affix_p.affix{
+    position: fixed;
+    top:0px;   
+}
+/*brandPic01*/
+.brandPic{
+	height: 515px;
+}
+.brandPic>div{
+	float: left;
+    width: 100%;
+}
+.brandPic>div.brandPic_left{
+	width: 320px;
+	position: relative;
+}
+.adButton{
+	width: 120px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 15px;
+    background: url(../img/buttonbg05.png);
+    top: 36%;
+    left: 11%;
+    text-align: center;
+}
+.adButton img{margin-left: 20px;}
+.brandPic>div.brandPic_right{
+	width: 880px;
+	border:1px solid #dadada;
+	border-top: none;
+	background: #fff;
+}
+div.brandPic_right .glide{
+	width:50%;
+	float: left;
+}
+.brandPicBox{
+	height: 476px;
+}
+/*nav01*/
+.navTitle{
+	border-bottom: 2px solid #f48000;
+	border-right: 1px solid #dadada;
+}
+.navTitle .brandPic_title{
+	float: left;	
+	display: block;
+	height: 37px;
+	font-size: 19px;
+}
+
+.navTitle .navBox{
+	float: right;		
+}
+.nav01{
+	list-style: none;
+    display: inline-block;
+    
+    height: 37px;
+    line-height: 37px;
+    border-top:1px solid #dadada;
+    border-left: 1px solid #dadada;
+    
+}
+.nav01 li{
+	display: block;
+    float: left;
+    cursor: pointer;
+    height: 37px;
+    line-height: 37px;
+   
+}
+.nav01 li.on{
+	border-top: 2px solid #f48000;
+    border-left: 1px solid #f48000;
+    border-right: 1px solid #f48000;
+    border-bottom: 2px solid #fff;
+    height: 100px;
+    z-index: 99;
+    background: #fff;
+}
+.nav01 li.on a,
+.nav01 li.on+li a{background-image: none;}
+.nav01 li a{
+	color:#999999;
+	font-size: 13px;
+	padding:0 7px;
+	background: url(../img/line01.png) no-repeat;}
+.nav01 li:first-child a,.nav01 li:last-child a{
+	background-image: none;
+}
+.nav01 li.more{
+	float: right;
+    margin-left: 13px;
+    
+	
+}
+.nav01 li.more a{
+	color: #f48000;
+    font-size: 12px;
+    margin-top: 9px;
+}
+
+/*覆盖·修改*/
+.brandPic_right .brandPicBox{    height: 531.5px;}
+.brandPic_right .picRow02{
+	padding-top: 0;
+    height: 50%;
+    overflow: visible;
+   
+}
+.brandPic_right .picRow02>ul>li{
+	width: 25%;
+    display: block;
+    float: left;
+    height: 100%;
+    border-top: none;
+    border-left: none;
+}
+.brandPic_right .picRow02 li.twoLi{width:50%;}
+.brandPic_right .picRow02 li .picBox{
+	height: 218.5px;
+}
+.brandPic_right .picRow02 li .textBox .textRow {
+    color:#666;
+    font-size: 12px;
+}
+.brandPic_right .picRow02 li .textBox .textRow.price{
+	color: #f60;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+/*glide slider*/
+.picRow02 .glide__arrow.next,.picRow02 .glide__arrow.prev{
+	background-color: #fff;
+	width:25px;
+	height: 25px;
+	border-radius: 0;
+}
+.picRow02 .glide__arrow.next img{margin-top: -5px;}
+.picRow02 .glide__arrow.prev img{margin-top: -5px;margin-left: -5px;}
+.picRow02 .glide--horizontal .glide__arrow.next {
+    right: -18px;
+}
+.picRow02 .glide--horizontal .glide__arrow.prev {
+    left: -18px;
+}
+
+.picRow02 .glide__bullets > *.active {
+  background-color: #ffae00
+}
+
+
+
+.glide{overflow: hidden;}
+.glide li{font-size: 10px;}
+/*.glide li.glide__slide{height: 100%;}*/
+.box {
+	color: #fff;
+	font-size: 3vw;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.box a{display: block;width:100%;height: 100%;}
+.box a img{width:100%;height: 265px;/*height: 100%*/}
+
+.container * {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}

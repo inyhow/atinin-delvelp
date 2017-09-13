@@ -1,0 +1,169 @@
+<style>
+.dr_type {
+    display:none;
+}
+</style>
+<div class="table-list" style="width:540px;">
+<form action="" method="post" id="myform" name="myform" onsubmit="return dr_form_check()">
+<input name="mark" id="mark" type="hidden" value="0" />
+<table width="100%" class="table_form">
+<tr>
+    <th><font color="red">*</font>&nbsp;{fc_lang('类型')}： </th>
+    <td>
+        <select name="data[type]" onchange="dr_type(this.value)">
+            {loop $type $i $name}
+            <option value="{$i}" {if $i==$data.type}selected{/if}>{$name}</option>
+            {/loop}
+        </select>
+    </td>
+</tr>
+<tr>
+    <th width="100"><font color="red">*</font>&nbsp;{fc_lang('名称')}： </th>
+    <td>
+        <input class="input-text" type="text" name="data[name]"  value="{$data.name}" style="width:200px;">
+        <div class="onShow" id="dr_name_tips">{fc_lang('给它一个描述名称')}</div>
+    </td>
+</tr>
+<tr class="dr_type dr_type_1">
+    <th>{fc_lang('宽度')}： </th>
+    <td>
+        <input class="input-text" type="text" name="value[1][width]" value="{$value.1.width}" style="width:200px;">
+        <div class="onShow">px</div>
+    </td>
+</tr>
+<tr class="dr_type dr_type_1">
+    <th>{fc_lang('高度')}： </th>
+    <td>
+        <input class="input-text" type="text" name="value[1][height]" value="{$value.1.height}" style="width:200px;">
+        <div class="onShow">px</div>
+    </td>
+</tr>
+
+    <tr class="dr_type dr_type_2">
+        <th>{fc_lang('屏幕居中')}： </th>
+        <td>
+            <input type="radio" name="value[2][center]" value="1" {if $value[2][center]}checked{/if} />&nbsp;&nbsp;<label>{fc_lang('是')}</label>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="radio" name="value[2][center]" value="0" {if !$value[2][center]}checked{/if} />&nbsp;&nbsp;<label>{fc_lang('否')}</label>
+
+        </td>
+    </tr>
+    <tr class="dr_type dr_type_2">
+        <th>{fc_lang('左边距')}： </th>
+        <td>
+            <input class="input-text" type="text" name="value[2][left]" value="{$value.2.left}" style="width:200px;">
+            <div class="onShow">px</div>
+        </td>
+    </tr>
+    <tr class="dr_type dr_type_2">
+        <th>{fc_lang('上边距')}： </th>
+        <td>
+            <input class="input-text" type="text" name="value[2][top]" value="{$value.2.top}" style="width:200px;">
+            <div class="onShow">px</div>
+        </td>
+    </tr>
+    <tr class="dr_type dr_type_2">
+        <th>{fc_lang('宽度')}： </th>
+        <td>
+            <input class="input-text" type="text" name="value[2][width]" value="{$value.2.width}" style="width:200px;">
+            <div class="onShow">px</div>
+        </td>
+    </tr>
+    <tr class="dr_type dr_type_2">
+        <th>{fc_lang('高度')}： </th>
+        <td>
+            <input class="input-text" type="text" name="value[2][height]" value="{$value.2.height}" style="width:200px;">
+            <div class="onShow">px</div>
+        </td>
+    </tr>
+
+
+
+    <tr class="dr_type dr_type_3">
+        <th>{fc_lang('宽度')}： </th>
+        <td>
+            <input class="input-text" type="text" name="value[3][width]" value="{$value.3.width}" style="width:200px;">
+            <div class="onShow">px</div>
+        </td>
+    </tr>
+    <tr class="dr_type dr_type_3">
+        <th>{fc_lang('高度')}： </th>
+        <td>
+            <input class="input-text" type="text" name="value[3][height]" value="{$value.3.height}" style="width:200px;">
+            <div class="onShow">px</div>
+        </td>
+    </tr>
+
+    <tr class="dr_type dr_type_4">
+        <th>{fc_lang('上边距')}： </th>
+        <td>
+            <input class="input-text" type="text" name="value[4][top]" value="{$value.4.top}" style="width:200px;">
+            <div class="onShow">px</div>
+        </td>
+    </tr>
+    <tr class="dr_type dr_type_4">
+        <th>{fc_lang('左边距')}： </th>
+        <td>
+            <input class="input-text" type="text" name="value[4][left]" value="{$value.4.left}" style="width:200px;">
+            <div class="onShow">px</div>
+        </td>
+    </tr>
+    <tr class="dr_type dr_type_4">
+        <th>{fc_lang('右边距')}： </th>
+        <td>
+            <input class="input-text" type="text" name="value[4][right]" value="{$value.4.right}" style="width:200px;">
+            <div class="onShow">px</div>
+        </td>
+    </tr>
+    <tr class="dr_type dr_type_4">
+        <th>{fc_lang('宽度')}： </th>
+        <td>
+            <input class="input-text" type="text" name="value[4][width]" value="{$value.4.width}" style="width:200px;">
+            <div class="onShow">px</div>
+        </td>
+    </tr>
+    <tr class="dr_type dr_type_4">
+        <th>{fc_lang('高度')}： </th>
+        <td>
+            <input class="input-text" type="text" name="value[4][height]" value="{$value.4.height}" style="width:200px;">
+            <div class="onShow">px</div>
+        </td>
+    </tr>
+
+
+<tr class="dr_border_none">
+    <th><font color="red">*</font>&nbsp;{fc_lang('状态')}： </th>
+    <td>
+        <input type="radio" name="data[status]" value="1" {if $data['status']}checked{/if} />&nbsp;&nbsp;<label>{fc_lang('可用')}</label>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="radio" name="data[status]" value="0" {if !$data['status']}checked{/if} />&nbsp;&nbsp;<label>{fc_lang('关闭')}</label>
+
+    </td>
+</tr>
+</table>
+</form>
+</div>
+<script type="text/javascript">
+    $(function() { //防止回车提交表单
+        document.onkeydown = function(e){
+            var ev = document.all ? window.event : e;
+            if (ev.keyCode==13) {
+                $("#mark").val("1"); // 标识不能提交表单
+            }
+        }
+        $(".table_form th").last().css('border','none');
+        $(".table_form td").last().css('border','none');
+    });
+    function dr_form_check() {
+        if ($("#mark").val() == 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    function dr_type(id) {
+        $(".dr_type").hide();
+        $(".dr_type_"+id).show();
+    }
+    dr_type({$data.type});
+</script>

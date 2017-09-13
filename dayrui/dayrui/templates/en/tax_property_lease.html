@@ -1,0 +1,182 @@
+{template "header1_b.html"}
+      
+    <!--slogan-->
+    <div class="sloganWrapper">
+        <!-- <div class="ad11 " >
+          <img src="{THEME_PATH}home/img/ad11.png" style="width:100%;height: 100%;">
+         
+        </div>   -->
+    </div>
+    
+                <div class="iiTax taxTool  clear">
+              <h1 > 
+                    <span class="taxTool_title on">个人所得税</span>
+                  
+                    <span class="more">
+                      <img src="{THEME_PATH}home/img/icon_home.png">
+                      <a >您所在的位置</a>：<a href="/">首页  </a> > <a href="/index.php?c=taxtool">财税工具  </a> > <a > 个人所得税</a>
+                    </span>
+              </h1>
+              <div class="iiTaxWrapper">
+                    <div class="iiTax01">
+                        <section class="iiTaxCalculator">
+                            <div class="iiTax_title">财产租赁所得税计算器</div>
+                            <div class="row03Box clear">
+                                  <div class="row03 clear">
+                                      <div class="text">收入类型</div>
+                                      <div class="input dropDownMenu02 ">
+                                        <input  class="dropDownText dropDownButton" value="财产租赁" type="" name="" readonly="readonly">
+                                        <span class="dropDownButton addon">
+                                          <img src="{THEME_PATH}home/img/triangle06.png">
+                                        </span>
+                                        <ul id="iiTax_type" class="dropDownList" style="display: none;">
+                                        <li data-name="m_wages" class="on">工资、薪金所得（月薪）
+                                        </li>
+                                        <li data-name="m_bonus" >年终奖个人所得税</li>
+                                        <li data-name="m_labor_remuneration" >劳务报酬所得</li>
+                                        <li data-name="m_franchise" >特许权使用费所得</li>
+                                        <li data-name="m_property_lease" >财产租赁</li>
+                                        <li data-name="m_property_transfer" >财产转让所得税</li>
+                                        <li data-name="m_interest" >利息、股息、红利所得</li>
+                                        <li data-name="m_accidental" >偶然所得税（中彩，中奖税）</li>
+                                    </ul>
+                                        
+
+                                      </div>
+                                      
+                                  </div>
+                                  <div class="row03 clear">
+                                      <div class="text">收入金额</div>
+                                      <div class="input ">
+                                         <input class="num" placeholder="" type="text" id="money" name="money" value="">
+                                        <span class="addon"></span>
+                                        <span style="padding-left:10px;line-height:33px;">
+                                        元</span>
+                                      </div>
+                                  </div>
+                                  
+                                  <div class="row03 clear">
+                                      <div class="text"></div>
+                                      <div class="input">
+                                          <div class="btnBox02">
+                                            <a class="orangeBg" id="calculate" href="javascript:;" >计算</a>
+                                            <a class="greenBg reset" href="#">重置</a>
+                                          </div>
+                                          
+                                      </div>
+                                  </div>
+                                  
+                            </div>
+                            
+                        </section>
+
+                        <section class="iiTaxResult">
+                            <div class="iiTax_title">计算结果</div>
+                            <div class="row03Box clear">
+                                  <div class="row03 clear">
+                                      <div class="text">减除费用</div>
+                                      <div class="input">
+                                          <span class="r_text" id="jianchu" style="">0</span>
+                                          <span class="r_text">元</span>
+                                      </div>
+                                  </div>
+                                  <div class="row03 clear">
+                                      <div class="text">应纳税所得额</div>
+                                      <div class="input">
+                                          <span class="r_text" id="yingnashui" style="">0</span>
+                                          <span class="r_text">元</span>
+                                      </div>
+                                  </div>
+                                  <div class="row03 clear">
+                                      <div class="text">适用税率</div>
+                                      <div class="input">
+                                          <span class="r_text" id="rate" style="">0</span>
+                                          <span class="r_text">%</span>
+                                      </div>
+                                  </div>
+                                  
+                                  <div class="row03 clear">
+                                      <div class="text">应缴税款
+</div>
+                                      <div class="input">
+                                        <input type="text" name="yingjiao" value=""><span class="addon"></span><span style="padding-left:10px;line-height:33px;">
+                                        元</span></div>
+                                  </div>
+                                  <div class="row03 clear">
+                                      <div class="text">税后收入</div>
+                                      <div class="input">
+                                        <input type="text" name="income" value=""><span class="addon"></span><span style="padding-left:10px;line-height:33px;">
+                                        元</span>
+                                      </div>
+                                  </div>
+                                  
+                            </div>
+                            
+                        </section>
+
+                    </div>
+                    <div class="iiTax02 clear">
+                        <section class="">
+                            <div class="iiTax_title">财产租赁计算公式</div>
+                            <div class="iiTax_text">
+                                <p class="strong">应纳税所得额 = 财产租赁所得（不超过4000元） - 800元</p>
+                                <p class="strong">应纳税所得额 = 财产租赁所得（超过4000元）×（1 - 20%）</p>
+                                <p class="strong">应纳税额 = 应纳税所得额 × 20%</p>
+                            </div>
+                            
+                        </section>
+                    </div>
+
+                    <div class="iiTax02 clear">
+                        <section class="">
+                            <div class="iiTax_title">税率表</div>
+                            <div class="iiTax_text">
+                                <p >财产租赁所得，适用20%的比例税率</p>
+                                <p>优惠政策：对于个人按市场价格出租的居民住房取得的财产租赁收入，自2001年1月1日起暂按10%的税率征收个人所得税。</p>
+                            </div>
+                            
+                        </section>
+                    </div>
+
+                    <div class="iiTax02 clear">
+                        <section class="">
+                            <div class="iiTax_title">财产租赁案例说明</div>
+                            <div class="iiTax_text">
+                                <p >1、张三2016年一月份出租其住房，每月租金3800元，那么他应缴纳多少个人所得税？
+</p>
+                                <p>张三出租房屋，属于个税税法规定的财产租赁所得范围，需征收个税。因月租3800元，没有超过4000元，应纳税所得额 = 3800 - 800 = 3000元，财产租赁个税税率为20%，但自2001年1月1日起，对个人按市场价格出租的居民住房，所取得的收入按10%税率征收个人所得税，则应纳税额 = 3000 × 10% = 300元。</p>
+                            </div>
+                            
+                        </section>
+                    </div>
+                    
+              </div> 
+        </div>
+    
+    <script type="text/javascript">
+        $(function(){
+            $(".container .post_demands img").click();
+
+            $("#calculate").click(function(){
+                var money = $("#money").val();
+                $.ajax({
+                   type: "POST",
+                   url: "/index.php?c=taxtool&m=ajax_property_lease",
+                   data: {'money':money},
+                   dataType: "JSON",
+                   success: function(data){ 
+                    console.log(data);
+                    $("#jianchu").html(data['jianchu']);
+                    $("#yingnashui").html(data['yingnashui']);
+                    $("#rate").html(data['rate']);
+                    $("input[name=yingjiao]").val(data['yingjiao']);
+                    $("input[name=income]").val(data['income']);
+                  }
+               });
+            })
+            
+        })
+
+    </script>
+
+    {template "footer1.html"}

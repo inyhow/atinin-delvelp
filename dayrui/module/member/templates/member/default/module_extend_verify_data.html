@@ -1,0 +1,13 @@
+{loop $list $t}
+{php $c=dr_string2array($t['content']);}
+<tr>
+	<td class="" style="padding-top:7px;padding-left:15px"><input type="checkbox" value="{$t['id']}" class="dr_select toggle md-check" name="ids[]" /></td>
+	<td class="" title="{$c['name']}"><div class="dr_title">{$c['name']}</div></td>
+	<td class="" title="{$c['title']}"><div class="dr_title">{$c['title']}</div></td>
+	<td class="">{dr_date($t['inputtime'], '', 'red')}</td>
+	<td class="">
+	<a href="{SITE_URL}index.php?s={APP_DIR}&c=extend&type=verify&id={$t.id}" target="_blank" class="btn btn-warning btn-xs" ><i class="fa fa-search"></i> 预览</a>
+	<a href="{dr_member_url(APP_DIR.'/everify/edit', array('id'=>$t['id']))}" class="btn green btn-xs"><i class="fa fa-edit"></i> 修改</a>
+	</td>
+</tr>
+{/loop}

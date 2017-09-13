@@ -1,0 +1,189 @@
+{template "header1_b.html"}
+      
+    <!--slogan-->
+    <div class="sloganWrapper">
+        <!-- <div class="ad11 " >
+           <img src="{THEME_PATH}home/img/ad11.png" style="width:100%;height: 100%;">
+         </div>  --> 
+    </div>
+
+    <div class="iiTax taxTool  clear">
+      <h1 > 
+            <span class="taxTool_title on">个人所得税</span>
+          
+            <span class="more">
+              <img src="{THEME_PATH}home/img/icon_home.png">
+              <a >您所在的位置</a>：<a href="/">首页  </a> > <a href="/index.php?c=taxtool">财税工具  </a> > <a > 个人所得税</a>
+            </span>
+      </h1>
+          <div class="iiTaxWrapper">
+                <div class="iiTax01">
+                    <section class="iiTaxCalculator">
+                        <div class="iiTax_title">偶然所得税（中彩，中奖税）计算器</div>
+                        <div class="row03Box clear">
+                              <div class="row03 clear">
+                                  <div class="text">收入类型</div>
+                                  <div class="input dropDownMenu02 ">
+                                    <input  class="dropDownText dropDownButton" value="偶然所得税（中彩，中奖税）" type="" name="" readonly="readonly">
+                                    <span class="dropDownButton addon">
+                                      <img src="{THEME_PATH}home/img/triangle06.png">
+                                    </span>
+                                    <ul id="iiTax_type" class="dropDownList" style="display: none;">
+                                        <li data-name="m_wages" class="on">工资、薪金所得（月薪）
+                                        </li>
+                                        <li data-name="m_bonus" >年终奖个人所得税</li>
+                                        <li data-name="m_labor_remuneration" >劳务报酬所得</li>
+                                        <li data-name="m_franchise" >特许权使用费所得</li>
+                                        <li data-name="m_property_lease" >财产租赁</li>
+                                        <li data-name="m_property_transfer" >财产转让所得税</li>
+                                        <li data-name="m_interest" >利息、股息、红利所得</li>
+                                        <li data-name="m_accidental" >偶然所得税（中彩，中奖税）</li>
+                                    </ul>
+
+                                  </div>
+                                  
+                              </div>
+                              <div class="row03 clear">
+                                  <div class="text">收入金额</div>
+                                  <div class="input ">
+                                    <input class="num" placeholder="" type="text" id="money" name="money" value="">
+                                    <span class="addon"></span>
+                                    <span style="padding-left:10px;line-height:33px;">
+                                    元</span>
+                                  </div>
+                              </div>
+                              
+                              <div class="row03 clear">
+                                  <div class="text"></div>
+                                  <div class="input">
+                                      <div class="btnBox02">
+                                        <a class="orangeBg" id="calculate" href="javascript:;" >计算</a>
+                                        <a class="greenBg reset" href="#">重置</a>
+                                      </div>
+                                      
+                                  </div>
+                              </div>
+                              
+                        </div>
+                        
+                    </section>
+
+                    <section class="iiTaxResult">
+                        <div class="iiTax_title">计算结果</div>
+                        <div class="row03Box clear">
+                              <div class="row03 clear">
+                                  <div class="text">应纳税所得额</div>
+                                  <div class="input">
+                                      <span class="r_text" id="yingnashui" style="">0</span>
+                                      <span class="r_text">元</span>
+                                  </div>
+                              </div>
+                             
+                              <div class="row03 clear">
+                                  <div class="text">适用税率</div>
+                                  <div class="input">
+                                      <span class="r_text" id="rate" style="">0</span>
+                                      <span class="r_text">%</span>
+                                  </div>
+                              </div>
+                              
+                              <div class="row03 clear">
+                                  <div class="text">应缴税款
+                                  </div>
+                                  <div class="input">
+                                    <input type="text" name="yingjiao" value=""><span class="addon"></span><span style="padding-left:10px;line-height:33px;">
+                                    元</span></div>
+                              </div>
+                              <div class="row03 clear">
+                                  <div class="text">税后收入</div>
+                                  <div class="input">
+                                    <input type="text" name="income" value=""><span class="addon"></span><span style="padding-left:10px;line-height:33px;">
+                                    元</span>
+                                  </div>
+                              </div>
+                              
+                        </div>
+                        
+                    </section>
+
+                </div>
+                <div class="iiTax02 clear">
+                    <section class="">
+                        <div class="iiTax_title">计算公式</div>
+                        <div class="iiTax_text">
+                            <p class="strong">应纳税所得额 = 偶然所得</p>
+                            <p class="strong">应纳税额 = 应纳税所得额 × 税率（20%）</p>
+                            <p>说明：偶然所得，以个人每次取得的收入额为应纳税所得额，不扣除任何费用。以每次取得的该项收入为一次。</p>
+                            
+                        </div>
+                        
+                    </section>
+                </div>
+
+                <div class="iiTax02 clear">
+                    <section class="">
+                        <div class="iiTax_title">偶然所得(如：中奖、中彩)简介</div>
+                        <div class="iiTax_text">
+                            
+                            <p class="iiTax_h">一、征收范围</p>
+                            <p>偶然的所得，是指个人得奖、中奖、中彩以及其他偶然性质的所得。 个人在各行各业因作出突出贡献而从省以下人民政府及其所属部门取得的一次性奖励收入（不论奖金来源何处），也属于偶然所得的征税范围。</p>
+
+                            <p class="iiTax_h">二、税率</p>
+                            <p>偶然所得适用20%的比例税率。</p>
+
+                            <p class="iiTax_h">三、应纳税所得额及应纳税额的计算</p>
+                            <p>偶然所得，以个人每次取得的收入额为应纳税所得额，不扣除任何费用。以每次取得的该项收入为一次。
+应纳税额 = 应纳税所得额 × 适用税率 = 每次收入额 × 20%</p>
+
+                            <p class="iiTax_h">四、案例</p>
+                            <p>问：中国公民张三于2009年12月中奖，取得偶然所得2万元，那么，支付单位应代扣代缴多少个人所得税呢？</p>
+                            <p>解析：发放偶所得，该单位应代扣代缴的个人所税计算如下：</p>
+                            <p>代扣代缴个人所得税 = 20000 × 20% = 4000（元）</p>
+
+
+
+                        </div>
+                    </section>
+                </div>
+
+                
+                <div class="iiTax02 clear">
+                    <section class="">
+                        <div class="iiTax_title">案例说明</div>
+                        <div class="iiTax_text">
+                            <p >1、李四于2016年01月30日，购买彩票中奖，获得奖金10万元，应缴多少个税？
+                            </p>
+                            <p>按照个人所得税法，此项收入为偶然所得，需纳个人所得税，适用20%的税率，且不扣除任何费用，应纳税额 = 10万 × 20% = 2万，据此发放奖金单位需代扣代缴个人所得税2万元，李四最终可以拿到手的奖金为8万元。</p>
+                        </div>
+                        
+                    </section>
+                </div>
+                
+          </div> 
+    </div>
+             
+    <script type="text/javascript">
+        $(function(){
+            $(".container .post_demands img").click();
+
+            $("#calculate").click(function(){
+                var money = $("#money").val();
+                $.ajax({
+                   type: "POST",
+                   url: "/index.php?c=taxtool&m=ajax_accidental",
+                   data: {'money':money},
+                   dataType: "JSON",
+                   success: function(data){ 
+                    $("#yingnashui").html(data['yingnashui']);
+                    $("#rate").html(data['rate']);
+                    $("input[name=yingjiao]").val(data['yingjiao']);
+                    $("input[name=income]").val(data['income']);
+                  }
+               });
+            })
+            
+        })
+
+    </script>
+
+    {template "footer1.html"}

@@ -1,0 +1,142 @@
+{template "header.html", "/"}
+{if get_ad_status(1)} 
+{php $poster = dr_poster_list(2, 1);} 
+{loop $poster $i $t}
+<div style="background:url({$t.file}) center center no-repeat; height:281px;"></div>
+{/loop} 
+{/if}
+<div id="container2">
+    <div id="mainBody_in" style="background:url(skin/images/mainbody_in_back.jpg) center top no-repeat;">
+        <!--中间内容开始-->
+        <div id="left">
+            <div class="left_in_nav">
+                   <div class="right_in_right_titile">
+                    <div class="weizhi_now">
+                        搜索结果页
+                        <br/>
+                    </div>
+                    <div class="position_now"> <img src="skin/images/home_btnsd.gif" width="10" height="9" align="absmiddle" /> <img src="skin/images/jiantou.gif" align="absmiddle" />&nbsp; <a href="/">网站首页&nbsp; </a><img src="skin/images/jiantou.gif" align="absmiddle" />&nbsp; 搜索结果页&nbsp;<img src="skin/images/jiantou.gif" align="absmiddle" /> &nbsp;<span class="color4c5560"></span>
+                    </div>
+                </div>
+
+                <script type="text/javascript" src="skin/js/jquery.1.4.2-min.js"></script>
+                <!--左边二级导航栏开始-->
+                <div id="pro_nav_content">
+                    <div id="DivList">
+                      {list action=navigator type=0 pid=6}
+                        <div id="yiji_nav">
+                            <div>
+                                <a href="{$t.url}" class="pro_menubg_{if $catid==3 || $catid =='' }over{/if}">{$t.name}</a>
+                            </div>
+                        </div>
+                        <div id="Div_173" class="sub" style="display:none; width:100%;">
+                            <div style="">
+                            </div>
+                        </div>
+                        {/list}
+                    </div>
+                </div>
+                <!--左边二级导航栏END-->
+            </div>
+            <div>
+                <div class="fast_links">
+                        <a href="http://wpa.qq.com/msgrd?v=3&amp;uin={dr_block(2)}&amp;menu=yes" target="_blank"><img src="skin/images/lianxi.jpg" width="229px;"></a>
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                </div>
+            </div>
+        </div>
+        <div id="right">
+            <div class="right_in_right">
+                <div class="right_in_right_content">
+                    <div class="so_in_right_content">
+                        <ul>
+                            {if $searchid}
+                            {list action=search module=$dirname id=$searchid total=$sototal catid=$catid order=$params.order page=1 pagesize=10 urlrule=$urlrule}
+                            <li>
+                                <div class="news_left_contents"><a target="_blank" href="{$t['url']}">{dr_keyword_highlight($t.title, $keyword)}</a></div>
+                                <div class="news_left_times"> [{dr_date($t._updatetime, 'Y-m-d')}] </div>
+                                <div class="clearfloat"></div>
+                            </li>
+                            {/list}
+                            {if !$total}
+                            <div class="resultList">对不起，没有找到任何记录！</div>
+                            {/if}
+                            {else}
+                            <div class="resultList">对不起，没有找到任何记录！</div>
+                            {/if}                            
+                        </ul>
+                    </div>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td align="center">
+                                <style>
+                                    <!-- #dcms_pager .pages {
+                                        border: none;
+                                        text-transform: uppercase;
+                                        font-size: 12px;
+                                        margin: 10px 0 10px 0;
+                                        padding: 0;
+                                        height: 20px;
+                                        clear: both;
+                                        text-align: center;
+                                    }
+                                    
+                                    #dcms_pager .pages a {
+                                        border: 1px solid #ccc;
+                                        text-decoration: none;
+                                        margin: 0 5px 0 0;
+                                        padding: 0 3px 0 3px;
+                                        font-size: 12px;
+                                        height: 16px;
+                                        line-height: 16px;
+                                    }
+                                    
+                                    #dcms_pager .pages a:hover {
+                                        border: 1px solid #aeaeae;
+                                    }
+                                    
+                                    #dcms_pager .pages .pgEmpty {
+                                        border: 1px solid #eee;
+                                        color: #eee;
+                                    }
+                                    
+                                    #dcms_pager .pages .pgCurrent {
+                                        border: 1px solid #aeaeae;
+                                        color: #000;
+                                        font-weight: bold;
+                                        background-color: #eee;
+                                    }
+                                    
+                                    -->
+                                </style>
+                                <div id="dcms_pager" >
+                                  <div class=pages>{str_replace(array("<li>","<li class=\"active\">","<li class=\"page-active active\">","<li class=\"triangles_right\">","</li>","<a>"),array("","","","","","<a class=\"page-number pgcurrent\">"),$pages)}</div>
+                                </div>
+                             </td>
+                        </tr>
+                    </table> 
+                    </div>
+                </div>
+                <div style="clear:both"></div>
+            </div>
+        </div>
+        <div class="clearfloat"></div>
+    </div>
+    
+
+<script type="text/javascript">
+    $(function(){
+
+        $("#inset").bind('input propertychange', function(){
+            var hr = '/index.php?c=so&module={$dirname}&keyword={$keyword}&page='+ $("#inset").val();
+            $("#goto").attr('href',hr);
+        });
+
+    });
+
+</script>
+{template "footer1.html"}

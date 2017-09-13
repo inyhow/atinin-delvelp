@@ -1,0 +1,100 @@
+#header {
+    height: 100px
+}
+#content {
+    padding-top: 35px;
+    padding-bottom: 20px
+}
+hr {
+    border: 0 none;
+    border-top: 1px solid #e5e5e5;
+    margin: 0;
+    padding: 0;
+    float: none;
+    display: block
+}
+hr.footer-break {
+    border-top: 2px solid #ccc
+}
+#ali-logo {
+    margin: 40px 10px 0 0
+}
+#ali-logo a {
+    text-indent: -9999px;
+    display: block;
+    float: left;
+    width: 190px;
+    height: 35px;
+    background: url(/simg/sprites/app/header.png?t=ba01a9cf_0) no-repeat 0 0
+}
+#ali-logo a:hover {
+    background-position: 0 -40px
+}
+#header-switch {
+    width: 90px;
+    margin-top: 45px;
+    display: inline;
+    position: relative;
+    z-index: 900
+}
+#changelang {
+    width: 90px;
+    margin-top: 40px;
+    display: inline;
+    position: relative;
+    z-index: 2011
+}
+#currentlang {
+    position: absolute;
+    width: 90px;
+    border: none;
+    height: 25px;
+    line-height: 25px;
+    overflow: hidden
+}
+#currentlang.hover .mn-rs {
+    top: -1px;
+    top: 1px\0;
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    transform: rotate(180deg)
+}
+#currentlang a {
+    color: #333;
+    float: left
+}
+#currentlang .mn-rs {
+    position: relative;
+    margin-right: 1px;
+    top: 1px;
+    left: 5px;
+    border-color: #666 #fff #fff;
+    border-style: solid dashed dashed;
+    border-width: 4px;
+    display: inline-block;
+    height: 0;
+    width: 0;
+    text-indent: -9999px;
+    text-align: left;
+    line-height: 0;
+    vertical-align: middle;
+    -webkit-transition-duration: 200ms;
+    -moz-transition-duration: 200ms;
+    transition-duration: 200ms;
+    -webkit-transition-timing-function: linear;
+    -moz-transition-timing-function: linear;
+    transition-timing-function: linear;
+    transition-property: transform;
+    -webkit-transition-property: -webkit-transform;
+    -moz-transition-property: -moz-transform;
+    -webkit-transform-origin: 50% 30%;
+    -moz-transform-origin: 50% 30%;
+    transform-origin: 50% 30%
+}
+
+#login-form-wrapper .inner {
+    width: 420px;
+    position: absolute;
+    margin-top: 50px;
+    margin-left: 180px;
+}

@@ -1,0 +1,107 @@
+.control {
+    width: 1280px;
+    margin: 0 auto;
+}
+.content {
+    background-color: #ffffff;
+    margin-top: 10px;
+    margin-bottom: 60px;
+    padding: 20px 40px 0px 50px;
+    height: 550px;
+}
+.content .contentone {
+    float: left;
+    height: 200px;
+    width: 550px;
+}
+.content .contentone img {
+    float: left;
+    margin-right: 23px;
+}
+.content .contentone h3 {
+    font-family: Euphemia;
+    font-size: 14px;
+    color: #333333;
+    padding-top: 5px;
+}
+.content .contentone h4 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #525252;
+    padding-top: 5px;    
+}
+.content .contentone h4 span {
+    color: #525252;
+}
+.content .contentone h5 {
+    margin-top: 15px;
+}
+.content .contentone h5 p {
+    font-size: 14px;
+    color: #9f9f9f;
+    font-weight: normal;
+}
+.content .contentone h6 {
+    margin-top: 24px;
+    font-size: 14px;
+    color: #666666;
+    font-weight: normal;
+}
+.contenttwo {
+    float: right;
+    margin-top: 0px;
+    height: 200px;
+    width: 550px;
+}
+.content .contenttwo img {
+    float: left;
+    margin-right: 23px;
+    margin-top: 0px;
+}
+.contenttwo h3 {}
+.contenttwo h3 span {
+    color: #d7b175;
+}
+.content .contenttwo h4 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333333;
+    padding-top: 5px;    
+}
+.content .contenttwo h4 span {
+    color: #525252;
+}
+.content .contenttwo h5 {
+    margin-top: 15px;
+}
+.content .contenttwo h5 p {
+    font-size: 14px;
+    color: #9f9f9f;
+    font-weight: normal;
+}
+.contentthree {
+    margin-top: 54px;
+}
+.content .contentthree img {
+    float: left;
+    margin-right: 0px;
+    margin-top: 0px;
+}
+.contentthree h3 {
+    font-size: 24px;
+    color: #333333;
+    font-weight: bold;
+}
+.contentthree h3 span {
+    color: #d7b175;
+}
+.contentthree h4 {
+    margin-top: 20px;
+    padding: 0 100px;
+    width: 1000px;
+}
+.contentthree h4 p {
+    font-size: 14px;
+    color: #666666;
+    font-weight: normal;
+}

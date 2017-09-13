@@ -1,0 +1,74 @@
+{template nheader.html}
+<form class="form-horizontal" action="" method="post" name="myform" id="myform">
+    <div class="page-bar">
+        <ul class="page-breadcrumb mylink">
+            {$menu.link}
+        </ul>
+        <ul class="page-breadcrumb myname">
+            {$menu.name}
+        </ul>
+        <div class="page-toolbar">
+            <div class="btn-group pull-right">
+                <button type="button" class="btn green btn-sm btn-outline dropdown-toggle" data-toggle="dropdown" aria-expanded="false"> {fc_lang('操作菜单')}
+                    <i class="fa fa-angle-down"></i>
+                </button>
+                <ul class="dropdown-menu pull-right" role="menu">
+                    {loop $menu.quick $t}
+                    <li>
+                        <a href="{$t.url}">{$t.icon} {$t.name}</a>
+                    </li>
+                    {/loop}
+                    <li class="divider"> </li>
+                    <li>
+                        <a href="javascript:window.location.reload();">
+                            <i class="icon-refresh"></i> {fc_lang('刷新页面')}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <h3 class="page-title">
+        <small></small>
+    </h3>
+    <div style="margin-bottom: 70px">
+      
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption">
+                    <span class="caption-subject font-green sbold uppercase">{lang('mod-043')}</span>
+                </div>
+            </div>
+            <input name="data[2][id]" type="hidden" value="2" />
+            <input name="data[2][name]" type="hidden" value="{lang('mod-043')}" />
+            <div class="portlet-body">
+                <table width="100%" class="table_form">
+                    <tr>
+                        <th width="200">{fc_lang('可用')}：</th>
+                        <td><input name="data[2][use]" type="checkbox" {if $data['2']['use']}checked="checked"{/if} value="2" /></td>
+                    </tr>
+                    <tr class="dr_border_none">
+                        <th>说明：</th>
+                        <td>通过网银直接付款，必须先<a href="{dr_url('member/setting/pay')}" style="color:blue" class="onloading">配置网银</a>。</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+       
+    </div>
+    <div class="myfooter">
+        <div class="row">
+            <div class="portlet-body form">
+                <div class="form-body">
+                    <div class="form-actions">
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                <button type="submit" class="btn green"> <i class="fa fa-save"></i> {fc_lang('保存')}</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+{template nfooter.html}

@@ -1,0 +1,168 @@
+{template "header.html", "/"}
+<div style="background:url(skin/images/banner_in_002.jpg) center center no-repeat; height:204px;">
+    <div style="width:1000px; margin:0px auto; position:relative">
+        <div style=" position:absolute; top:37px; left:-30px;">
+            <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0" width="700" height="120">
+                <param name="movie" value="skin/images/fonts3.swf" />
+                <param name="wmode" value="transparent">
+                <param name="quality" value="high" />
+                <embed src="skin/images/fonts3.swf" quality="high" wmode="transparent" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="700" height="120" value="transparent"></embed>
+            </object>
+        </div>
+        <div style="position:absolute; top:13px; left:236px; z-index:10">
+            <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0" width="689" height="158">
+                <param name="movie" value="skin/images/fly.swf" />
+                <param name="wmode" value="transparent">
+                <param name="quality" value="high" />
+                <embed src="skin/images/fly.swf" quality="high" wmode="transparent" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="689" height="158" value="transparent"></embed>
+            </object>
+        </div>
+    </div>
+</div>
+<div id="container2">
+    <div id="mainBody_in" style="background:url(skin/images/mainbody_in_back.jpg) center top no-repeat;">
+        <!--中间内容开始-->
+        <div id="left">
+            <div class="left_in_nav">
+                <div class="left_nav_titile">{dr_catpos($catid, '', true, '{name}')}</div>
+                <script type="text/javascript" src="skin/js/jquery.1.4.2-min.js"></script>
+                <!--左边二级导航栏开始-->
+                <div id="pro_nav_content">
+                    <div id="DivList">
+                        <div id="yiji_nav">
+                            <div>
+                                <a href="/index.php?s=news&c=category&id=3" class="pro_menubg_{if $catid==3 || $catid =='' }over{/if}">最新动态</a>
+                            </div>
+                        </div>
+                        <div id="Div_173" class="sub" style="display:none; width:100%;">
+                            <div style="">
+                            </div>
+                        </div>
+                        <div id="yiji_nav">
+                            <div>
+                                <a href="/index.php?s=news&c=category&id=1" class="pro_menubg_{if $catid==1 }over{/if}">行业新闻</a>
+                            </div>
+                        </div>
+                        <div id="Div_174" class="sub" style="display:none; width:100%;">
+                            <div style="">
+                            </div>
+                        </div>
+                        <div id="yiji_nav">
+                            <div>
+                                <a href="/index.php?s=news&c=category&id=2" class="pro_menubg_{if $catid==2 }over{/if}">工作提醒</a>
+                            </div>
+                        </div>
+                        <div id="Div_175" class="sub" style="display:none; width:100%;">
+                            <div style="">
+                            </div>
+                        </div>
+                        <div id="yiji_nav">
+                            <div>
+                                <a href="/index.php?s=news&c=category&id=14" class="pro_menubg_{if $catid==14 }over{/if}">培训课程</a>
+                            </div>
+                        </div>
+                        <div id="Div_176" class="sub" style="display:none; width:100%;">
+                            <div style="">
+                            </div>
+                        </div>
+                        <div id="yiji_nav">
+                            <div>
+                                <a href="/index.php?s=news&c=category&id=10" class="pro_menubg_{if $catid==10 }over{/if}">帮助中心</a>
+                            </div>
+                        </div>
+                        <div id="Div_177" class="sub" style="display:none; width:100%;">
+                            <div style="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--左边二级导航栏END-->
+            </div>
+            <div>
+                <div class="fast_links">
+                    <br /><br /><br /><br /><br /><br /><br /><br />
+                </div>
+            </div>
+        </div>
+        <div id="right">
+            <div class="right_in_right">
+                <div class="right_in_right_titile">
+                    <div class="weizhi_now">
+                        {dr_catpos($catid, '', true, '{name}')}
+                        <br/>
+                        <span style="color:#919191; font-size:12px; font-weight:normal;">联标，期待信任与合作</span></div>
+                    <div class="position_now"> <img src="skin/images/home_btnsd.gif" width="10" height="9" align="absmiddle" /> <img src="skin/images/jiantou.gif" align="absmiddle" />&nbsp; <a href="/">网站首页&nbsp; </a><img src="skin/images/jiantou.gif" align="absmiddle" />&nbsp; {dr_catpos($catid, '', true, '{name}')}&nbsp;<img src="skin/images/jiantou.gif" align="absmiddle" /> &nbsp;<span class="color4c5560"></span> {dr_page_catpos($id, '', '{name}')}
+                    </div>
+                </div>
+
+                <div class="right_in_right_content">
+                    <div class="NEWS_in_right_content">
+                        <ul>
+                            {list action=module module=news catid=$catid order=updatetime page=1}
+                            <li>
+                                <div class="news_left_contents"><a target="_blank" href="{$t['url']}">{dr_strcut($t.title, 60)}</a></div>
+                                <div class="news_left_times"> [{dr_date($t._updatetime, 'Y-m-d')}] </div>
+                                <div class="clearfloat"></div>
+                            </li>
+                            {/list}
+                        </ul>
+                    </div>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td align="center">
+                                <style>
+                                    <!-- #dcms_pager .pages {
+                                        border: none;
+                                        text-transform: uppercase;
+                                        font-size: 12px;
+                                        margin: 10px 0 10px 0;
+                                        padding: 0;
+                                        height: 20px;
+                                        clear: both;
+                                        text-align: center;
+                                    }
+                                    
+                                    #dcms_pager .pages a {
+                                        border: 1px solid #ccc;
+                                        text-decoration: none;
+                                        margin: 0 5px 0 0;
+                                        padding: 0 3px 0 3px;
+                                        font-size: 12px;
+                                        height: 16px;
+                                        line-height: 16px;
+                                    }
+                                    
+                                    #dcms_pager .pages a:hover {
+                                        border: 1px solid #aeaeae;
+                                    }
+                                    
+                                    #dcms_pager .pages .pgEmpty {
+                                        border: 1px solid #eee;
+                                        color: #eee;
+                                    }
+                                    
+                                    #dcms_pager .pages .pgCurrent {
+                                        border: 1px solid #aeaeae;
+                                        color: #000;
+                                        font-weight: bold;
+                                        background-color: #eee;
+                                    }
+                                    
+                                    -->
+                                </style>
+                                <div id="dcms_pager" >
+                                  <div class=pages>{str_replace(array("<li>","<li class=\"active\">","<li class=\"page-active active\">","<li class=\"triangles_right\">","</li>","<a>"),array("","","","","","<a class=\"page-number pgcurrent\">"),$pages)}</div>
+                                </div>
+
+
+                             </td>
+                        </tr>
+                    </table> 
+                    </div>
+                </div>
+                <div style="clear:both"></div>
+            </div>
+        </div>
+        <div class="clearfloat"></div>
+    </div>
+{template "footer1.html"}

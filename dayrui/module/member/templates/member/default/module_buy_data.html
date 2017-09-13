@@ -1,0 +1,7 @@
+{loop $list $t}
+<tr>
+	<td class=""><a href="{$t.url}" title="{$t.title}" target="_blank">{$t.title}</a></td>
+	<td class="">{$t.score}</td>
+	<td class="">{dr_date($t.inputtime, '', 'red')}</td>
+</tr>
+{/loop}

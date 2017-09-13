@@ -1,0 +1,23 @@
+{loop $list $t}
+<tr id="dr_row_{$t.id}">
+	<td class="" style="padding-top:7px;padding-left:15px"><input type="checkbox" value="{$t.id}" class="dr_select toggle md-check" name="ids[]"></td>
+	<td class=""><div class="dr_title"><a href="{if $t.status==9}{$t.url}{else}{SITE_URL}index.php?s={APP_DIR}&c=show&id={$t.id}{/if}" title="{$t.title}" target="_blank">{dr_keyword_highlight($t.title, $kw)}</a></div></td>
+	<td class=""><a href="{CATEGORY.$t[catid].url}" target="_blank">{CATEGORY.$t[catid].name}</a></td>
+	<td class="">{dr_date($t.updatetime, '', 'red')}</td>
+	<td class=" html5">{if $t.status == 9}<a class="btn green btn-xs" href="javascript:dr_status({$t.id}, '{$t.status}');">{lang('mod-501')}</a>{else}<a class="btn red btn-xs" href="javascript:dr_status({$t.id}, '{$t.status}');">{lang('mod-502')}</a>{/if}</td>
+	<td class="">
+    {if $extend}
+    <a href="{dr_member_url(APP_DIR.'/extend/index',array('cid'=>$t.id))}" class="btn btn-primary btn-xs" ><i class="fa fa-server"></i> {lang('mod-29')}</a>
+    {/if}
+	{loop $form $f}
+	<a href="{$f.url}&cid={$t.id}" class="btn blue btn-xs" ><i class="fa fa-reorder"></i> {$f.name}（{intval($t[$f['field']])}）</a>
+	{/loop}
+    {if $module_rule[$t['catid']]['edit']}
+    <a href="{dr_member_url(APP_DIR.'/home/edit', array('id'=>$t.id))}" class="btn green btn-xs" ><i class="fa fa-edit"></i> 修改</a>
+    {/if}
+    {if $module_rule[$t['catid']]['del']}
+    <a href="javascript:;" onclick="dr_delete('{$t.catid}', '{$t.id}')" class="btn red-mint btn-xs" ><i class="fa fa-trash-o"></i> 删除</a>
+    {/if}
+    </td>
+</tr>
+{/loop}

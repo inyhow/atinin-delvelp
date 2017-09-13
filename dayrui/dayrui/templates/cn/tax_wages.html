@@ -1,0 +1,313 @@
+{template "header1_b.html"}
+      
+    <!--slogan-->
+    <div class="sloganWrapper">
+        <!-- <div class="ad11 " >
+           <img src="{THEME_PATH}home/img/ad11.png" style="width:100%;height: 100%;">
+          
+         </div>  --> 
+    </div>
+    
+                <div class="iiTax taxTool  clear">
+              <h1 > 
+                    <span class="taxTool_title on">个人所得税</span>
+                  
+                    <span class="more">
+                      <img src="{THEME_PATH}home/img/icon_home.png">
+                      <a >您所在的位置</a>：<a href="/">首页  </a> > <a href="/index.php?c=taxtool">财税工具  </a> > <a >个人所得税</a>
+                    </span>
+              </h1>
+              <div class="iiTaxWrapper">
+                    <div class="iiTax01">
+                        <section class="iiTaxCalculator">
+                            <div class="iiTax_title">个人所得税计算器</div>
+                            <div class="row03Box clear">
+                                  <div class="row03 clear">
+                                      <div class="text">收入类型</div>
+                                      <div class="input dropDownMenu02 ">
+                                        <input  class="dropDownText dropDownButton" value ="工资、薪金所得（月薪）" type="" name="" readonly="readonly">
+                                        <span class="dropDownButton addon">
+                                          <img src="{THEME_PATH}home/img/triangle06.png">
+                                        </span>
+                                        <ul id="iiTax_type" class="dropDownList" style="display: none;">
+                                        <li data-name="m_wages" class="on">工资、薪金所得（月薪）
+                                        </li>
+                                        <li data-name="m_bonus" >年终奖个人所得税</li>
+                                        <li data-name="m_labor_remuneration" >劳务报酬所得</li>
+                                        <li data-name="m_franchise" >特许权使用费所得</li>
+                                        <li data-name="m_property_lease" >财产租赁</li>
+                                        <li data-name="m_property_transfer" >财产转让所得税</li>
+                                        <li data-name="m_interest" >利息、股息、红利所得</li>
+                                        <li data-name="m_accidental" >偶然所得税（中彩，中奖税）</li>
+                                    </ul>
+                                      </div>
+                                      
+                                  </div>
+                                  <div class="row03 clear">
+                                      <div class="text">税前工资</div>
+                                      <div class="input ">
+                                        <input class="num" type="text" id="money" name="money" value="">
+                                        <span class="addon"></span>
+                                        <span style="padding-left:10px;line-height:33px;">
+                                        元</span>
+                                      </div>
+                                  </div>
+                                  <div class="row03 clear">
+                                      <div class="text">各项社会保险费</div>
+                                      <div class="input ">
+                                        <input class="num" type="text" id="insurance" name="insurance" value="">
+                                        <span class="addon"></span>
+                                        <span style="padding-left:10px;line-height:33px;">
+                                        元</span>
+                                      </div>
+                                  </div>
+                                  <div class="row03 clear">
+                                      <div class="text">起征点</div>
+                                      <div class="input dropDownMenu02 ">
+                                        <input class="dropDownText dropDownButton" id="threshold" value="3500" type="text" name="threshold" readonly="readonly">
+                                        <span class="dropDownButton addon">
+                                          <img src="{THEME_PATH}home/img/triangle06.png">
+                                        </span>
+                                        <span style="position: absolute;padding-left:10px;line-height:33px;">
+                                        元</span>
+                                        <ul class="dropDownList" style="display: none;">
+                                            <li class="on">3500</li>
+                                            <li>4800</li>
+                                        </ul>
+                                      </div>
+                                  </div>
+                                  <div class="row03 clear">
+                                      <div class="text"></div>
+                                      <div class="input">
+                                          <div class="btnBox02">
+                                            <a class="orangeBg" id="calculate" href="javascript:;" >计算</a>
+                                            <a class="greenBg reset" href="#">重置</a>
+                                          </div>
+                                           
+                                      </div>
+                                  </div>
+                                  
+                            </div>
+                            
+                        </section>
+
+                        <section class="iiTaxResult">
+                            <div class="iiTax_title">个人所得税计算结果</div>
+                            <div class="row03Box clear">
+                                  <div class="row03 clear">
+                                      <div class="text">应纳税所得额</div>
+                                      <div class="input">
+                                          <span class="r_text" id="yingnashui" style="">0</span>
+                                          <span class="r_text">元</span>
+                                      </div>
+                                  </div>
+                                  <div class="row03 clear">
+                                      <div class="text">适用税率</div>
+                                      <div class="input">
+                                          <span class="r_text" id="rate" style="">0</span>
+                                          <span class="r_text">%</span>
+                                      </div>
+                                  </div>
+                                  <div class="row03 clear">
+                                      <div class="text">速算扣除数</div>
+                                      <div class="input">
+                                          <span class="r_text" id="susuan" style="">0</span>
+                                          <span class="r_text">%</span>
+                                      </div>
+                                  </div>
+                                  <div class="row03 clear">
+                                      <div class="text">应缴税款
+                                      </div>
+                                      <div class="input">
+                                        <input type="text" name="yingjiao" value=""><span class="addon"></span><span style="padding-left:10px;line-height:33px;">
+                                        元</span></div>
+                                  </div>
+                                  <div class="row03 clear">
+                                      <div class="text">实发工资</div>
+                                      <div class="input">
+                                        <input type="text" name="income" value=""><span class="addon"></span><span style="padding-left:10px;line-height:33px;">
+                                        元</span>
+                                      </div>
+                                  </div>
+                                  
+                            </div>
+                            
+                        </section>
+
+                    </div>
+                    <div class="iiTax02 clear">
+                        <section class="">
+                            <div class="iiTax_title">个人所得税计算公式</div>
+                            <div class="iiTax_text">
+                                <p class="strong">应纳税所得额 = 工资收入金额 － 各项社会保险费 － 起征点(3500元)</p>
+                                <p class="strong">应纳税额 = 应纳税所得额 x 税率 － 速算扣除数</p>
+                                <p>说明：如果计算的是外籍人士（包括港、澳、台），则个税起征点应设为4800元。</p>
+                                
+                            </div>
+                            
+                        </section>
+                    </div>
+                    <div class="iiTax02 clear">
+                        <section class="">
+                            <div class="iiTax_title">个人所得税计算方法</div>
+                            <div class="iiTax_text">
+                                <p class="text">征缴个人所得税的计算方法，个人所得税费用扣除标准原来是2000，十一届全国人大常委会第二十一次会议27日再次审议个人所得税法修正案草
+案，草案维持一审时“工资、薪金所得减除费用标准从2000元提高至3500元”的规定，同时将个人所得税第1级税率由5%修改为3%。使用超额累进
+税率的计算方法如下：</p>
+                                <p>缴税=全月应纳税所得额*税率－速算扣除数</p>
+                                <p>全月应纳税所得额=(应发工资－四金)－3500</p>
+                                <p>实发工资=应发工资－四金－缴税</p>
+                            </div>
+                            
+                        </section>
+                    </div>
+
+                    <div class="iiTax02 clear">
+                        <section class="">
+                            <div class="iiTax_title">2016个税起征点</div>
+                            <div class="iiTax_text">
+                                <p class="text">个人所得税是对个人（自然人）取得的各项所得征收的一种所得税。个人所得税起征点是指国家为了完善税收体制，更好的进行税制改革，而制
+定的税收制度。2011年4月20日，十一届全国人大常委会第二十次会议召开，个人所得税免征额拟调至3500元。2011年6月中旬，调查显示，48%的
+网民要求修改个税起征点。2011年6月30号十一届全国人大常委会第二十一次会议通过了关于修改《个人所得税法》的决定，并于2011年9月1日起施
+行。 </p>
+                            </div>
+                            
+                        </section>
+                    </div>
+
+                    <div class="iiTax02 clear">
+                        <section class="">
+                            <div class="iiTax_title">个人所得税税率表</div>
+                            <div class="iiTax_text">
+                                <p class="text">小编辛苦精心为各位网友准备了2016年最新个人所得税税率表，个税税率表，3500元起征点，包括工资税率表、年终奖税率表、劳务税率表，
+个体户税率表 等等，简单实用的表格，让您更容易看懂税率表。 </p>
+                                <p>一、工资、薪金所得</p>
+                                <p>工资、薪金所得，适用七级超额累进税率，税率为百分之三（3%）至百分之四十五（45%）。</p>
+                            </div>
+
+                            <div class="table_head">个人所得税税率表（一）</div>
+                            <table class="table_iiTax">
+                            <thead>
+                              <tr>
+                                <th>级数 </th>
+                                <th>应纳税所得额(含税)    </th>
+                                <th>应纳税所得额(不含税)  </th>
+                                <th>税率(%) </th>
+                                <th>速算扣除数</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                                <tr >
+                                <td>1</td>
+                                <td>不超过1500元的</td>
+                                <td>不超过1455元的   </td>
+                                <td>3 </td>
+                                <td>0</td>
+                              </tr>
+                               
+                               <tr >
+                                <td>2   </td>
+                                <td>超过1500元至4,500元的部分   </td>
+                                <td>超过1455元至4,155元的部分 </td>
+                                <td>10 </td>
+                                <td>105</td>
+                              </tr>
+                               <tr >
+                                <td>3 </td>
+                                <td>超过4,500元至9,000元的部分</td>
+                                <td>超过4,155元至7,755元的部分</td>
+                                <td>20  </td>
+                                <td>555</td>
+                              </tr>
+                               <tr >
+                                <td>4 </td>
+                                <td>超过9,000元至35,000元的部分</td>
+                                <td>超过7,755元至27,255元的部分 </td>
+                                <td>25 </td>
+                                <td>1,005</td>
+                              </tr>
+                               <tr >
+                                <td>5</td>
+                                <td>超过35,000元至55,000元的部分</td>
+                                <td>超过27,255元至41,255元的部分 </td>
+                                <td>30 </td>
+                                <td>2,775</td>
+                              </tr>
+                               <tr >
+                                <td> 6 </td>
+                                <td>超过55,000元至80,000元的部分</td>
+                                <td>超过41,255元至57,505元的部分</td>
+                                <td>35  </td>
+                                <td>  5,505</td>
+                              </tr>
+                               <tr >
+                                <td>7 </td>
+                                <td>超过80,000元的部分  </td>
+                                <td>超过57,505的部分    </td>
+                                <td> 45</td>
+                                <td>13,505</td>
+                              </tr>
+                               
+                            </tbody>
+                              
+                            
+                         </table>
+                         <div class="t_comments">
+                             <div style="line-height:30px;">
+                                说明：  
+                             </div>
+                             <div>
+                               <p>1、本表含税级距中应纳税所得额，是指每月收入金额 - 各项社会保险金(五险一金) - 起征点3500元(外籍4800元)的余额。</p>
+                               <p>2、含税级距适用于由纳税人负担税款的工资、薪金所得；不含税级距适用于由他人(单位)代付税款的工资、薪金所得。 </p>
+                             </div>
+           
+                         </div>
+                        </section>
+                    </div>
+                    <div class="iiTax02 clear">
+                        <section class="">
+                            <div class="iiTax_title">案例说明</div>
+                            <div class="iiTax_text">
+                                <p class="text">    1、张三在2016年一月份税前工资10000元，他需要缴纳各项社会保险金1100元，那么他的税后工资是多少呢？</p>
+                                <p class="text">应纳税所得额==(应发工资－四金)－3500 =10000 － 1100 － 3500 = 5400元，参照上面的工资税率表不含税部分，超过4,155元至7,755元的
+部分，则适用税率20%，速算扣除数为555。</p>
+                                <p class="text">应纳税所得额==(应发工资－四金)－3500 =10000 － 1100 － 3500 = 5400元，参照上面的工资税率表不含税部分，超过4,155元至7,755元的
+部分，则适用税率20%，速算扣除数为555。</p>
+                                <p class="text"> 实发工资=应发工资－四金－缴税 = 10000 －1100－525 = 8375元</p>
+
+                            </div>
+                            
+                        </section>
+                    </div>
+              </div> 
+        </div>
+             
+    
+    <script type="text/javascript">
+        $(function(){
+            $(".container .post_demands img").click();
+
+            $("#calculate").click(function(){
+                var money = $("#money").val();
+                var insurance = $("#insurance").val();
+                var threshold = $("#threshold").val();
+                $.ajax({
+                   type: "POST",
+                   url: "/index.php?c=taxtool&m=ajax_wages",
+                   data: {'money':money,'insurance':insurance,'threshold':threshold},
+                   dataType: "JSON",
+                   success: function(data){ 
+                    $("#yingnashui").html(data['yingnashui']);
+                    $("#rate").html(data['rate']);
+                    $("#susuan").html(data['susuan']);
+                    $("input[name=yingjiao]").val(data['yingjiao']);
+                    $("input[name=income]").val(data['income']);
+                  }
+               });
+            })
+            
+        })
+
+    </script>
+
+    {template "footer1.html"}

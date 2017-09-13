@@ -1,0 +1,152 @@
+@charset "utf-8";
+body { margin:0; padding:0; font-size:12px; font-family:"宋体"; background-color:#FFFFFF; color:#333333;
+}
+p,ul,li{ margin:0; padding:0; list-style:none;}
+img{ border:none;}
+a{ color:#333333; text-decoration:none;}
+a:hover{ color:#FF0000; text-decoration:none;}
+.gb_top{
+	height:90px;
+	background-image: url(../images/gb_top_bg.jpg);
+	background-repeat: repeat-x;
+	background-position: center center;
+}
+.gb_topn{ margin:0 100px; height:90px;}
+.gb_topn_l{ width:20%; margin-top:15px;float:left;}
+.gb_topn_r{ width:70%;height:90px; margin:0;float:right;}
+.gb_yuyan{ width:300px;font-family:"微软雅黑"; padding-top:10px; padding-left:65%;}
+.gb_search{
+	height:31px;
+	background-image: url(../images/gb_search_bg.jpg);
+	background-repeat: repeat-x;
+	background-position: center center;
+	width:90px;
+	color:#555555;
+	border:none;
+    line-height:30px;
+}
+.gb_dh{ padding-top:10px;}
+.gb_dh ul li{ width:115px; text-align:center; line-height:30px; height:30px; font-size:14px; font-family:"楷体"; font-weight:bold; float:left;}
+.gb_banner{ height:725px; }
+.gb_news{ height:40px; background-color:#1F2A4A;}
+.gb_newsn{ height:40px; width:100%; margin:0 auto;}
+.gb_news_l{ position:absolute; margin-left:10%; width: 700px; height:40px; float:left; line-height:40px;font-size:18px; font-family:"楷体";}
+.gb_news_r{ position:absolute; margin-left:72%; height:30px; float:left; padding-top:10px; text-align:right;}
+.gb_footer{ width:100%;background-color:#FFFFFF;margin:0 auto; height:34px;text-align:center}
+.gb_footer_l{position:absolute; margin-left: 10%; height:34px; float:left; line-height:34px;font-size:18px; font-family:"楷体";}
+.gb_footer_c{ width: 300px;}
+.gb_footer_r{position:absolute; margin-left:71%; height:34px; float:left;font-size:18px; font-family:"楷体";}
+
+.ddsmoothmenu {
+    padding-top: 10px;
+}
+.ddsmoothmenu ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    margin-left: 4px;
+}
+
+/*Top level list items*/
+
+.ddsmoothmenu ul li {
+    position: relative;
+    display: inline;
+    width: 14%;
+    text-align: center;
+    line-height: 30px;
+    height: 30px;
+    font-size: 20px;
+    font-family: "楷体";
+    font-weight: bold;
+    float: left;
+}
+.ddsmoothmenu ul li.sel {
+    background: url(../images/navigation.jpg) no-repeat 50% 100%;
+}
+.ddsmoothmenu ul li.sel>a {
+    color: #ff6600;
+}
+
+/*Top level menu link items style*/
+
+.ddsmoothmenu ul li a {
+    color: #333;
+    display: block;
+    font-weight: bold;
+    font-size: 20px;
+}
+* html .ddsmoothmenu ul li a {
+    font-weight: bold;
+    display: block;
+}
+.ddsmoothmenu ul li a:link,
+.ddsmoothmenu ul li a:visited {}
+.ddsmoothmenu ul li a.selected,
+.ddsmoothmenu ul li a:hover {
+    color: #333;
+    background-image: url(../images/dh_hov.png);
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    text-decoration:none;
+}
+
+/*1st sub level menu*/
+
+.ddsmoothmenu ul li ul {
+    position: absolute;
+    left: 0;
+    display: none;
+    visibility: hidden;
+    background: none;
+}
+
+/*Sub level menu list items (undo style from Top level List Items)*/
+
+.ddsmoothmenu ul li ul li {
+    display: list-item;
+    float: none;
+    background: none;
+    height: 34px;
+    line-height: 34px;
+    width: 120px;
+    margin-left: 0px;
+}
+
+/*All subsequent sub menu levels vertical offset after 1st level sub menu */
+
+.ddsmoothmenu ul li ul li ul {
+    top: 0;
+    margin-left: 30px;
+}
+
+/* Sub level menu links style */
+
+.ddsmoothmenu ul li ul li a {
+    background: url(../images/navigationbg.png) repeat 0 0;
+    border-top-width: 0;
+    color: #fff;
+    font-size: 16px;
+    font-weight: normal;
+    margin: 0;
+    width: 150px;
+    margin-left: 0px;
+}
+
+/* Sub level menu links style */
+
+.ddsmoothmenu ul li ul li a.selected {
+    background: url(../images/navigationbg_sel.png) repeat 0 0;
+    color: #CCCCCC;
+}
+.ddsmoothmenu ul li ul li a:hover {
+    background: url(../images/navigationbg_sel.png) repeat 0 0;
+    color: #fff;
+    font-weight: normal;
+}
+
+/* Holly Hack for IE \*/
+
+* html .ddsmoothmenu {
+    height: 1%;
+}

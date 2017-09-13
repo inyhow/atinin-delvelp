@@ -1,0 +1,3 @@
+{list action=hits module=news field=title,url,hits,week_hits order=week_hits  num=10}
+<li><span>{$key+1}</span><a href="{$t.url}" target="_blank">{$t.title}</a></li>
+{/list} {$sql}

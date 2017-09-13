@@ -1,0 +1,9 @@
+{loop $list $t}
+<tr id="dr_row_{$t.id}">
+	<td class=""><div class="dr_title"><a href="{$t.url}" title="{$t.title}" target="_blank">{dr_keyword_highlight($t.title, $get.kw)}</a></div></td>
+	<td class="">{$t.comments}</td>
+	<td class="">
+        <a href="{$t.url}" title="{$t.title}" target="_blank" class="btn btn-warning btn-xs" ><i class="fa fa-search"></i> >访问</a>
+    </td>
+</tr>
+{/loop}

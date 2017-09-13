@@ -1,0 +1,257 @@
+{template "header1_b.html"}
+      
+    <!--slogan-->
+    <div class="sloganWrapper"> 
+    </div>
+    
+                <div class="iiTax taxTool  clear">
+              <h1 > 
+                    <span class="taxTool_title on">个人所得税</span>
+                  
+                    <span class="more">
+                      <img src="{THEME_PATH}home/img/icon_home.png">
+                     <a >您所在的位置</a>：<a href="/">首页  </a> > <a href="/index.php?c=taxtool">财税工具  </a> > <a > 个人所得税</a>
+                    </span>
+              </h1>
+              <div class="iiTaxWrapper">
+                    <div class="iiTax01">
+                        <section class="iiTaxCalculator">
+                            <div class="iiTax_title">劳务报酬所得税计算器</div>
+                            <div class="row03Box clear">
+                                  <div class="row03 clear">
+                                      <div class="text">收入类型</div>
+                                      <div class="input dropDownMenu02 ">
+                                        <input  class="dropDownText dropDownButton" value="劳务报酬所得" type="" name="" readonly="readonly">
+                                        <span class="dropDownButton addon">
+                                          <img src="{THEME_PATH}home/img/triangle06.png">
+                                        </span>
+                                        <ul id="iiTax_type" class="dropDownList" style="display: none;">
+                                        <li data-name="m_wages" class="on">工资、薪金所得（月薪）
+                                        </li>
+                                        <li data-name="m_bonus" >年终奖个人所得税</li>
+                                        <li data-name="m_labor_remuneration" >劳务报酬所得</li>
+                                        <li data-name="m_franchise" >特许权使用费所得</li>
+                                        <li data-name="m_property_lease" >财产租赁</li>
+                                        <li data-name="m_property_transfer" >财产转让所得税</li>
+                                        <li data-name="m_interest" >利息、股息、红利所得</li>
+                                        <li data-name="m_accidental" >偶然所得税（中彩，中奖税）</li>
+                                    </ul>
+                                        
+
+                                      </div>
+                                      
+                                  </div>
+                                  <div class="row03 clear">
+                                      <div class="text">收入金额</div>
+                                      <div class="input ">
+                                        <input class="num" placeholder="" type="text" id="money" name="money" value="">
+                                        <span class="addon"></span>
+                                        <span style="padding-left:10px;line-height:33px;">
+                                        元</span>
+                                      </div>
+                                  </div>
+                                  
+                                  <div class="row03 clear">
+                                      <div class="text"></div>
+                                      <div class="input">
+                                          <div class="btnBox02">
+                                            <a class="orangeBg" id="calculate" href="javascript:;" >计算</a>
+                                            <a class="greenBg reset" href="#">重置</a>
+                                          </div>
+                                          
+                                      </div>
+                                  </div>
+                                  
+                            </div>
+                            
+                        </section>
+
+                        <section class="iiTaxResult">
+                            <div class="iiTax_title">计算结果</div>
+                            <div class="row03Box clear">
+                                  <div class="row03 clear">
+                                      <div class="text">减除费用</div>
+                                      <div class="input">
+                                          <span class="r_text" id="jianchu" style="">0</span>
+                                          <span class="r_text">元</span>
+                                      </div>
+                                  </div>
+                                  <div class="row03 clear">
+                                      <div class="text">应纳税所得额</div>
+                                      <div class="input">
+                                          <span class="r_text" id="yingnashui" style="">0</span>
+                                          <span class="r_text">元</span>
+                                      </div>
+                                  </div>
+                                  <div class="row03 clear">
+                                      <div class="text">适用税率</div>
+                                      <div class="input">
+                                          <span class="r_text" id="rate" style="">0</span>
+                                          <span class="r_text">%</span>
+                                      </div>
+                                  </div>
+                                  <div class="row03 clear">
+                                      <div class="text">速算扣除数</div>
+                                      <div class="input">
+                                          <span class="r_text" id="susuan" style="">0</span>
+                                          <span class="r_text">元</span>
+                                      </div>
+                                  </div>
+                                  <div class="row03 clear">
+                                      <div class="text">应缴税款
+</div>
+                                      <div class="input">
+                                        <input type="text" name="yingjiao" value=""><span class="addon"></span><span style="padding-left:10px;line-height:33px;">
+                                        元</span></div>
+                                  </div>
+                                  <div class="row03 clear">
+                                      <div class="text">税后收入</div>
+                                      <div class="input">
+                                        <input type="text" name="income" value=""><span class="addon"></span><span style="padding-left:10px;line-height:33px;">
+                                        元</span>
+                                      </div>
+                                  </div>
+                                  
+                            </div>
+                            
+                        </section>
+
+                    </div>
+                    <div class="iiTax02 clear">
+                        <section class="">
+                            <div class="iiTax_title">计算公式</div>
+                            <div class="iiTax_text">
+                                <p class="strong">应纳税所得额 = 劳务报酬（少于4000元） - 800元</p>
+                                <p class="strong">应纳税所得额 = 劳务报酬（超过4000元） × （1 - 20%）</p>
+                                <p class="strong">应纳税额 = 应纳税所得额 × 适用税率 - 速算扣除数</p>
+                                <p>说明：</p>
+                                <p>1、劳务报酬所得在800元以下的，不用缴纳个人所得税;</p>
+                                <p>2、劳务报酬所得大于800元且没有超过4000元，可减除800元的扣除费用;</p>
+                                <p>3、劳务报酬所得超过4000元的，可减除劳务报酬收入20%的扣除费用;</p>
+                                
+                            </div>
+                            
+                        </section>
+                    </div>
+                    
+                    <div class="iiTax02 clear">
+                        <section class="">
+                            <div class="iiTax_title">劳务报酬所得简介</div>
+                            <div class="iiTax_text">
+                                
+                                <p class="iiTax_h">一、征收范围</p>
+                                <p>劳务报酬所得，是指个人从事设计、装潢、安装、制图、化验、测试、医疗、法律、会计、咨询、讲学、新闻、广播、翻译、审稿、书画、雕刻、影视、录音、录像、演出、表演、广告、展览、技术服务、介绍服务、经纪服务、代办服务以及其他劳务取得的所得。</p>
+                                <p class="iiTax_h">二、税率</p>
+                                <p>
+年终奖所得，将年终奖金额除以12个月，以每月平均收入金额来确定税率和速度扣除数，年终奖所得税率表与工资、薪金所得的税率表相同，只是他们的计 算方式不同。</p>
+                            </div>
+
+                            <div class="table_head">个人所得税税率表（一）</div>
+                            <table class="table_iiTax">
+                            <thead>
+                              <tr>
+                                <th>级数 </th>
+                                <th>含税级距   </th>
+                               
+                                <th>不含税级距 </th>
+                                <th>税率(%)</th>
+                                <th>速算扣除数</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                                <tr >
+                                <td>1</td>
+                                <td>不超过20,000元的</td>
+                                
+                                <td>不超过16,000元的 </td>
+                                <td>20</td>
+                                <td>0</td>
+                              </tr>
+                               
+                               <tr >
+                                <td>2   </td>
+                                <td>超过20,000元到50,000元的部分  </td>
+                                
+                                <td>超过16,000元至37,000元的部分   </td>
+                                <td>30</td>
+                                <td>2,000</td>
+                              </tr>
+                               <tr >
+                                <td>3 </td>
+                                <td>超过50,000元的部分</td>
+                               
+                                <td>超过37,000元的部分 </td>
+                                <td>40</td>
+                                <td>7,000</td>
+                              </tr>
+                               
+                               
+                            </tbody>
+                              
+                            
+                         </table>
+                         <div class="t_comments">
+                             <div style="line-height:30px;">
+                                说明：  
+                             </div>
+                             <div>
+                               <p>1、表中的含税级距、不含税级距，均为按照税法规定减除有关费用后的所得额。</p>
+                               <p>2、含税级距适用于由纳税人负担税款的劳务报酬所得；不含税级距适用于由他人(单位)代付税款的劳务报酬所得。 </p>
+                             </div>
+           
+                         </div>
+
+                         <div class="iiTax_text">
+                                
+                                <p class="iiTax_h">三、应纳税所得额及应纳税额的计算</p>
+                                <p>劳务报酬所得按次计算纳税，每次收入额不超过4000元的，减除费用800元，收入额超过4000元 的，减除20%的费用，余额为应纳税所得额。</p>
+                                <p>应纳税额 = 应纳税所得额×适用税率 - 速算扣除数</p>
+                                
+                                <p class="iiTax_h">四、加成征收</p>
+                                <p>而劳务报酬所得适用比例税率，税率为20%，对劳动报酬所得一次收入畸高的，实行加成征收，即：应纳税所得额超过2万元到5万元的部分，加征五成（即税率为30%），超过5万元的部分加征十成（即税率为40%）。</p>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="iiTax02 clear">
+                        <section class="">
+                            <div class="iiTax_title">案例说明</div>
+                            <div class="iiTax_text">
+                                <p class="text">1、张三因给某电子公司提供技术支持工作，收取了5000元的劳务报酬，其劳务报酬收入所得金额超过4000元，应纳多少个税？</p>
+                                <p class="text">应纳税所得额 = 劳务报酬（超过4000元） × （1 - 20%） = 5000 × （1 - 20%） = 4000元，应纳税所得额4000元没有超过20000元，处在劳务税率表的一级，适用20%税率，速算扣除数为0元，应纳税额 = 应纳税所得额 × 适用税率 - 速算扣除数 = 4000× 20% - 0 = 800元。</p>
+                                
+                            </div>
+                            
+                        </section>
+                    </div>
+
+                    
+              </div> 
+        </div>
+             
+    <script type="text/javascript">
+        $(function(){
+            $(".container .post_demands img").click();
+
+            $("#calculate").click(function(){
+                var money = $("#money").val();
+                $.ajax({
+                   type: "POST",
+                   url: "/index.php?c=taxtool&m=ajax_labor_remuneration",
+                   data: {'money':money},
+                   dataType: "JSON",
+                   success: function(data){ 
+                    $("#jianchu").html(data['jianchu']);
+                    $("#yingnashui").html(data['yingnashui']);
+                    $("#rate").html(data['rate']);
+                    $("#susuan").html(data['susuan']);
+                    $("input[name=yingjiao]").val(data['yingjiao']);
+                    $("input[name=income]").val(data['income']);
+                  }
+               });
+            })
+            
+        })
+
+    </script>
+
+    {template "footer1.html"}

@@ -1,0 +1,179 @@
+{template "header1_b.html"}
+      
+    <!--slogan-->
+    <div class="sloganWrapper">
+        <!-- <div class="ad11 " >
+          <img src="{THEME_PATH}home/img/ad11.png" style="width:100%;height: 100%;">
+         
+        </div>   -->
+    </div>
+    
+                <div class="iiTax taxTool  clear">
+              <h1 > 
+                    <span class="taxTool_title on">个人所得税</span>
+                  
+                    <span class="more">
+                      <img src="{THEME_PATH}home/img/icon_home.png">
+                      <a >您所在的位置</a>：<a href="/">首页  </a> > <a href="/index.php?c=taxtool">财税工具  </a> > <a > 个人所得税</a>
+                    </span>
+              </h1>
+              <div class="iiTaxWrapper">
+                    <div class="iiTax01">
+                        <section class="iiTaxCalculator">
+                            <div class="iiTax_title">财产转让所得税计算器</div>
+                            <div class="row03Box clear">
+                                  <div class="row03 clear">
+                                      <div class="text">收入类型</div>
+                                      <div class="input dropDownMenu02 ">
+                                        <input  class="dropDownText dropDownButton" value="财产转让所得税" type="" name="" readonly="readonly">
+                                        <span class="dropDownButton addon">
+                                          <img src="{THEME_PATH}home/img/triangle06.png">
+                                        </span>
+                                        <ul id="iiTax_type" class="dropDownList" style="display: none;">
+                                        <li data-name="m_wages" class="on">工资、薪金所得（月薪）
+                                        </li>
+                                        <li data-name="m_bonus" >年终奖个人所得税</li>
+                                        <li data-name="m_labor_remuneration" >劳务报酬所得</li>
+                                        <li data-name="m_franchise" >特许权使用费所得</li>
+                                        <li data-name="m_property_lease" >财产租赁</li>
+                                        <li data-name="m_property_transfer" >财产转让所得税</li>
+                                        <li data-name="m_interest" >利息、股息、红利所得</li>
+                                        <li data-name="m_accidental" >偶然所得税（中彩，中奖税）</li>
+                                    </ul>
+                                        
+
+                                      </div>
+                                      
+                                  </div>
+                                  <div class="row03 clear">
+                                      <div class="text">收入金额</div>
+                                      <div class="input ">
+                                        <input class="num" placeholder="" type="text" id="money" name="money" value="">
+                                        <span class="addon"></span>
+                                        <span style="padding-left:10px;line-height:33px;">
+                                        元</span>
+                                      </div>
+                                  </div>
+                                  
+                                  <div class="row03 clear">
+                                      <div class="text"></div>
+                                      <div class="input">
+                                          <div class="btnBox02">
+                                            <a class="orangeBg" id="calculate" href="javascript:;" >计算</a>
+                                            <a class="greenBg reset" href="#">重置</a>
+                                          </div>
+                                          
+                                      </div>
+                                  </div>
+                                  
+                            </div>
+                            
+                        </section>
+
+                        <section class="iiTaxResult">
+                            <div class="iiTax_title">财产转让所得计算结果</div>
+                            <div class="row03Box clear">
+                                  <div class="row03 clear">
+                                      <div class="text">应纳税所得额</div>
+                                      <div class="input">
+                                          <span class="r_text" id="yingnashui" style="">0</span>
+                                      <span class="r_text">元</span>
+                                      </div>
+                                  </div>
+                                 
+                                  <div class="row03 clear">
+                                      <div class="text">适用税率</div>
+                                      <div class="input">
+                                          <span class="r_text" id="rate" style="">0</span>
+                                      <span class="r_text">%</span>
+                                      </div>
+                                  </div>
+                                  
+                                  <div class="row03 clear">
+                                      <div class="text">应缴税款
+</div>
+                                      <div class="input">
+                                        <input type="text" name="yingjiao" value=""><span class="addon"></span><span style="padding-left:10px;line-height:33px;">
+                                        元</span></div>
+                                  </div>
+                                  <div class="row03 clear">
+                                      <div class="text">税后收入</div>
+                                      <div class="input">
+                                        <input type="text" name="income" value=""><span class="addon"></span><span style="padding-left:10px;line-height:33px;">
+                                        元</span>
+                                      </div>
+                                  </div>
+                                  
+                            </div>
+                            
+                        </section>
+
+                    </div>
+                    <div class="iiTax02 clear">
+                        <section class="">
+                            <div class="iiTax_title">财产转让计算公式</div>
+                            <div class="iiTax_text">
+                                <p class="strong">应纳税所得额 = 财产转让收入金额 - 财产原值 - 相关税费及装修费等</p>
+                                <p class="strong">应纳税额 = 应纳税所得额 × 税率（20%）</p>
+                                
+                            </div>
+                            
+                        </section>
+                    </div>
+
+                    <div class="iiTax02 clear">
+                        <section class="">
+                            <div class="iiTax_title">财产转让所得简介</div>
+                            <div class="iiTax_text">
+                                
+                                <p class="iiTax_h">一、征收范围</p>
+                                <p>财产转让所得，是指个人转让有价证券、股权、建筑物、土地使用权、机器设备、车船以及其他财产取得的所得。 目前，除了股票转让所得晢不征收个人所得税以外，个人取得的其他各项财产转让所得，都要缴纳个人所得税。</p>
+
+                                <p class="iiTax_h">二、税率</p>
+                                <p>财产转让所得，适用20%的比例税率</p>
+
+                                <p class="iiTax_h">三、应纳税所得额及应纳税额的计算</p>
+                                <p>应纳税额 = 应纳税所得额×适用税率 = （财产转让收入 - 财产原值 - 按规定支付的有关税费）× 20%</p>
+                            </div>
+                        </section>
+                    </div>
+
+                    
+                    <div class="iiTax02 clear">
+                        <section class="">
+                            <div class="iiTax_title">财产转让案例说明</div>
+                            <div class="iiTax_text">
+                                <p >1、王五今年2016年出售自己的一套二手房，当时新购时花费50万元，缴纳各税费3万元，自己又装修房子花费7万元，现在房子成交价格为100万元，应缴纳多少个税呢？
+</p>
+                                <p>根据我国个人所得税法，二手房交易收入所得属于财产转让所得范围，需缴纳个税，应纳税所得额 = 财产转让收入金额 - 财产原值 - 相关税费及装修费等 = 100万 - 50万 - （3万 + 7万） = 40万，应纳税额 = 应纳税所得额 × 税率（20%）= 40万 × 20% = 8万。</p>
+                            </div>
+                            
+                        </section>
+                    </div>
+                    
+              </div> 
+        </div>
+             
+    <script type="text/javascript">
+        $(function(){
+            $(".container .post_demands img").click();
+
+            $("#calculate").click(function(){
+                var money = $("#money").val();
+                $.ajax({
+                   type: "POST",
+                   url: "/index.php?c=taxtool&m=ajax_property_transfer",
+                   data: {'money':money},
+                   dataType: "JSON",
+                   success: function(data){ 
+                    $("#yingnashui").html(data['yingnashui']);
+                    $("#rate").html(data['rate']);
+                    $("input[name=yingjiao]").val(data['yingjiao']);
+                    $("input[name=income]").val(data['income']);
+                  }
+               });
+            })
+            
+        })
+    </script>
+    {template "footer1.html"}

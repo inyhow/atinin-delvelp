@@ -1,0 +1,196 @@
+{template "header.html"}
+<div class="home_banners">
+    <link rel="stylesheet" href="skin/css/iview.css" />
+    <link rel="stylesheet" href="skin/css/style2.css" />    
+    <link rel="stylesheet" href="skin/css/style.css" />
+    <script type="text/javascript" src="skin/js/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="skin/js/raphael-min.js"></script>
+    <script type="text/javascript" src="skin/js/jquery.easing.js"></script>
+    <script type="text/javascript" src="skin/js/iview.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#iview').iView({
+                strips: 20,
+                blockCols: 20,
+                blockRows: 3,
+                pauseTime: 7000,
+                pauseOnHover: true,
+                directionNavHoverOpacity: 0,
+                timer: "Bar",
+                timerDiameter: 120,
+                timerPadding: 3,
+                timerStroke: 4,
+                timerBarStroke: 0,
+                timerColor: "#0F0",
+                timerPosition: "bottom-right"
+            });
+            $('#iview2').iView({
+                pauseTime: 5000,
+                pauseOnHover: true,
+                directionNavHoverOpacity: 0,
+                controlNav: true,
+                controlNavNextPrev: false,
+                controlNavTooltip: false,
+                timer: "360Bar",
+                timerDiameter: 30,
+                timerPadding: 3,
+                timerStroke: 4,
+                timerBarStroke: 0,
+                timerColor: "#0F0",
+                timerPosition: "top-right"
+            });
+        });
+    </script>
+    <div id="iview2" class="iview" style="z-index:100;">
+        {if get_ad_status(24)} {php $poster = dr_poster_list(24, 55);} {loop $poster $i $t}
+        <div data-iview:image="{$t.file}">
+            <a href="{$t.url}" style="position:fixed;width:1920px; height:384px; left:50%;margin-left:-960px;  ">.</a>
+        </div>
+        {/loop} {/if}
+    </div>
+</div>
+<div class="show">
+    <div class="show-box">
+        <div class="show-c">
+            <div class="show-big-box">
+                <ul>
+                    <li class="show-big-o">
+                        <div style="min-height:30px;position:relative;">
+                            <div class="edit_putHere  block_area" rel="34" id="34" saveTitle="area34" style="width:292px;height:334px;z-index:-100;left:0px;top:55px;position:absolute;background: url(skin/images/tmp1481793800_1345575_s.png) no-repeat center center; ">
+                                <div class="label advertising " id="36" titles="图片" usestate="1" style='width:150px;height:150px;z-index:-100;left:70px;top:-55px;position:absolute;margin-left:0px;'>
+                                    <div class="advContent picture36"><img width="100%" height="100%" src="skin/images/c1.png" alt="" /></div>
+                                </div>
+                                <div class="label advertising" id="37" rel="37.htm" titles="文字" usestate="1" style='width:200px;height:210px;z-index:-100;left:50px;top:119px;position:absolute;margin-left:0px;'>
+                                    <div class="label_content advContent text37">
+                                        <p style="text-align:center;">
+                                            <span style="font-size:22px;font-family:'Microsoft YaHei';line-height:2;color:#000;">进出口服务</span>
+                                        </p>
+                                        <p style="text-align:left;">
+                                            <span style="font-size:14px;color:#000;font-family:'Microsoft YaHei';line-height:2;">联标发展与合作伙伴签订合作协议，在合作伙伴和监管部门之间搭建高效的通关服务平台</span>
+                                        </p>
+                                        <p style="text-align:center;">
+                                            <br />
+                                            <span style="font-size:14px;color:#000;font-family:'Microsoft YaHei';line-height:2;"><a href="{dr_cat_value(1, 'url')}"><img src="skin/images/arrow.png"/>点击了解详情</a></span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="edit_putHere  block_area" rel="42" id="42" saveTitle="area42" style="width:292px;height:334px;z-index:101;left:301px;top:55px;position:absolute;background: url(skin/images/ss.png) no-repeat center center; ">
+                                <div class="label advertising " id="44" titles="图片" usestate="1" style='width:150px;height:150px;z-index:-100;left:68px;top:-55px;position:absolute;margin-left:0px;'>
+                                    <div class="advContent picture44"><img width="100%" height="100%" src="skin/images/c2.png" alt="" /></div>
+                                </div>
+                                <div class="label advertising" id="45" rel="45.htm" titles="文字" usestate="1" style='width:200px;height:210px;z-index:-100;left:50px;top:119px;position:absolute;margin-left:0px;'>
+                                    <div class="label_content advContent text45">
+                                        <p style="text-align:center;">
+                                            <span style="font-size:22px;font-family:'Microsoft YaHei';line-height:2;color:#000;">分销执行</span>
+                                        </p>
+                                        <p style="text-align:left;">
+                                            <span style="font-size:14px;color:#000;font-family:'Microsoft YaHei';line-height:2;">合作伙伴一对多的销售模式简便为一对一的销售模式，让合作伙伴专注市场拓展</span>
+                                        </p>
+                                        <p style="text-align:center;">
+                                            <br />
+                                            <span style="font-size:14px;color:#000;font-family:'Microsoft YaHei';line-height:2;"><img src="skin/images/arrow.png"/>点击了解详情</span>
+                                        </p>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="edit_putHere  block_area" rel="50" id="50" saveTitle="area50" style="width:292px;height:334px;z-index:102;left:605px;top:55px;position:absolute;background: url(skin/images/tmp1481793800_1345575_s.png) no-repeat center center; ">
+                                <div class="label advertising " id="52" titles="图片" usestate="1" style='width:150px;height:150px;z-index:-100;left:70px;top:-55px;position:absolute;margin-left:0px;'>
+                                    <div class="advContent picture52"><img width="100%" height="100%" src="skin/images/c3.png" alt="" /></div>
+                                </div>
+                                <div class="label advertising" id="53" rel="53.htm" titles="文字" usestate="1" style='width:200px;height:210px;z-index:-100;left:50px;top:119px;position:absolute;margin-left:0px;'>
+                                    <div class="label_content advContent text53">
+                                        <p style="text-align:center;">
+                                            <span style="font-size:22px;font-family:'Microsoft YaHei';line-height:2;color:#000;">采购执行</span>
+                                        </p>
+                                        <p style="text-align:left;">
+                                            <span style="font-size:14px;color:#000;font-family:'Microsoft YaHei';line-height:2;">合作伙伴一对多的采购模式简便为一对一的采购模式，简化采购手续，合作伙伴专注于核</span>
+                                        </p>
+                                        <p style="text-align:center;">
+                                            <br />
+                                            <span style="font-size:14px;color:#000;font-family:'Microsoft YaHei';line-height:2;"><img src="skin/images/arrow.png"/>点击了解详情</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>    
+<div class="show">
+    <div class="show-box">
+        <div class="show-c">
+            <div class="show-big-box">
+                <ul>
+                    <li class="show-big-o">
+                        <div style="min-height:30px;position:relative;">
+                            <div class="edit_putHere  block_area" rel="34" id="34" saveTitle="area34" style="width:292px;height:334px;z-index:-100;left:0px;top:55px;position:absolute;background: url(skin/images/tmp1481793800_1345575_s.png) no-repeat center center; ">
+                                <div class="label advertising " id="36" titles="图片" usestate="1" style='width:150px;height:150px;z-index:-100;left:70px;top:-55px;position:absolute;margin-left:0px;'>
+                                    <div class="advContent picture36"><img width="100%" height="100%" src="skin/images/c4.png" alt="" /></div>
+                                </div>
+                                <div class="label advertising" id="37" rel="37.htm" titles="文字" usestate="1" style='width:200px;height:210px;z-index:-100;left:50px;top:119px;position:absolute;margin-left:0px;'>
+                                    <div class="label_content advContent text37">
+                                        <p style="text-align:center;">
+                                            <span style="font-size:22px;font-family:'Microsoft YaHei';line-height:2;color:#000;">海外仓储</span>
+                                        </p>
+                                        <p style="text-align:left;">
+                                            <span style="font-size:14px;color:#000;font-family:'Microsoft YaHei';line-height:2;">快速到货的运输时间；本土派送运费取代国际运费；提供更完善的买家售后退、换货服务</span>
+                                        </p>
+                                        <p style="text-align:center;">
+                                            <br />
+                                            <span style="font-size:14px;color:#000;font-family:'Microsoft YaHei';line-height:2;"><img src="skin/images/arrow.png"/>点击了解详情</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="edit_putHere  block_area" rel="42" id="42" saveTitle="area42" style="width:292px;height:334px;z-index:101;left:301px;top:55px;position:absolute;background: url(skin/images/ss.png) no-repeat center center; ">
+                                <div class="label advertising " id="44" titles="图片" usestate="1" style='width:150px;height:150px;z-index:-100;left:68px;top:-55px;position:absolute;margin-left:0px;'>
+                                    <div class="advContent picture44"><img width="100%" height="100%" src="skin/images/c5.png" alt="" /></div>
+                                </div>
+                                <div class="label advertising" id="45" rel="45.htm" titles="文字" usestate="1" style='width:200px;height:210px;z-index:-100;left:50px;top:119px;position:absolute;margin-left:0px;'>
+                                    <div class="label_content advContent text45">
+                                        <p style="text-align:center;">
+                                            <span style="font-size:22px;font-family:'Microsoft YaHei';line-height:2;color:#000;">供应链管理</span>
+                                        </p>
+                                        <p style="text-align:left;">
+                                            <span style="font-size:14px;color:#000;font-family:'Microsoft YaHei';line-height:2;">集中的数量优势避免复制，集中采购形成规模运输从而降低运输成本</span>
+                                        </p>
+                                        <p style="text-align:center;">
+                                            <br />
+                                            <span style="font-size:14px;color:#000;font-family:'Microsoft YaHei';line-height:2;"><img src="skin/images/arrow.png"/>点击了解详情</span>
+                                        </p>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="edit_putHere  block_area" rel="50" id="50" saveTitle="area50" style="width:292px;height:334px;z-index:102;left:605px;top:55px;position:absolute;background: url(skin/images/tmp1481793800_1345575_s.png) no-repeat center center; ">
+                                <div class="label advertising " id="52" titles="图片" usestate="1" style='width:150px;height:150px;z-index:-100;left:70px;top:-55px;position:absolute;margin-left:0px;'>
+                                    <div class="advContent picture52"><img width="100%" height="100%" src="skin/images/c6.png" alt="" /></div>
+                                </div>
+                                <div class="label advertising" id="53" rel="53.htm" titles="文字" usestate="1" style='width:200px;height:210px;z-index:-100;left:50px;top:119px;position:absolute;margin-left:0px;'>
+                                    <div class="label_content advContent text53">
+                                        <p style="text-align:center;">
+                                            <span style="font-size:22px;font-family:'Microsoft YaHei';line-height:2;color:#000;">跨境电商</span>
+                                        </p>
+                                        <p style="text-align:left;">
+                                            <span style="font-size:14px;color:#000;font-family:'Microsoft YaHei';line-height:2;">联标发展专业的运营团队，应客户需求提供专业报关服务，并提供相应增值服务；同时，...</span>
+                                        </p>
+                                        <p style="text-align:center;">
+                                            <br />
+                                            <span style="font-size:14px;color:#000;font-family:'Microsoft YaHei';line-height:2;"><img src="skin/images/arrow.png"/>点击了解详情</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>  
+{template "footer1.html"}

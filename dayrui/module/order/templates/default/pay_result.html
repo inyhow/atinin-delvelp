@@ -1,0 +1,37 @@
+{template header2.html}
+<div class="box_row banner05" style="border-top: 4px solid #f48000;">
+</div>
+<div class="row">
+    <div class="col-md-12">
+    
+	    {if $pay.name=="微信支付"}
+	    	<div class="wPay">
+	          <img src="{THEME_PATH}home/img/wPay.png">
+	          <img style="width:40px;height:20px;margin-top:5px;" src="{THEME_PATH}home/img/r.png">
+	          <span style="color:#999;position:relative;top:5px;font-size:12px;">亿万用户的选择,更快更安全</span>
+	          <!-- <span style="color:#999;font-size:15px;float:right;">支付<span style="color:#f48000;font-weight:600;font-size:18px;">￥{$pay.money}</span>元</span>   -->
+	        </div>
+	        <style type="text/css">
+	          .wPay{height: 29px;
+	          line-height: 54px;}
+	          .wPay img{
+	             vertical-align: middle;
+
+	          }
+	          #qrcode img{
+	          	width:210px;
+	          	height: 210px;
+	          }
+	          .pay_info{
+	          	margin-top:50px;
+	          	font-size: 16px;
+	          }
+	        </style>
+	    {/if}
+
+        {$pay.html}
+
+    </div>
+</div>
+
+{template footer1.html}

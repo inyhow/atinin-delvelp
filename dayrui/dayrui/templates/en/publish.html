@@ -1,0 +1,97 @@
+{template "header.html", "/"}
+<link href="skin/css/pubstyle.css" rel="stylesheet" type="text/css" media="all" />
+{if get_ad_status(1)} 
+{php $poster = dr_poster_list(3, 1);} 
+{loop $poster $i $t}
+<div style="background:url({$t.file}) center center no-repeat; height:382px;"></div>
+{/loop} 
+{/if}
+<div class="control">
+    <div class="content">
+        <div class="contentone">
+            {list action=sql sql='select * from  @#2_page where id=4'}
+            <a href="{$t.url}"><img src="{dr_thumb($t.thumb)}" alt="" /></a>
+            <h4>
+				<span style="font-family:微软雅黑;font-size:18px;text-align:left;">| <a href="{$t.url}">{$t.name}</a></span> 
+			</h4>
+            <h5>
+                <p style="font-family:微软雅黑;font-size:14x;text-align:left;line-height:20px">
+                {dr_strcut(dr_clearhtml($t.description),150)}
+                </p>
+			</h5>
+            {/list}
+            {$error}            
+        </div>
+        <div class="contenttwo">
+            {list action=sql sql='select * from  @#2_page where id=5'}
+            <a href="{$t.url}"><img src="{dr_thumb($t.thumb)}" alt="" /></a>
+            <h4>
+				<span style="font-family:微软雅黑;font-size:18px;text-align:left;">| <a href="{$t.url}">{$t.name}</a></span> 
+			</h4>
+            <h5>
+                <p style="font-family:微软雅黑;font-size:14x;text-align:left;line-height:20px">
+                {dr_strcut(dr_clearhtml($t.description),150)}
+                </p>
+			</h5>
+            {/list}
+            {$error}  
+        </div>
+        <div class="contentone">
+            {list action=sql sql='select * from  @#2_page where id=6'}
+            <a href="{$t.url}"><img src="{dr_thumb($t.thumb)}" alt="" /></a>
+            <h4>
+				<span style="font-family:微软雅黑;font-size:18px;text-align:left;">| <a href="{$t.url}">{$t.name}</a></span> 
+			</h4>
+            <h5>
+                <p style="font-family:微软雅黑;font-size:14x;text-align:left;line-height:20px">
+                {dr_strcut(dr_clearhtml($t.description),150)}
+                </p>
+			</h5>
+            {/list}
+            {$error}  
+        </div>
+        <div class="contenttwo">
+            {list action=sql sql='select * from  @#2_page where id=7'}
+            <a href="{$t.url}"><img src="{dr_thumb($t.thumb)}" alt="" /></a>
+            <h4>
+				<span style="font-family:微软雅黑;font-size:18px;text-align:left;">| <a href="{$t.url}">{$t.name}</a></span> 
+			</h4>
+            <h5>
+                <p style="font-family:微软雅黑;font-size:14x;text-align:left;line-height:20px">
+                {dr_strcut(dr_clearhtml($t.description),150)}
+                </p>
+			</h5>
+            {/list}
+            {$error}  
+        </div>
+        <div class="contentone">
+            {list action=sql sql='select * from  @#2_page where id=8'}
+            <a href="{$t.url}"><img src="{dr_thumb($t.thumb)}" alt="" /></a>
+            <h4>
+				<span style="font-family:微软雅黑;font-size:18px;text-align:left;">| <a href="{$t.url}">{$t.name}</a></span> 
+			</h4>
+            <h5>
+                <p style="font-family:微软雅黑;font-size:14x;text-align:left;line-height:20px">
+                {dr_strcut(dr_clearhtml($t.description),150)}
+                </p>
+			</h5>
+            {/list}
+            {$error}  
+        </div>
+        <div class="contenttwo">
+            {list action=sql sql='select * from  @#2_page where id=9'}
+            <a href="{$t.url}"><img src="{dr_thumb($t.thumb)}" alt="" /></a>
+            <h4>
+				<span style="font-family:微软雅黑;font-size:18px;text-align:left;">| <a href="{$t.url}">{$t.name}</a></span> 
+			</h4>
+            <h5>
+                <p style="font-family:微软雅黑;font-size:14x;text-align:left;line-height:20px">
+                {dr_strcut(dr_clearhtml($t.description),150)}
+                </p>
+			</h5>
+            {/list}
+            {$error}  
+        </div>
+    </div>
+</div>
+{template "footer1.html"}

@@ -1,0 +1,135 @@
+{template nheader.html}
+<div class="page-bar">
+    <ul class="page-breadcrumb mylink">
+        {$menu.link}
+    </ul>
+    <ul class="page-breadcrumb myname">
+        {$menu.name}
+    </ul>
+    <div class="page-toolbar">
+        <div class="btn-group pull-right">
+            <button type="button" class="btn green btn-sm btn-outline dropdown-toggle" data-toggle="dropdown" aria-expanded="false"> {fc_lang('操作菜单')}
+                <i class="fa fa-angle-down"></i>
+            </button>
+            <ul class="dropdown-menu pull-right" role="menu">
+                {loop $menu.quick $t}
+                <li>
+                    <a href="{$t.url}">{$t.icon} {$t.name}</a>
+                </li>
+                {/loop}
+                <li class="divider"> </li>
+                <li>
+                    <a href="javascript:window.location.reload();">
+                        <i class="icon-refresh"></i> {fc_lang('刷新页面')}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<h3 class="page-title">
+    <small>{lang('mod-013')}</small>
+</h3>
+<form action="" class="form-horizontal" method="post" name="myform" id="myform">
+    <input name="page" id="page" type="hidden" value="{$page}" />
+    <div class="portlet light bordered myfbody">
+        <div class="portlet-title tabbable-line">
+            <ul class="nav nav-tabs" style="float:left;">
+                {loop $module $i $t}
+                <li class="{if $page==$i}active{/if}">
+                    <a href="#tab_{$i}" data-toggle="tab" onclick="$('#page').val('{$i}')"> <i class="{$t.icon}"></i> {$t.name} </a>
+                </li>
+                {/loop}
+            </ul>
+        </div>
+        <div class="portlet-body">
+            <div class="tab-content">
+
+                {loop $module $i $t}
+                {php $dir=$t.dirname;}
+                <div class="tab-pane {if $page==$i}active{/if}" id="tab_{$i}">
+
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">{lang('mod-015')}：</label>
+                        <div class="col-md-9">
+                            <div class="radio-list">
+                                <label class="radio-inline"><input type="radio" onclick="$('#dr_use_show').show()" name="data[{$dir}][use]" value="1" {if $data[$dir]['use']}checked=""{/if}> {fc_lang('开启')} </label>
+                                <label class="radio-inline"><input type="radio" name="data[{$dir}][use]" value="0" {if !$data[$dir]['use']}checked=""{/if}> {fc_lang('关闭')} </label>
+                            </div>
+                            {if !$t.is_price}<span id="dr_use_show" class="help-block" style="color:red;{if !$data[$dir]['use']}display:none{/if}"><a href="{$t.fieldurl}" style="color:red;">{lang('mod-014')}</a></span>{/if}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">{lang('mod-027')}：</label>
+                        <div class="col-md-9">
+                            <div class="radio-list">
+                                <label class="radio-inline"><input type="radio" onclick="$('#dr_volume_show').show()" name="data[{$dir}][volume]" value="1" {if $data[$dir]['volume']}checked=""{/if}> {fc_lang('开启')} </label>
+                                <label class="radio-inline"><input type="radio" name="data[{$dir}][volume]" value="0" {if !$data[$dir]['volume']}checked=""{/if}> {fc_lang('关闭')} </label>
+                            </div>
+                            {if !$t.is_volume}<span id="dr_volume_show" class="help-block" style="color:red;{if !$data[$dir]['volume']}display:none{/if}"><a href="{$t.fieldurl}" style="color:red;">{lang('mod-028')}</a></span>{/if}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">{lang('mod-029')}：</label>
+                        <div class="col-md-9">
+                            <div class="radio-list">
+                                <label class="radio-inline"><input type="radio" onclick="$('#dr_quantity_show').show()" name="data[{$dir}][quantity]" value="1" {if $data[$dir]['quantity']}checked=""{/if}> {fc_lang('开启')} </label>
+                                <label class="radio-inline"><input type="radio" name="data[{$dir}][quantity]" value="0" {if !$data[$dir]['quantity']}checked=""{/if}> {fc_lang('关闭')} </label>
+                            </div>
+                            {if !$t.is_quantity}<span id="dr_quantity_show" class="help-block" style="color:red;{if !$data[$dir]['quantity']}display:none{/if}"><a href="{$t.fieldurl}" style="color:red;">{lang('mod-030')}</a></span>{/if}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">{fc_lang('开启物流功能')}：</label>
+                        <div class="col-md-9">
+                            <div class="radio-list">
+                                <label class="radio-inline"><input type="radio" name="data[{$dir}][shipping]" value="1" {if $data[$dir]['shipping']}checked=""{/if}> {fc_lang('开启')} </label>
+                                <label class="radio-inline"><input type="radio" name="data[{$dir}][shipping]" value="0" {if !$data[$dir]['shipping']}checked=""{/if}> {fc_lang('关闭')} </label>
+                            </div>
+                            <span class="help-block">{fc_lang('关闭之后在下订单是就不会出现物流地址的填写了')}</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">{lang('mod-160')}：</label>
+                        <div class="col-md-9">
+                            <div class="radio-list">
+                                <label class="radio-inline"><input type="radio" name="data[{$dir}][pay]" value="1" {if $data[$dir]['pay']}checked=""{/if}> {SITE_SCORE} </label>
+                                <label class="radio-inline"><input type="radio" name="data[{$dir}][pay]" value="0" {if !$data[$dir]['pay']}checked=""{/if}> {SITE_MONEY} </label>
+                            </div>
+                            <span class="help-block">{lang('mod-161')}</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">{lang('mod-162')}：</label>
+                        <div class="col-md-9">
+                            <div class="radio-list">
+                                <label class="radio-inline"><input type="radio" name="data[{$dir}][k_volume]" value="1" {if $data[$dir]['k_volume']}checked=""{/if}> {lang('mod-163')} </label>
+                                <label class="radio-inline"><input type="radio" name="data[{$dir}][k_volume]" value="0" {if !$data[$dir]['k_volume']}checked=""{/if}> {lang('mod-164')} </label>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                {/loop}
+
+
+
+            </div>
+        </div>
+    </div>
+    <div class="myfooter">
+        <div class="row">
+            <div class="portlet-body form">
+                <div class="form-body">
+                    <div class="form-actions">
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                <button type="submit" class="btn green"> <i class="fa fa-save"></i> {fc_lang('保存')}</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+{template nfooter.html}

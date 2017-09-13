@@ -1,0 +1,96 @@
+{template header.html}
+<script type="text/javascript">
+$(function() {
+});
+
+</script>
+<div class="subnav">
+	<div class="content-menu ib-a blue line-x">
+		{$menu}
+	</div>
+	<div class="bk10"></div>
+    <div class="table-list col-tab">
+        <ul class="tabBut cu-li">
+            <li class="on">{$name}</li>
+        </ul>
+        <div class="contentList pad-10">
+		<form action="" method="post" id="myform" name="myform">
+		<table width="100%" class="table_form">
+		<tr>
+			<th width="200"><font color="red">*</font>&nbsp;{fc_lang('名称')}： </th>
+			<td>
+			<input type="text" required style="width:180px;" value="{$data.name}" name="name" class="input-text" />
+			<div class="onShow">{fc_lang('给它一个描述名称')}</div>
+			</td>
+		</tr>
+        {if in_array($type, array(1,2,3,4,8))}
+            <tr class="dr_type dr_type_1">
+                <th>{fc_lang('上传附件')}： </th>
+                <td>
+                    {dr_field_input('value_file', 'file', $field['value_file']['setting'], $value.file)}
+                </td>
+            </tr>
+            <tr class="dr_type dr_type_1">
+                <th>{fc_lang('链接地址')}： </th>
+                <td>
+                    <input type="text" style="width:400px;" value="{$value.url}" name="value_url" class="input-text" />
+                </td>
+            </tr>
+        {else if $type == 6}
+            <tr class="dr_type dr_type_1">
+                <th>{fc_lang('字体颜色')}： </th>
+                <td>
+                    {dr_field_input('value_color', 'color', array(), $value.color)}
+                </td>
+            </tr>
+            <tr class="dr_type dr_type_1">
+                <th>{fc_lang('广告内容')}： </th>
+                <td>
+                    <textarea style="width:395px;height:90px" class="input-text" name="value_text">{$value.text}</textarea>
+                </td>
+            </tr>
+            <tr class="dr_type dr_type_1">
+                <th>{fc_lang('链接地址')}： </th>
+                <td>
+                    <input type="text" style="width:400px;" value="{$value.url}" name="value_url" class="input-text" />
+
+                </td>
+            </tr>
+        {else}
+            <tr class="dr_type dr_type_1">
+                <th>{fc_lang('广告内容')}： </th>
+                <td>
+                    <textarea style="width:60%;height:120px" class="input-text" name="data[value_code]">{$value.code}</textarea>
+                </td>
+            </tr>
+        {/if}
+
+            <tr>
+                <th><font color="red">*</font>&nbsp;{fc_lang('开始时间')}： </th>
+                <td>
+                    {dr_field_input('starttime', 'Date', array('option'=>array('format'=>'Y-m-d','width'=>80)), (int)$data.starttime)}
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    {fc_lang('结束时间')}： {dr_field_input('endtime', 'Date', array('option'=>array('format'=>'Y-m-d','width'=>80)), (int)$data.endtime)}
+                    <div class="onShow">{fc_lang('默认为永久')}</div>
+                </td>
+            </tr>
+        <tr>
+            <th><font color="red">*</font>&nbsp;{fc_lang('状态')}： </th>
+            <td>
+                <input type="radio" name="data[status]" value="1" {if $data['status']}checked{/if} />&nbsp;&nbsp;<label>{fc_lang('可用')}</label>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="radio" name="data[status]" value="0" {if !$data['status']}checked{/if} />&nbsp;&nbsp;<label>{fc_lang('关闭')}</label>
+
+            </td>
+        </tr>
+		<tr>
+			<th> </th>
+			<td><input value="{fc_lang('提交')}" type="submit" name="submit" class="button" />
+			</td>
+		</tr>
+		</table>
+		</form>
+	    </div>
+	</div>
+</div>
+{template footer.html}

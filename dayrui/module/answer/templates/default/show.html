@@ -1,0 +1,79 @@
+{template "header1_b.html", "/"}
+<script src="{THEME_PATH}admin/global/plugins/jquery.min.js" type="text/javascript"></script>
+<script src="{THEME_PATH}admin/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="{THEME_PATH}admin/global/plugins/js.cookie.min.js" type="text/javascript"></script>
+<script src="{THEME_PATH}admin/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
+<script src="{THEME_PATH}admin/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+<script src="{THEME_PATH}admin/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+<script src="{THEME_PATH}admin/global/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
+<script src="{THEME_PATH}admin/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
+<!-- END CORE PLUGINS -->
+<!-- BEGIN THEME GLOBAL SCRIPTS -->
+<script src="{THEME_PATH}admin/global/scripts/app.min.js" type="text/javascript"></script>
+<!-- END THEME GLOBAL SCRIPTS -->
+<!-- BEGIN THEME LAYOUT SCRIPTS -->
+<script src="{HOME_THEME_PATH}layouts/layout3/scripts/layout.min.js" type="text/javascript"></script>
+<script src="{HOME_THEME_PATH}layouts/layout3/scripts/demo.min.js" type="text/javascript"></script>
+<script src="{HOME_THEME_PATH}layouts/global/scripts/quick-sidebar.min.js" type="text/javascript"></script>
+<!-- END THEME LAYOUT SCRIPTS -->
+
+<!--关键JS开始-->
+<script type="text/javascript">var memberpath = "{MEMBER_PATH}";</script>
+<script type="text/javascript" src="{THEME_PATH}js/{SITE_LANGUAGE}.js"></script>
+<link rel="stylesheet" href="{THEME_PATH}js/ui-dialog.css">
+<script type="text/javascript"t src="{THEME_PATH}js/dialog-plus.js"></script>
+<script type="text/javascript" src="{THEME_PATH}js/jquery.artDialog.js?skin=default"></script>
+<script type="text/javascript" src="{THEME_PATH}js/dayrui.js"></script>
+
+    <!--slogan-->
+    <div class="sloganWrapper">
+        
+    </div>
+
+    <div class="taxTool taxNewsDetails" style="min-height: 600px;">
+        <h1 > 
+            <span class="taxTool_title on">{dr_catpos($catid, '', true, '{name} ')}</span>
+            <span class="more" style="width:500px;">
+                <img src="{THEME_PATH}home/img/icon_home.png">
+                <a>您所在的位置：</a>
+                <a href="/">首页> </a>  
+                <a href="/index.php?s=answer&c=category&id=3">{MODULE_NAME}></a>
+                {dr_catpos($catid, '', true, '<a href="{url}">{name} </a>')}
+            </span>
+        </h1>
+        <div class="newsContent">
+            <div class="newsDetails_head">
+                <div class="newsDetails_title02">
+                    <img src="{THEME_PATH}home/img/question.png">
+                     {$title}
+                </div>
+                <div class="newsDetails_info02">{$updatetime}   &nbsp; 提问者：{$author}&nbsp;&nbsp;     阅读次数：{dr_show_hits($id)}次</div>
+            </div>
+            <div class="newsDetails_body">
+                <div class="newsDetails_rules">
+                {$content}
+                </div>
+                {dr_module_comment(MOD_DIR, $id)}
+
+                <div class="relatedReading" style="padding-top: 15px;">
+                    <header>
+                        <img src="{THEME_PATH}home/img/orangeBg.png">
+                        <span>相关问题</span>
+                    </header>
+                    <section class="box_row">
+                        {list action=module module=answer catid=$catid order=updatetime num=10}
+                        <div class="relatedPic" style="width: 100%;text-align:left;">
+                            <div class="relatedPicText">
+                                <a href="{$t['url']}" target="_blank">{dr_strcut($t['title'],100)}</a> 
+                                <span class="time" style="float:right;margin-left:30px;color:#f48000">{$t['updatetime']}</span>
+                            </div>
+                        </div>
+                        {/list}
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>         
+                            
+
+{template "footer1.html"}

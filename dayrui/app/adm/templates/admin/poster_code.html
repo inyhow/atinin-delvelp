@@ -1,0 +1,14 @@
+<div class="pad-10" style="width:600px;padding:20px 0;">
+    <fieldset>
+        <legend>调用方式一</legend>
+        PHP动态调用（静态页面不会实时更新）<br>
+        <input name="jscode1" id="jscode1" value="{$code1}" style="width:410px" class="input-text"> <input type="button" onclick="$('#jscode1').select();document.execCommand('Copy');" value="复制代码至剪贴板" class="button" style="width:114px">
+    </fieldset>
+    <div class="bk10" style="margin-top: 10px;"></div>
+    <fieldset>
+        <legend>调用方式二</legend>
+        JS调用代码（此方法不显示baidu等广告联盟js代码）<br>
+        <input name="jscode2" id="jscode2" value="{$code2}" style="width:410px" class="input-text">
+        <input type="button" onclick="$('#jscode2').select();$('#jscode2').val().execCommand('Copy');" class="button" style="width:114px" value="复制代码至剪贴板">
+    </fieldset>
+</div>

@@ -1,0 +1,157 @@
+{template "header.html"}
+<link rel="stylesheet" type="text/css" href="{THEME_PATH}home/css/affixBeta.css">
+<script type="text/javascript" src="{THEME_PATH}home/js/affixBeta.js"></script>
+<script type="text/javascript" src="{THEME_PATH}home/js/jquery.SuperSlide.2.1.1.js"></script>
+<style type="text/css">
+    /*banner轮播slider*/
+            
+              .slideBox{ width:100%; overflow:hidden; position:relative; border-top:1px solid #ddd;  }
+              .slideBox .hd{text-align: center; width:100%; overflow:hidden; position:absolute; bottom:5px; z-index:1; }
+              .slideBox .hd ul{ overflow:hidden; zoom:1; display: inline-block; }
+              .slideBox .hd ul li{ float:left; margin-right:12px;  width:15px; height:15px; border-radius:50%;line-height:14px; text-align:center; background:#fff; cursor:pointer; }
+              .slideBox .hd ul li.on{ background:#6eb92b; color:#fff; }
+              .slideBox .bd{ position:relative; width:100%; z-index:0;   }
+              .slideBox .bd li{position:relative; width:100%;height:570px;display:block;vertical-align:middle; }
+              .slideBox .bd li a{width: 100%;height:100%;display: block;background-position:center;}
+              .slideBox .bd img{ position:absolute;left:50%;margin-left:-960px; width:1920px;height:570px; display: block;  }
+
+              /* 下面是前/后按钮代码，如果不需要删除即可 */
+              .slideBox  button.su-arrow{
+                    border:0;
+                    width: 52px;
+                    height: 94px;
+                    position:absolute; 
+                    top:50%; 
+                    margin-top:-45px; 
+                    display:block;
+                    background-repeat: no-repeat;
+                    background-color: transparent;
+                    outline: none;
+                    cursor: pointer;
+              }
+              .slideBox .prev{
+                    background-image:url(./statics/home/img/slider_left.png);
+                    left:3%;
+              }
+              .slideBox .next{
+                    background-image:url(./statics/home/img/slider_right.png);
+                    left:auto; 
+                    right:3%; 
+                    
+              }
+              .slideBox .prevStop{ display:none;  }
+              .slideBox .nextStop{ display:none;  }
+  
+</style>
+
+    <div class="banner full-screen">
+
+      <div id="Carousel" class="slider">
+          <div class="index_reg " id="div_wind_id">
+              <h1>
+                <span class="news_title">最新动态</span>
+                <span class="more"><a target="_blank" href="/index.php?s=news&c=category&id=3" >更多 ></a></span>
+              </h1>
+              {list action=module module=news catid=3 order=updatetime num=5}
+              <div class="index_reg_row" >
+                 <p><!-- <span>【{$t['keywords']}】</span> --><a target="_blank" href="{$t['url']}">{dr_strcut($t.title, 40)}</a></p>
+              </div>
+              {/list}
+              
+          </div>
+          <!-- slider begin -->
+            <div class="slideBox">
+                <div class="hd">
+                  <ul>
+                  {php $poster = dr_poster_list(3, 5);}
+                  {loop $poster $i $t} 
+                    <li><a></a></li>
+                  {/loop}
+                  </ul>
+                </div>
+                <div class="bd">
+                  <ul>
+                    {loop $poster $i $t} 
+                      <li><a target="_blank" href="{$t.url}" style="background-image:url({$t.file})"></a></li>
+                    {/loop}
+                    
+                  </ul>
+                </div>
+                <button class="su-arrow prev" data-glide-dir="<"></button>
+                  <button class="su-arrow next" data-glide-dir=">"></button>
+            </div>
+           
+            <script type="text/javascript">
+                //banner 轮播
+                      jQuery(".slideBox").slide({mainCell:".bd ul",autoPlay:true,effect:"leftLoop",easing:"swing",interTime:"3500"});
+                      
+            </script>
+            <!-- slider end -->
+
+      
+      </div>
+    </div>
+
+    <div class="floatWindow02" data-spy="affix" data-offset-top="600" data-offset-bottom="1000">    
+        {if get_ad_status(4)}
+        <div class="window_l ad leftAd" data="left">
+          {php $poster = dr_poster_list(4, 1);}
+          {loop $poster $i $t} 
+          <div id="dr_poster_4" style="width:70px;height:300px"><a href="{$t.url}" target="_blank"><img src="{$t.file}" width="70" height="300"></a>
+          </div>
+          {/loop}
+          <div class="close"><img src="{THEME_PATH}home/img/icon_close.png"></div>
+        </div>
+      {/if}
+      {if get_ad_status(5)}
+        <div class="window_r ad rightAd" data="right">
+          {php $poster = dr_poster_list(5, 1);}
+          {loop $poster $i $t} 
+          <div id="dr_poster_5" style="width:80px;height:80px"><a href="{$t.url}" target="_blank"><img src="{$t.file}" width="80" height="80"></a>
+          </div>
+          {/loop}
+          <div class="close" ><img src="{THEME_PATH}home/img/icon_close.png"></div>
+        </div>
+      {/if}
+    </div>
+    <div class="floatWindow appointment" data-spy="affix" data-offset-top="662" data-offset-bottom="972">
+        <div class="post_demands"><a href="#contact"><img src="{THEME_PATH}home/img/post_demands.png"></a></div>
+    </div>
+ 
+    <div class="box_row slogan">
+
+         
+              {php $poster = dr_poster_list(6, 1);}
+              {loop $poster $i $t} 
+              <div id="dr_poster_6" style="height:151px"><a href="{$t.url}" target="_blank"><img src="{$t.file}" height="151"></a>
+              </div>
+              {/loop}
+            <!-- <img src="{THEME_PATH}home/img/ad06.png" style="width:100%;height: 100%;">
+            <div >
+                <img src="{THEME_PATH}home/img/ad05.png" style="width:100%;height: 100%;">                
+            </div> -->
+         
+    </div>
+
+   
+
+    <!--slogan-->
+    <div class="box_row slogan" >
+    	{php $poster = dr_poster_list(7, 1);}
+              {loop $poster $i $t} 
+              <div id="dr_poster_7" style="height:151px"><a href="{$t.url}" target="_blank"><img src="{$t.file}" height="151"></a>
+              </div>
+              {/loop}
+         <!-- <div class="slogan full_container" >
+            <img src="{THEME_PATH}home/img/ad08.png" style="width:100%;height: 100%;">
+         </div> -->
+    </div>
+ 
+
+
+  
+
+
+
+
+{template "footer1.html"}

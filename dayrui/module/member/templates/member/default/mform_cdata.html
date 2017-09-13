@@ -1,0 +1,11 @@
+{loop $list $t}
+<tr>
+	<td class="">{$t.id}</td>
+	<td class=""><div class="dr_title">{dr_keyword_highlight($t.subject, $get.kw)}</div></td>
+	<td class="">{$t.author}</td>
+	<td class="">{dr_date($t.inputtime, '', 'red')}</td>
+	<td class="">
+	<a href="javascript:;" onclick="dr_dialog_show('查看', '{dr_member_url(APP_DIR.'/'.$this->ci->router->class.'/show', array('id' => $t.id))}')" class="btn blue btn-xs" ><i class="fa fa-search"></i> 查看</a>
+    </td>
+</tr>
+{/loop}

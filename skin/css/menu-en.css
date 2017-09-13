@@ -1,0 +1,118 @@
+
+#navigation {
+    height: 37px;
+    margin: 0 auto;
+}
+.ddsmoothmenu {
+    padding-top: 10px;
+}
+.ddsmoothmenu ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    margin-left: 4px;
+}
+
+/*Top level list items*/
+
+.ddsmoothmenu ul li {
+    position: relative;
+    display: inline;
+    width: 14%;
+    text-align: center;
+    line-height: 30px;
+    height: 30px;
+    font-size: 20px;
+    font-family: "楷体";
+    font-weight: bold;
+    float: left;
+}
+.ddsmoothmenu ul li.sel {
+    background: url(../images/navigation.jpg) no-repeat 50% 100%;
+}
+.ddsmoothmenu ul li.sel>a {
+    color: #ff6600;
+}
+
+/*Top level menu link items style*/
+
+.ddsmoothmenu ul li a {
+    color: #333;
+    display: block;
+    font-weight: bold;
+    font-size: 20px;
+}
+* html .ddsmoothmenu ul li a {
+    font-weight: bold;
+    display: block;
+}
+.ddsmoothmenu ul li a:link,
+.ddsmoothmenu ul li a:visited {}
+.ddsmoothmenu ul li a.selected,
+.ddsmoothmenu ul li a:hover {
+    color: #333;
+    background-image: url(../images/dh_hov.png);
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    text-decoration:none;
+}
+
+/*1st sub level menu*/
+
+.ddsmoothmenu ul li ul {
+    position: absolute;
+    left: 0;
+    display: none;
+    visibility: hidden;
+    background: none;
+}
+
+/*Sub level menu list items (undo style from Top level List Items)*/
+
+.ddsmoothmenu ul li ul li {
+    display: list-item;
+    float: none;
+    background: none;
+    height: 34px;
+    line-height: 34px;
+    width: 120px;
+    margin-left: 0px;
+}
+
+/*All subsequent sub menu levels vertical offset after 1st level sub menu */
+
+.ddsmoothmenu ul li ul li ul {
+    top: 0;
+    margin-left: 30px;
+}
+
+/* Sub level menu links style */
+
+.ddsmoothmenu ul li ul li a {
+    background: url(../images/navigationbg.png) repeat 0 0;
+    border-top-width: 0;
+    color: #fff;
+    font-size: 16px;
+    font-weight: normal;
+    margin: 0;
+    width: 150px;
+    margin-left: 0px;
+}
+
+/* Sub level menu links style */
+
+.ddsmoothmenu ul li ul li a.selected {
+    background: url(../images/navigationbg_sel.png) repeat 0 0;
+    color: #CCCCCC;
+}
+.ddsmoothmenu ul li ul li a:hover {
+    background: url(../images/navigationbg_sel.png) repeat 0 0;
+    color: #fff;
+    font-weight: normal;
+}
+
+/* Holly Hack for IE \*/
+
+* html .ddsmoothmenu {
+    height: 1%;
+}

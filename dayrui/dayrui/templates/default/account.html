@@ -1,0 +1,205 @@
+{template "header1.html"}
+<link rel="stylesheet" type="text/css" href="{THEME_PATH}home/css/affixBeta.css">
+<script type="text/javascript" src="{THEME_PATH}home/js/affixBeta.js"></script>
+<link rel="stylesheet" type="text/css" href="{THEME_PATH}home/css/tooltip.css">
+<script type="text/javascript" src="{THEME_PATH}home/js/jquery.validate.js"></script>
+<script type="text/javascript" src="{THEME_PATH}home/js/messages_zh.js"></script>
+<script type="text/javascript" src="{THEME_PATH}home/js/tooltip.js"></script>
+<style type="text/css">
+     #dr_poster_23{height:auto !important;}
+     #dr_poster_23 img{width:1920px;height:auto !important;position:relative;left:50%;margin-left:-960px;}
+</style>
+    <div class="box_row banner05 bookKeep" style="border-top: 4px solid #f48000;">
+      <!-- <img class="banner05" src="{THEME_PATH}home/img/banner05.png">
+      <img class="bgMask" src="{THEME_PATH}home/img/bgMask.png">
+      <div class="adWrapper">
+          <img class="bannerAd01" src="{THEME_PATH}home/img/bannerAd01.PNG">    
+      </div> -->
+        <div class="ad23 " >
+          {dr_poster(23)}
+        </div>  
+    </div>
+
+    <div class="floatWindow appointment" data-spy="affix" data-offset-top="662" data-offset-bottom="972">
+        <div class="post_demands"><a href="#contact"><img src="{THEME_PATH}home/img/post_demands.png"></a></div>
+    </div>
+
+    <div class="content1" style="height:495px;">
+        <h1>只需一分钟，您将开启云记账之路</h1>
+        <div class="content1_body">
+            <h1>如果您是首次使用云记账或申请新开账套，请在此提交申请：</h1>
+            
+            <form class="content1_form" action="/index.php?c=form_account" method="post" name="myform" id="myform">
+                <div class="input_group" style="margin-top:20px">
+                    <span style="float: left;color:#707070">公司简称</span>
+                    <input style="float: left;padding-left:12px;" type="text" name="data[title]" id="dr_title" value=""/>
+                </div>
+                <div class="input_group" style="margin-top:20px">
+                     <span style="float: left;;color:#707070">所属行业</span>
+                     <input style="float: left;padding-left:12px;" type="text" name="data[nature]" id="dr_nature" value="" />
+                </div>                
+                <div class="input_group" style="margin-top:20px">
+                     <span style="float: left;;color:#707070">联系方式</span>
+                     <input style="float: left;padding-left:12px;"  type="text" name="data[mobile]" id="dr_mobile" value=""/>
+                </div> 
+                <input type="submit" name="" value="开账申请" >
+            </form>
+
+        </div>
+
+        <div class="content1_body" style="padding-left:58px;padding-right:0;border-right:none;">
+            <h1>如果您已经是云记账软件的用户，请在此登录：</h1>
+            <form class="content1_form">
+               
+                <div style="margin-top:20px;height:181px;overflow:hidden;">
+                <a href="http://121.40.30.63:90/Login.aspx" target="_blank"><img src="{THEME_PATH}home/img/T8.png"></a>
+                </div>
+                <a href="http://121.40.30.63:90/Login.aspx" target="_blank" class="sub_login" style="color:#fff;background:#00aa3c;margin-left:110px">立即登录</a>
+            </form>
+
+        </div>
+    </div>
+    
+ <!--   <div class="box_row banner05 softWare">
+           <div class="head01" style="font-weight:700">在线查询，轻松快捷，一目了然</div>
+    </div>
+    <div class="introduce" >
+            <div class="introduce_content full-width" >
+                <h1 >
+                    <a><img style="position:relative;top:-5px;" src="{THEME_PATH}home/img/iconbg15.png"></a>
+                    <span  style="font-weight:500">在线查询软件基础功能简介</span>
+                </h1>
+                <div class="schedule">
+                    <div class="scheduleTd">
+                        <div class="iconWrapper">
+                            <img src="{THEME_PATH}home/img/iconAlert.png">
+                        </div>
+                        <div class="s_title">提醒精灵</div>
+                        <div class="s_text">工作事项，一目了然。主动提醒未完成工作。</div>
+                    </div>
+
+                    <div class="scheduleTd">
+                        <div class="iconWrapper">
+                            <img src="{THEME_PATH}home/img/iconSchel.png">
+                        </div>
+                        <div class="s_title">报表排程</div>
+                        <div class="s_text">执行结果，一目了然：设置排程提醒，系统定时自动推送报表结果。</div>
+                    </div>
+
+                    <div class="scheduleTd">
+                        <div class="iconWrapper">
+                            <img src="{THEME_PATH}home/img/iconTable01.png">
+                        </div>
+                        <div class="s_title">企业管制表</div>
+                        <div class="s_text">在线管理，一目了然。结合提醒功能，主动提醒每月未完成事项，工作不耽误。</div>
+                    </div>
+
+                    <div class="scheduleTd">
+                        <div class="iconWrapper">
+                            <img src="{THEME_PATH}home/img/iconTable02.png">
+                        </div>
+                        <div class="s_title">合同管理</div>
+                        <div class="s_text">合同款催缴，到期提
+醒，及时收款。</div>
+                    </div>
+
+                    <div class="scheduleTd">
+                        <div class="iconWrapper">
+                            <img src="{THEME_PATH}home/img/iconExcel.png">
+                        </div>
+                        <div class="s_title">导入单据</div>
+                        <div class="s_text">支持excel导入导出、excel复制粘贴。</div>
+                    </div>
+                    
+                </div>
+
+
+            </div>
+            
+    </div>
+
+
+
+    <div class="introduce " >
+            <div class="introduce_content full-width " >
+                <h1 >
+                    <a><img style="position:relative;top:-5px;" src="{THEME_PATH}home/img/iconbg15.png"></a>
+                    <span>在线查询软件管理功能简介</span>
+                </h1>
+                <div class="advantage ">
+                {list action=module module=news catid=11 order=id_asc num=6}
+                    <div class="advantageTd">
+                        <div class="advantageNum"><img src="{THEME_PATH}home/img/num0{$key+1}.png"></div>
+                        <div class="advantageText">
+                            <a href="{$t.url}" target="_blank">{$t.title}</a>
+                        </div>
+                    </div>
+                {/list}
+                </div>
+
+            </div>
+            
+    </div>    -->
+    <div class="box_row banner05 softWare foot" >
+           <div class="head01" style="margin-top:35px;">在线查询软件操作便捷，上手容易</div>
+    </div>
+    <div class="introduce foot box_row" style="width:80%;">
+            <div class="introduce_content full-width" >
+                
+                <div class="schedule" style="width:1200px;height:205px;">
+                {list action=module module=news catid=12 order=id_asc num=5}
+                    <div class="scheduleTd">
+                        <div class="iconWrapper">
+                            <a href="{$t.url}" target="_blank"><img src="{THEME_PATH}home/img/icon00{$key+1}.png"></a>
+                        </div>
+                        <div class="s_title"><a href="{$t.url}" target="_blank" style="color:#fff;">{$t.title}</a></div>
+                    </div>
+                {/list}
+    
+                </div>
+
+            </div>
+            
+    </div>
+
+     <script type="text/javascript">
+        $(function(){
+
+                jQuery.validator.addMethod("isTel", function(value,element) {   
+                    var length = value.length;   
+                    var mobile = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;   
+                    var tel = /^(\d{3,4}-?)?\d{7,9}$/g;       
+                    return this.optional(element) || tel.test(value) || (length==11 && mobile.test(value));   
+                }, "请正确填写您的联系方式"); 
+                
+                $("#myform").validate({
+                     rules: {
+                             "data[title]":"required",
+                             "data[nature]":"required",
+                             "data[mobile]":{
+                                required:true,
+                                isTel:true
+                                
+                              }
+                            },
+                      messages:{
+                            "data[title]":"请填写公司名称",
+                            "data[nature]":"请填写行业",
+                            "data[mobile]":{
+                                required:"请填写联系方式"
+                            }
+                        },
+                      errorPlacement: function (label, element) {
+                        $(element).tooltip('destroy'); /*必需*/
+                        $(element).attr('title', $(label).text()).tooltip({
+                            placement:"bottom"
+                        }); 
+                      }
+   
+                });
+            
+        })
+    </script>   
+{template "footer1.html"}
+
+

@@ -1,0 +1,120 @@
+.index_reg{background-color: rgb(244,244,244)\0}
+
+#div_wind_id > .box_row{
+    margin-top: 20px\0;
+}
+#div_wind_id > .box_row:first-child{margin-top: 0\0;}
+
+.container > div.content1 .content1_body {
+    border-right: 1px dashed #e1e1e1;
+    float: left;
+    height: 384px;
+    /*padding-right: 60px;*/
+    width: 50%;
+}
+.content1_body h1 {
+    color: #aba9a9;
+    font-size: 16px;
+    font-weight: 500;
+    height: 60px;
+}
+
+.input_account input#tel_input{
+    width: 120px;
+    display: inline-block;
+}
+
+.input_account input#pass_input{
+    width: 120px;
+    display: inline-block;
+}
+.bookKeeping .contact{
+    background:rgb(20,20,20);
+}
+
+/*ie 8 后台hack*/
+@media \0screen{
+    .container {
+        width: 1170px;
+    }
+   
+    .page-boxed .page-container {
+        background-color: #F6F6F6;
+        border-left: 1px solid #EEE;
+        border-bottom: 1px solid #EEE;
+    }
+    
+     .navbar-collapse.collapse {
+        display: block!important;
+        height: auto!important;
+        padding-bottom: 0;
+        overflow: visible!important;
+    }
+    .page-sidebar {
+        width: 235px;
+        float: left;
+        position: relative;
+        margin-right: -100%;
+    }
+    .page-sidebar.collapse {
+        display: block;
+        max-height: none!important;
+    }
+    .page-content-wrapper {
+        float: left;
+        width: 100%;
+
+    }
+    .page-content-wrapper .page-content {
+        margin-left: 235px;
+        margin-top: 0;
+        min-height: 600px;
+        padding: 25px 20px 10px;
+    }
+
+    .page-boxed .page-header.navbar .top-menu .navbar-nav {
+        margin-right: 0;
+    }
+    .navbar-nav>li {
+        float: left;
+    }
+    .page-header.navbar .top-menu .navbar-nav>li.dropdown>.dropdown-toggle {
+        
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+}
+
+@media \0screen\,screen\9,screen\0{
+   
+
+    .new_pic_title{
+        background-color:#fff;
+        filter:Alpha(opacity=50);
+        position:static; 
+        *zoom:1; 
+      }
+    .product_r .product_details {
+        height: 62px;
+        line-height: 20px;
+    }
+    .container .contact, .container01 .contact {
+        background-color: rgb(104,104,104);
+    }
+    
+   
+
+    .consultingBox{width:700px;}
+
+    .contact_form input.fan-theme{
+        padding: 0 15px;
+        line-height: 35px;
+        
+        
+    }
+    /*.glide--horizontal .glide__arrow.prev,
+    .glide--horizontal .glide__arrow.next {
+        
+        top: -45px;
+    }*/
+}

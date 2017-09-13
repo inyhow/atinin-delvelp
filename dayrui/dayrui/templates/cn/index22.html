@@ -1,0 +1,351 @@
+{template "header.html"}
+<link rel="stylesheet" type="text/css" href="{THEME_PATH}home/css/affixBeta.css">
+<script type="text/javascript" src="{THEME_PATH}home/js/affixBeta.js"></script>
+<script type="text/javascript" src="{THEME_PATH}home/js/jquery.SuperSlide.2.1.1.js"></script>
+<style type="text/css">
+    /*banner轮播slider*/
+            
+              .slideBox{ width:100%; overflow:hidden; position:relative; border-top:1px solid #ddd;  }
+              .slideBox .hd{text-align: center; width:100%; overflow:hidden; position:absolute; bottom:5px; z-index:1; }
+              .slideBox .hd ul{ overflow:hidden; zoom:1; display: inline-block; }
+              .slideBox .hd ul li{ float:left; margin-right:12px;  width:15px; height:15px; border-radius:50%;line-height:14px; text-align:center; background:#fff; cursor:pointer; }
+              .slideBox .hd ul li.on{ background:#6eb92b; color:#fff; }
+              .slideBox .bd{ position:relative; width:100%; z-index:0;   }
+              .slideBox .bd li{position:relative; width:100%;height:370px;display:block;vertical-align:middle; }
+              .slideBox .bd li a{width: 100%;height:100%;display: block;background-position:center;}
+              .slideBox .bd img{ position:absolute;left:50%;margin-left:-960px; width:1920px;height:370px; display: block;  }
+
+              /* 下面是前/后按钮代码，如果不需要删除即可 */
+              .slideBox  button.su-arrow{
+                    border:0;
+                    width: 52px;
+                    height: 94px;
+                    position:absolute; 
+                    top:50%; 
+                    margin-top:-45px; 
+                    display:block;
+                    background-repeat: no-repeat;
+                    background-color: transparent;
+                    outline: none;
+                    cursor: pointer;
+              }
+              .slideBox .prev{
+                    background-image:url(./statics/home/img/slider_left.png);
+                    left:3%;
+              }
+              .slideBox .next{
+                    background-image:url(./statics/home/img/slider_right.png);
+                    left:auto; 
+                    right:3%; 
+                    
+              }
+              .slideBox .prevStop{ display:none;  }
+              .slideBox .nextStop{ display:none;  }
+  
+</style>
+
+    <div class="banner full-screen">
+
+      <div id="Carousel" class="slider">
+          <div class="index_reg " id="div_wind_id">
+              <h1>
+                <span class="news_title">最新动态</span>
+                <span class="more"><a target="_blank" href="/index.php?s=news&c=category&id=3" >更多 ></a></span>
+              </h1>
+              {list action=module module=news catid=3 order=updatetime num=5}
+              <div class="index_reg_row" >
+                 <p><!-- <span>【{$t['keywords']}】</span> --><a target="_blank" href="{$t['url']}">{dr_strcut($t.title, 40)}</a></p>
+              </div>
+              {/list}
+              
+          </div>
+          <!-- slider begin -->
+            <div class="slideBox">
+                <div class="hd">
+                  <ul>
+                  {php $poster = dr_poster_list(3, 5);}
+                  {loop $poster $i $t} 
+                    <li><a></a></li>
+                  {/loop}
+                  </ul>
+                </div>
+                <div class="bd">
+                  <ul>
+                    {loop $poster $i $t} 
+                      <li><a target="_blank" href="{$t.url}" style="background-image:url({$t.file})"></a></li>
+                    {/loop}
+                    
+                  </ul>
+                </div>
+                <button class="su-arrow prev" data-glide-dir="<"></button>
+                  <button class="su-arrow next" data-glide-dir=">"></button>
+            </div>
+           
+            <script type="text/javascript">
+                //banner 轮播
+                      jQuery(".slideBox").slide({mainCell:".bd ul",autoPlay:true,effect:"leftLoop",easing:"swing",interTime:"3500"});
+                      
+            </script>
+            <!-- slider end -->
+
+      
+      </div>
+    </div>
+
+    <div class="floatWindow02" data-spy="affix" data-offset-top="600" data-offset-bottom="1000">    
+        {if get_ad_status(4)}
+        <div class="window_l ad leftAd" data="left">
+          {php $poster = dr_poster_list(4, 1);}
+          {loop $poster $i $t} 
+          <div id="dr_poster_4" style="width:70px;height:300px"><a href="{$t.url}" target="_blank"><img src="{$t.file}" width="70" height="300"></a>
+          </div>
+          {/loop}
+          <div class="close"><img src="{THEME_PATH}home/img/icon_close.png"></div>
+        </div>
+      {/if}
+      {if get_ad_status(5)}
+        <div class="window_r ad rightAd" data="right">
+          {php $poster = dr_poster_list(5, 1);}
+          {loop $poster $i $t} 
+          <div id="dr_poster_5" style="width:80px;height:80px"><a href="{$t.url}" target="_blank"><img src="{$t.file}" width="80" height="80"></a>
+          </div>
+          {/loop}
+          <div class="close" ><img src="{THEME_PATH}home/img/icon_close.png"></div>
+        </div>
+      {/if}
+    </div>
+    <div class="floatWindow appointment" data-spy="affix" data-offset-top="662" data-offset-bottom="972">
+        <div class="post_demands"><a href="#contact"><img src="{THEME_PATH}home/img/post_demands.png"></a></div>
+    </div>
+  <!--  <div class="jobs" style="height:auto;">
+          
+          <div class="news_l new_pic">
+
+              <h1>
+                <span class="news_title">
+<a href="http://www.topkuaiji.com/index.php?s=member&mod=qiuzhi&c=home&m=add"  target="_blank">
+                个人办事</a> 
+
+                </span>
+
+                <span class="more"><a target="_blank" href="/publish.html" >更多 ></a></span>
+              </h1> 
+              {list action=module module=qiuzhi join=member on=uid order=displayorder_desc num=5}
+                <div class="news_row ">
+                    <div class="news_left"><a target="_blank" href="{$t['url']}"><img src="{if $t['thumb']}{dr_thumb($t['thumb'], 90, 90)}{else}{dr_avatar($t['avatar'], 90, 90)}{/if}"></a></div>
+                    <div class="news_right">
+                        <div class="policy_header">
+                            <span class="jobs_title"><a target="_blank" href="{$t['url']}">{dr_strcut($t.title, 40)}</a></span>
+                            <span > <a target="_blank" href="{$t['url']}" >【详情】</a></span>
+                        </div>
+                        <div class="policy_body">
+                            <p>个人：{$t['realname']}{if $t.levelid !=1 && $t.levelid != 5}<img src="{THEME_PATH}home/images/{$t.levelid}.png" alt="" style="width:25px;height:25px;">{/if}</p>
+                            <p>区域：{dr_linkagepos('fujian', $t['now_address'],' ')}  <span class="pay">期待佣金：{get_qzsallary_type($t['qwxz'])}</span></p>
+                        </div>
+                    </div>
+              	</div>
+              
+              {/list}
+             
+          	</div>
+
+          <div class="news_r policy"> 
+              <h1><span class="news_title">
+              <a href="http://www.topkuaiji.com/index.php?s=member&mod=job&c=home&m=add" target="_blank">
+              企业办事</a>
+              </span>
+                  <span class="more"><a target="_blank" href="/publish_job.html">更多 ></a></span>
+              </h1>
+                  {list action=module module=job join=member on=uid order=displayorder_desc num=5}
+                  <div class="news_row ">
+                      <div class="news_left"><a target="_blank" href="{$t['url']}"><img src="{dr_avatar($t['avatar'], 90, 90)}"></a></div>
+                      <div class="news_right">
+                            <div class="policy_header">
+                                <span class="jobs_title"><a target="_blank" href="{$t['url']}">{dr_strcut($t.title, 40)}</a></span>
+                                <span ><a target="_blank" href="{$t['url']}" >【详情】</a></span>
+                            </div>
+                            <div class="policy_body">
+                                <p>职位：{$t['zpzw']}</p>
+                                <p>区域：{dr_linkagepos('fujian',$t['work_area'],' ')}<span class="pay">供给佣金：{get_jobsallary_type($t['xzdy'])}</span></p>
+                            </div>
+
+                      </div>
+                  </div>
+                  {/list}
+             
+          </div>
+    </div>-->
+    <!--slogan-->
+    <div class="box_row slogan">
+
+         
+              {php $poster = dr_poster_list(6, 1);}
+              {loop $poster $i $t} 
+              <div id="dr_poster_6" style="height:151px"><a href="{$t.url}" target="_blank"><img src="{$t.file}" height="151"></a>
+              </div>
+              {/loop}
+            <!-- <img src="{THEME_PATH}home/img/ad06.png" style="width:100%;height: 100%;">
+            <div >
+                <img src="{THEME_PATH}home/img/ad05.png" style="width:100%;height: 100%;">                
+            </div> -->
+         
+    </div>
+
+    <div class="product" style="height:690px;">
+          <h1>
+            <span class="news_title on">热门商品</span>
+            <span class="news_title off service" style="">合作伙伴</span>
+            <span class="more"><a href="/shop.html" target="_blank">更多商品 </a></span>
+          </h1>
+          <div class="product_l" >
+                {php $poster = dr_poster_list(8, 1);}
+              {loop $poster $i $t} 
+              <div id="dr_poster_8" style="width:240;height:594px"><a href="{$t.url}" target="_blank"><img src="{$t.file}" width="240" height="594"></a>
+              </div>
+              {/loop}
+          </div>
+
+          <div class="product_r show"> 
+              {list action=module module=shop flag=1 num=8}
+                <div class="pic_main">
+                  <div class="new_pic ">
+                      <div class="pic_wrapper">
+                          <a target="_blank" href="{$t['url']}"><img src="{if $t['thumb']!=''}{dr_thumb($t.thumb, 298, 244)}{else}{THEME_PATH}home/img/product_pic.png{/if}"></a>
+
+                          <div class="product_details"><a target="_blank" href="{$t['url']}">{dr_strcut($t.title, 40)}</a></div>
+                          <span class="new_pic_title">
+                              ¥{$t['order_price']} <span>成交：{$t['order_volume']}</span>
+                          </span>
+                      </div>
+                  </div>
+                </div>
+                {/list}
+          </div>
+		
+		<div class="product_r hide"> 
+         {php $poster = dr_poster_list(22);}
+            {loop $poster $i $t}
+            <div class="pic_main avoidTop" >
+              <div class="new_pic ">
+                  <div class="pic_wrapper">
+                      <a href="{$t.url}" target="_blank"><img src="{$t.file}"></a>
+                      <div class="product_details" style="height: 70px;padding: 20px 10px;font-size:14px;"><a href="{$t.url}" target="_blank">{dr_strcut($t.name, 80)}</a></div>
+                  </div>
+              </div>
+            </div>
+            {/loop}
+        </div>
+    </div>
+
+
+    <!--slogan-->
+    <div class="box_row slogan" >
+    	{php $poster = dr_poster_list(7, 1);}
+              {loop $poster $i $t} 
+              <div id="dr_poster_7" style="height:151px"><a href="{$t.url}" target="_blank"><img src="{$t.file}" height="151"></a>
+              </div>
+              {/loop}
+         <!-- <div class="slogan full_container" >
+            <img src="{THEME_PATH}home/img/ad08.png" style="width:100%;height: 100%;">
+         </div> -->
+    </div>
+    <!-- 会计培训 -->
+    <div class="train">
+          <h1>
+                <span class="news_title">联标学堂</span>
+                <span class="news_title_s"><a href="/video.html" target="_blank">本地培训</a></span>
+                <span class="news_title_s">/ <a href="/video-show-1.html" target="_blank">网络在线</a></span>
+                <span class="more"><a href="/video-show-1.html" target="_blank">更多 ></a></span>
+          </h1>
+          
+
+          <div class="product_r"> 
+
+				{list action=module module=video catid=1 order=displayorder_desc num=10}
+                <div class="pic_main" style="width:20%;">
+                  <div class="new_pic ">
+                      <!-- <div class="bg">
+                        <div class="plus"></div>
+                      </div> -->
+                      <div class="pic_wrapper">
+                         <a target="_blank" style="height:220px;" href="{$t['url']}" class="add_pic_css"><img src="{if $t['thumb']!=''}{dr_thumb($t.thumb, 230, 220)}{else}{THEME_PATH}home/img/product_pic.png{/if}" > </a>
+                          
+                          <div class="train_details" style="height:95px">
+                            <p style="height:35px;line-height:35px;"><a target="_blank" href="{$t['url']}">{dr_strcut($t.title, 40)}</a></p>
+                          <span>{dr_strcut($t.description, 55)}</span>
+                          </div>
+                      </div>
+                  </div>
+                </div>
+				{/list}
+                
+                
+          </div>
+    </div>
+
+    <!--slogan-->
+    <div class="box_row slogan" >
+         {php $poster = dr_poster_list(9, 1);}
+              {loop $poster $i $t} 
+              <div id="dr_poster_9" style="height:151px"><a href="{$t.url}" target="_blank"><img src="{$t.file}" height="151"></a>
+              </div>
+              {/loop}
+    </div>
+    </div>
+
+    <div class="jobs news" style="height:382px;">
+          <div class="news_l new_pic">
+              <h1>
+                <span class="news_title">行业新闻</span>
+                <span class="more"><a target="_blank" href="/news-list-new.html" >更多 ></a></span>
+              </h1> 
+              
+              {list action=module module=news catid=1 order=updatetime num=3}
+              <div class="news_row box_row">
+                      <div class="news_left">
+                      	<img src="{if $t['thumb']!=''}{dr_thumb($t.thumb, 136, 86)}{else}{THEME_PATH}home/img/policy1.png{/if}" />
+                      </div>
+                      <div class="news_right">
+                        <div class="policy_header">
+                            <a style="width:70%;" target="_blank" href="{$t['url']}">{dr_strcut($t.title, 30)}</a> 
+                            &nbsp;&nbsp;
+                            <span style="float:right">{php echo date('Y-m-d',strtotime(strip_tags($t['updatetime'])));}</span>
+                        </div>
+                        <div class="policy_body">
+                            {dr_strcut($t.description, 112)}
+                        </div>
+                      </div>
+                </div>
+                {/list}
+             
+          </div>
+
+          <div class="news_r policy"> 
+              <h1><span class="news_title">工作提醒</span>
+                  <span class="more"><a href="/news-list-gonggao.html" target="_blank">更多 ></a></span>
+              </h1>
+                  <ul  class="news_list">
+                  {list action=module module=news catid=2 order=updatetime num=7}
+                    <li><a target="_blank" href="{$t['url']}">{dr_strcut($t.title, 100)}</a></li>
+                  {/list}
+                  </ul>
+              <div class="news_ad" >
+                 {dr_poster(10)}
+              </div>
+          </div>
+    </div>
+
+    <div class="friend_link">
+      <h1>
+        <span class="news_title">友情链接</span>
+        <!-- <span class="more"><a href="#" >更多 ></a></span>
+               -->      </h1>
+      <div>
+      {list action=navigator type=4}
+      <a href="{$t.url}" title="{$t.title}" {if $t.target}target="_blank"{/if}><span>{$t.name}</span></a>
+      {/list}      
+      </div>
+    </div>   
+
+
+{template "footer1.html"}

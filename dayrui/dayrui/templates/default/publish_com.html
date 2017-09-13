@@ -1,0 +1,68 @@
+  
+  {php $flag=$ci->get_cache('module-'.SITE_ID.'-job', 'setting', 'flag');}
+
+    <div class="inf_r">
+        <div class="inf_head">{$flag[3]['name']}</div>
+        <div class="brandBox">
+          {list action=module module=job join=member on=uid flag=3 order=updatetime num=6}
+            <div class="incLogo">
+              <a href="{$t.url}" target="_blank">
+                <img src="{dr_avatar($t['avatar'], 180, 180)}">
+              </a>
+              <span><a href="{$t.url}" target="_blank">{dr_strcut($t.title,20)}</a></span>
+            </div>
+          {/list}
+        </div>
+ 
+        <div class="inf_head">{$flag[2]['name']}</div>
+        <div class="brandBox">
+          {list action=module module=job join=member on=uid flag=2 order=updatetime num=6}
+            <div class="incLogo">
+              <a href="{$t.url}" target="_blank">
+                <img src="{dr_avatar($t['avatar'], 180, 180)}">
+              </a>
+              <span><a href="{$t.url}" target="_blank">{dr_strcut($t.title,20)}</a></span>
+            </div>
+          {/list}
+            
+        </div>
+    </div>
+  </div>
+ 
+
+ {php $qz=$ci->get_cache('module-'.SITE_ID.'-qiuzhi', 'setting', 'flag');}
+
+<div class="case clear">
+  <div class="caseHead">{$qz[2][name]}</div>
+  <div class="picScroll-left" style=" margin-top:30px;">
+
+  <a class="prev"><img src="{THEME_PATH}home/img/iconLeft.png"></a>
+  <a class="next"><img src="{THEME_PATH}home/img/iconRight.png" style="margin-left: 10px"></a>
+     
+  <div class="bd">
+    <ul class="picList">
+      {list action=module module=qiuzhi flag=2 order=updatetime num=12}
+      <li>
+        <div class="pic">
+          <a href="{$t.url}" target="_blank">
+            <img src="{dr_avatar($t['uid'], 180, 140)}" style="width:180px;height:180px;" />
+          </a>
+        </div>
+        <div class="title">
+          <a href="{$t.url}" target="_blank">{$t.realname}</a></div>
+      </li>
+      {/list}
+      
+    </ul>
+  </div>
+
+</div>
+</div>
+
+<script type="text/javascript">
+jQuery(".picScroll-left").slide({titCell:".hd ul",mainCell:".bd ul",autoPage:true,effect:"leftLoop",autoPlay:true,vis:6,trigger:"click"});
+</script>
+    
+
+
+

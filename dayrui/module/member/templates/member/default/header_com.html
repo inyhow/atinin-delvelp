@@ -1,0 +1,66 @@
+<div class="gb_top">
+    <div class="gb_topn">
+        <div class="gb_topn_l"><img src="{HOME_THEME_PATH}logo.png" height="70" /></div>
+        <div class="gb_topn_r">
+            <div class="gb_yuyan">
+                <table width="100%" height="31" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="51%">
+                            <script language="JavaScript" type="text/javascript">
+                                function search_OnSubmit() {
+                                    var KeyWord = get("KeyWord").value.Trim();
+                                    if (KeyWord.length < 1) {
+                                        alert("请输入关键字");
+                                        return false;
+                                    }
+                                }
+                            </script>
+                            <form style="margin:0px;padding:0px;" method="get" target="_blank" action="{SITE_URL}index.php">
+                                <input name="c" type="hidden" value="so">
+                                <input name="module" type="hidden" value="{if defined('MOD_DIR')}{MOD_DIR}{/if}">
+                                <table width="100%" height="31" border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td width="10%" align="right" valign="middle"> <img src="skin/images/gb_search_tou.jpg" width="10" height="31" /></td>
+                                        <td width="40%">
+                                            <input class="gb_search" name="keyword" id="KeyWord" type="text" value="Search" onfocus="if (this.value=='Search') this.value='';" />
+                                        </td>
+                                        <td width="50%" align="left" valign="middle">
+                                            <input type="image" style="cursor: pointer;" src="skin/images/gb_search_niu.jpg" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </form>
+                        </td>
+                        <td width="30%" align="left" valign="middle"><a href="index.aspx">中文版</a> | <a href="en/index.aspx">English</a> </td>
+                        <td width="19%">&nbsp;</td>
+                    </tr>
+                </table>
+            </div>
+            <div id="navigation">
+                <div id="smoothmenu1" class="ddsmoothmenu gb_dh">
+                    <ul>
+                        <li> <a href="{SITE_URL}" title="{SITE_TITLE}">首页</a> </li>
+                        {list action=navigator type=0 pid=0 num=6}
+                        <li> <a title="{$t.name}" href="{$t.url}" target="_parent">{$t.name}</a></li>
+                        {/list}
+
+                        <!--<script type="text/javascript" src="js/jquery.min.js"></script>-->
+                        <script type="text/javascript" src="skin/js/ddsmoothmenu.js"></script>
+                        <script type="text/javascript">
+                            ddsmoothmenu.init({
+                                mainmenuid: "smoothmenu1", //menu DIV id
+                                orientation: 'h', //Horizontal or vertical menu: Set to "h" or "v"
+                                classname: 'ddsmoothmenu', //class added to menu's outer DIV
+                                //customtheme: ["#1c5a80", "#18374a"],
+                                contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
+                            })
+                        </script>
+                    </ul>
+                </div>
+            </div>
+
+
+        </div>
+        <div style=" clear:both;"></div>
+    </div>
+</div>

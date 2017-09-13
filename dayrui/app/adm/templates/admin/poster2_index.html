@@ -1,0 +1,56 @@
+{template header.html}
+<div class="subnav">
+	<div class="content-menu ib-a blue line-x">
+		{$menu}
+	</div>
+	<div class="bk10"></div>
+	<div class="explain-col">
+		{fc_lang('每个广告只能存储在广告位之中，每个广告位都有不同的广告参数，显示方式为随机模式')}
+	</div>
+	<div class="bk10"></div>
+	<div class="table-list">
+		<form action="" method="post" name="myform" id="myform">
+		<table width="100%">
+		<thead>
+		<tr>
+            <th idth="20" align="right"><input name="dr_select" id="dr_select" type="checkbox" onClick="dr_selected()" />&nbsp;</th>
+            <th class="{ns_sorting('id')}" name="id" width="50" align="left">Id</th>
+            <th class="{ns_sorting('name')}" name="name" width="200" align="left">{fc_lang('名称')}</th>
+			<th class="{ns_sorting('clicks')}" name="clicks" width="80" align="left">{fc_lang('点击量')}</th>
+			<th class="{ns_sorting('endtime')}" name="endtime" width="90" align="left">{fc_lang('有效期至')}</th>
+			<th class="{ns_sorting('username')}" name="username" width="100" align="left">{fc_lang('作者')}</th>
+			<th class="{ns_sorting('inputtime')}" name="inputtime" width="120" align="left">{fc_lang('录入时间')}</th>
+			<th class="{ns_sorting('status')}" name="status" width="70" align="center">{fc_lang('状态')}</th>
+			<th align="left" class="dr_option">{fc_lang('操作')}</th>
+		</tr>
+		</thead>
+		<tbody>
+		{loop $list $t}
+		<tr>
+            <td align="right"><input name="ids[]" type="checkbox" class="dr_select" value="{$t['id']}" />&nbsp;</td>
+            <td align="left">{$t.id}</td>
+            <td align="left">{$t.name}</td>
+			<td align="left">{$t.clicks}</td>
+			<td align="left">{if $t.endtime}{dr_date($t.endtime, 'Y-m-d')}{else}{fc_lang('永久')}{/if}</td>
+            <td align="left"><a href="javascript:;" onclick="dr_dialog_member('{$t.uid}')">{dr_strcut($t.username, 10)}</a></td>
+            <td align="left">{dr_date($t.inputtime, NULL, 'red')}</td>
+			<td align="center">{if $t.status}<font color=green>{fc_lang('可用')}</font>{else}{fc_lang('关闭')}{/if}</td>
+			<td align="left" class="dr_option">
+                {if $this->ci->is_auth('admin/poster2/edit')}<a class="aedit" href="{dr_url('adm/poster2/edit', array('id'=>$t.id, 'sid'=>$sid))}">{fc_lang('修改')}</a>{/if}
+
+            </td>
+		</tr>
+		{/loop}
+        <tr>
+            <th width="20" align="right"><input name="dr_select" id="dr_select" type="checkbox" onClick="dr_selected()" />&nbsp;</th>
+            <td colspan="8" align="left" style="border:none">
+                {if $this->ci->is_auth('adm/admin/poster2/del')}<input type="button" class="button" value="{fc_lang('删除')}" name="option" onClick="dr_confirm_set_all('{fc_lang('您确定要这样操作吗？')}')" />{/if}
+            </td>
+        </tr>
+		</tbody>
+		</table>
+		</form>
+        <div id="pages"><a>{fc_lang('共%s条', $total)}</a>{$pages}</div>
+	</div>
+</div>
+{template footer.html}

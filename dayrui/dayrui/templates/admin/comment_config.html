@@ -1,0 +1,196 @@
+{template nheader.html}
+<script type="text/javascript">
+$(function() {
+    {if IS_POST}
+    dr_tips('{fc_lang("操作成功")}', 3, 1);
+    {/if}
+    $("#dr_review_option").sortable();
+});
+</script>
+<form class="form-horizontal" action="" method="post" id="myform" name="myform">
+<input name="page" id="page" type="hidden" value="{$page}" />
+    <div class="page-bar">
+        <ul class="page-breadcrumb mylink">
+            {$menu.link}
+        
+        </ul>
+        <ul class="page-breadcrumb myname">
+            {$menu.name}
+        </ul>
+        <div class="page-toolbar">
+            <div class="btn-group pull-right">
+                <button type="button" class="btn green btn-sm btn-outline dropdown-toggle" data-toggle="dropdown" aria-expanded="false"> {fc_lang('操作菜单')}
+                    <i class="fa fa-angle-down"></i>
+                </button>
+                <ul class="dropdown-menu pull-right" role="menu">
+                    {loop $menu.quick $t}
+                    <li>
+                        <a href="{$t.url}">{$t.icon} {$t.name}</a>
+                    </li>
+                    {/loop}
+                    <li class="divider"> </li>
+                    <li>
+                        <a href="javascript:window.location.reload();">
+                            <i class="icon-refresh"></i> {fc_lang('刷新页面')}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="portlet light bordered myfbody">
+        <div class="portlet-title tabbable-line">
+            <ul class="nav nav-tabs" style="float:left;">
+                <li class="active">
+                    <a href="#tab_0" data-toggle="tab"> <i class="fa fa-cog"></i> {fc_lang('评论配置')} </a>
+                </li>
+                <li class="">
+                    <a href="#tab_1" data-toggle="tab"> <i class="fa fa-user"></i> {fc_lang('会员权限')} </a>
+                </li>
+     
+                {if $mycfg}
+                <li class="">
+                    <a href="#tab_5" data-toggle="tab"> <i class="fa fa-cog"></i> {fc_lang('我的配置')} </a>
+                </li>
+                {/if}
+            </ul>
+        </div>
+        <div class="portlet-body">
+            <div class="tab-content">
+                
+                <div class="tab-pane active" id="tab_0">
+                    <div class="form-body">
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" style="padding-top: 10px;">{fc_lang('评论功能')}：</label>
+                            <div class="col-md-9">
+                                <div class="radio-list">
+                                    <label class="radio-inline"><input type="radio" name="data[use]" value="1" {if $data['use']}checked{/if} /> {fc_lang('是')}</label>
+                                    <label class="radio-inline"><input type="radio" name="data[use]" value="0" {if !$data['use']}checked{/if} /> {fc_lang('否')}</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" style="padding-top: 10px;">{fc_lang('评论审核')}：</label>
+                            <div class="col-md-9">
+                                <div class="radio-list">
+                                    <label class="radio-inline"><input type="radio" name="data[verify]" value="1" {if $data['verify']}checked{/if} /> {fc_lang('是')}</label>
+                                    <label class="radio-inline"><input type="radio" name="data[verify]" value="0" {if !$data['verify']}checked{/if} /> {fc_lang('否')}</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" style="padding-top: 10px;">{fc_lang('只允许评论一次')}：</label>
+                            <div class="col-md-9">
+                                <div class="radio-list">
+                                    <label class="radio-inline"><input type="radio" name="data[num]" value="1" {if $data['num']}checked{/if} /> {fc_lang('是')}</label>
+                                    <label class="radio-inline"><input type="radio" name="data[num]" value="0" {if !$data['num']}checked{/if} /> {fc_lang('否')}</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" style="padding-top: 10px;">{fc_lang('禁止对自己评论')}：</label>
+                            <div class="col-md-9">
+                                <div class="radio-list">
+                                    <label class="radio-inline"><input type="radio" name="data[my]" value="1" {if $data['my']}checked{/if} /> {fc_lang('是')}</label>
+                                    <label class="radio-inline"><input type="radio" name="data[my]" value="0" {if !$data['my']}checked{/if} /> {fc_lang('否')}</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" style="padding-top: 10px;">{fc_lang('购买之后才允许评论')}：</label>
+                            <div class="col-md-9">
+                                <div class="radio-list">
+                                    <label class="radio-inline"><input type="radio" name="data[buy]" value="1" {if $data['buy']}checked{/if} /> {fc_lang('是')}</label>
+                                    <label class="radio-inline"><input type="radio" name="data[buy]" value="0" {if !$data['buy']}checked{/if} /> {fc_lang('否')}</label>
+                                </div>
+                                <span class="help-block">{fc_lang('只能与订单模块配合使用')}</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" style="padding-top: 10px;">{fc_lang('评论回复权限')}：</label>
+                            <div class="col-md-9">
+                                <div class="radio-list">
+                                    <label class="radio-inline"><input type="radio" name="data[reply]" value="1" {if $data['reply']==1}checked{/if} /> {fc_lang('都允许')}</label>
+                                    <label class="radio-inline"><input type="radio" name="data[reply]" value="2" {if $data['reply']==2}checked{/if} /> {fc_lang('仅自己')}</label>
+                                    <label class="radio-inline"><input type="radio" name="data[reply]" value="0" {if !$data['reply']}checked{/if} /> {fc_lang('禁止所有')}</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group dr_one">
+                            <label class="col-md-2 control-label"><font color="red">*</font>&nbsp;{fc_lang('分页显示数量')}：</label>
+                            <div class="col-md-9">
+                                <label><input class="form-control" type="text" name="data[pagesize]" value="{$data.pagesize}" ></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-pane" id="tab_1">
+                    <div class="form-body">
+                        {php $groups[0]=array('id'=>0, 'name'=>fc_lang('游客')); $groups+= $ci->get_cache('member', 'group');}
+                        <div class="form-group dr_one">
+                            <label class="col-md-2 control-label"></label>
+                            <div class="col-md-9">
+                                
+                                <label class="radio-inline">{fc_lang('评论%s', SITE_EXPERIENCE)}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                <label class="radio-inline">{fc_lang('评论%s', SITE_SCORE)}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                
+                            </div>
+                        </div>
+                        {loop $groups $group}
+                        {if $group.id>2}
+                        <div class="form-group dr_one">
+                            <label class="col-md-2 control-label">{$group['name']}：</label>
+                            <div class="col-md-9"></div>
+                        </div>
+                        {loop $group['level'] $level}
+                        {php $id=$group['id'].'_'.$level['id'];}
+                        <div class="form-group dr_one">
+                            <label class="col-md-2 control-label">{$level['name']}：</label>
+                            <div class="col-md-9">
+                                
+                                <label class="radio-inline"><input class="input-text" type="text" name="data[permission][{$id}][experience]" value="{$data['permission'][$id]['experience']}" size="10" /></label>
+                                <label class="radio-inline"><input class="input-text" type="text" name="data[permission][{$id}][score]" value="{$data['permission'][$id]['score']}" size="10" /></label>
+                             
+                            </div>
+                        </div>
+                        {/loop}
+                        {else}
+                        {php $id=$group.id;}
+                        <div class="form-group dr_one">
+                            <label class="col-md-2 control-label">{$group['name']}：</label>
+                            <div class="col-md-9">
+                                
+                                <label class="radio-inline"><input class="input-text" type="text" name="data[permission][{$id}][experience]" value="{$data['permission'][$id]['experience']}" size="10" /></label>
+                                <label class="radio-inline"><input class="input-text" type="text" name="data[permission][{$id}][score]" value="{$data['permission'][$id]['score']}" size="10" /></label>
+                               
+                            </div>
+                        </div>
+                        {/if}
+                        {/loop}
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="myfooter">
+        <div class="row">
+            <div class="portlet-body form">
+                <div class="form-body">
+                    <div class="form-actions">
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                <button type="submit" class="btn green"> <i class="fa fa-save"></i> {fc_lang('保存')}</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+{template nfooter.html}

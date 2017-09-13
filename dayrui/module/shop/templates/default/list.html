@@ -1,0 +1,95 @@
+{template "header2.html", "/"}
+<div class="box_row banner05" style="border-top: 0px solid #f48000;">
+</div>
+<div class="page-container">
+    <div class="page-content-wrapper">
+        
+        <div class="page-content">
+            <div class="container">
+
+                <ul class="page-breadcrumb breadcrumb">
+                    <li>
+                        <a href="{SITE_URL}">首页</a>
+                         > 
+                    </li>
+                    <li>
+                        <a href="{MODULE_URL}">{MODULE_NAME}</a>
+                        > 
+                    </li>
+                    {dr_catpos($catid, '', true, '<li><a href="{url}">{name}</a> > <!-- <i class="fa fa-circle"></i> --></li>')}
+                    <li>
+                        <span>列表</span>
+                    </li>
+                </ul>
+
+                <div class="page-content-inner">
+                    <div class="search-page search-content-2">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="search-container ">
+                                    <div class="search-container">
+                                        <div class="portlet light clear">
+                                            <div class="portlet-title">
+                                                <div class="caption">
+                                                    <span class="caption-subject font-dark bold uppercase">{$cat.name}</span>
+                                                </div>
+                                            </div>
+                                            <div class="portlet-body">
+                                                <!--分页显示列表数据-->
+                                                {list action=module catid=$catid order=updatetime page=1}
+                                                <div class="col-sm-3" style="padding-bottom: 35px;">
+                                                    <div class="tile-container">
+                                                        <div class="tile-thumbnail">
+                                                            <a href="javascript:;">
+                                                                <a href="{$t.url}" ><img src="{dr_thumb($t.thumb, 250, 250)}" width="250" height="250"></a>
+                                                            </a>
+                                                        </div>
+                                                        <div class="tile-title">
+                                                            <h5><a href="{$t.url}" class="title">{dr_strcut($t.title, 28)}</a></h5>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                {/list}
+                                            </div>
+                                        </div>
+                                        <!-- 分页 -->
+                                        {if $pages}
+                                        <div class="news_row box_row">
+                                            <ul class="pagination03">
+                                                {$pages}
+                                                <li class="jumpTo">跳转到:</li>
+                                                <li class="pageInput"><input class="inset" id="inset" type="text" value=""></li>
+                                                <li class="last"><a id="goto" href="/index.php?s=shop&c=category&id={$catid}&page=1">Go</a></li>
+                                            </ul> 
+                                        </div>
+                                        {/if}
+                                        <!-- <div class="search-pagination" style="clear: both">
+                                            <ul class="pagination">
+                                                {$pages}
+                                            </ul>
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script type="text/javascript">
+    $(function(){
+        $(".taxTool").height($(".newsLeft").height()+75 );
+
+        $("#inset").bind('input propertychange', function(){
+            var hr = '/index.php?s=shop&c=category&id={$catid}&page='+ $("#inset").val();
+            $("#goto").attr('href',hr);
+
+        });
+
+    });
+
+</script>
+{template "footer1.html"}

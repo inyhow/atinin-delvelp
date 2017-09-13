@@ -1,0 +1,1 @@
+a:7:{s:2:"id";s:1:"5";s:6:"module";a:0:{}s:7:"dirname";s:4:"auth";s:7:"setting";a:1:{s:5:"admin";a:1:{i:2;i:1;}}s:8:"disabled";s:1:"0";s:4:"name";s:18:"会员实名认证";s:7:"related";N;}

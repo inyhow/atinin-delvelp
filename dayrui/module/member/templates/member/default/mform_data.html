@@ -1,0 +1,14 @@
+{loop $list $t}
+<tr id="dr_row_{$t.id}">
+	<td class=""><a href="{$t.url}" title="{$t.title}" target="_blank">{$t.cid}</a></td>
+	<td class=""><div class="dr_title">{dr_keyword_highlight($t.subject, $get.kw)}</div></td>
+	<td class="">{dr_date($t.inputtime, '', 'red')}</td>
+	<td class="">
+	<a href="javascript:;" onclick="dr_dialog_show('查看', '{dr_member_url(APP_DIR.'/'.$this->ci->router->class.'/show', array('id' => $t.id))}')" class="btn blue btn-xs" ><i class="fa fa-search"></i> 查看</a>
+    {if $isedit}
+    <a href="{dr_member_url(APP_DIR.'/'.$this->ci->router->class.'/edit', array('id' => $t.id))}" class="btn green btn-xs" ><i class="fa fa-edit"></i> 修改</a>
+    {/if}
+	<a href="javascript:;" onclick="dr_delete('{$t.id}')" class="btn red-mint btn-xs" ><i class="fa fa-trash-o"></i> 删除</a>
+    </td>
+</tr>
+{/loop}

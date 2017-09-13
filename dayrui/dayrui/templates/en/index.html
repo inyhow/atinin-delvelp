@@ -1,0 +1,17 @@
+{template "header.html"}
+<link href="skin/css/style.css" rel="stylesheet" type="text/css" />
+<div class="gb_banner">
+    <!-- 代码 开始 -->
+    <div id="full-screen-slider">
+        <ul id="slides">
+            {if get_ad_status(1)} 
+            {php $poster = dr_poster_list(1, 2);} 
+            {loop $poster $i $t}
+            <li style="background:url('{$t.file}') no-repeat center top"><a href="{$t.url}">{$t.title}</a></li>
+            {/loop}
+            {/if}
+        </ul>
+    </div>
+    <!-- 代码 结束 -->
+</div>
+{template "footer1.html"}

@@ -1,0 +1,76 @@
+{template header.html}
+<div class="subnav">
+	<div class="content-menu ib-a blue line-x">
+		{$menu}
+	</div>
+	<div class="bk10"></div>
+	<div class="explain-col">
+		<form method="post" action="" name="searchform" id="searchform">
+			<input name="search" id="search" type="hidden" value="1" />
+			<select name="data[field]">
+				{loop $field $t}
+				{if $t.ismain && $t.fieldname != 'inputtime'}
+				<option value="{$t.fieldname}" {if $param.field==$t.fieldname}selected{/if}>{$t.name}</option>
+				{/if}
+				{/loop}
+			</select> ：
+			<input type="text" class="input-text" size="30" placeholder="{fc_lang('多个Id可以用“,”分隔')}" value="{$param['keyword']}" name="data[keyword]" />&nbsp;
+			&nbsp;
+			{fc_lang('申请时间')} ：
+			{dr_field_input('start', 'Date', array('option'=>array('format'=>'Y-m-d','width'=>80)), (int)$param['start'])}
+			-&nbsp;
+			{dr_field_input('end', 'Date', array('option'=>array('format'=>'Y-m-d','width'=>80)), (int)$param['end'])}
+			&nbsp;
+			<input type="submit" value="{fc_lang('搜索')}" class="button" name="search" />
+		</form>
+	</div>
+	<div class="bk10"></div>
+	<div class="table-list">
+		<form action="" method="post" name="myform" id="myform">
+			<input name="action" id="action" type="hidden" value="" />
+			<table width="100%">
+				<thead>
+				<tr>
+					<th width="20" align="right"><input name="dr_select" id="dr_select" type="checkbox" onClick="dr_selected()" />&nbsp;</th>
+					<th class="{ns_sorting('uid')}" name="uid" width="100" align="left">{fc_lang('会员名称')}</th>
+					<th name="type" width="150" align="left">{fc_lang('认证信息')}</th>
+					<th name="type" width="120" align="left">{fc_lang('证件号码')}</th>
+					<th name="type" width="100" align="left">{fc_lang('证件图片')}</th>
+					<th name="type" width="100" align="left">{fc_lang('手机号码')}</th>
+					<th class="{ns_sorting('inputtime')}" name="inputtime" width="120" align="left">{fc_lang('申请时间')}</th>
+					<th class="{ns_sorting('status')}" name="status" width="80" align="left">{fc_lang('状态')}</th>
+					<th align="left" class="dr_option">{fc_lang('审核意见')}</th>
+				</tr>
+				</thead>
+				<tbody>
+
+				{loop $list $t}
+				<tr>
+					<td align="right"><input name="ids[]" type="checkbox" class="dr_select" value="{$t.uid}" />&nbsp;</td>
+					<td align="left" class=""><a href="javascript:;" onclick="dr_dialog_member('{$t.uid}')">{dr_strcut($t.username, 20)}</a></td>
+					<td align="left" class=""> {if get_groupid($t.uid)==4}{if $t.company_nature}{get_nature($t.company_nature)}{/if}{else}{get_personal($t.auth_personal)}{/if}</td>
+					<td align="left">{$t.auth_sn}</td>
+					<td align="left"><button type="button" style="cursor:pointer;" class="btn blue btn-sm file_info_auth_image" onclick="dr_show_file_info('{$t.auth_image}')"> <i class="fa fa-search"></i> 查看</button></td>
+					<td align="left">{$t.auth_phone}</td>
+					<td align="left">{dr_date($t.inputtime, NULL, 'red')}</td>
+					<td align="left">{if !$t.status}<font color="blue">{fc_lang('未审核')}</font>{else if $t.status==1}<font color="red">{fc_lang('未通过')}</font>{else}<font color="green">{fc_lang('已审核')}</font>{/if}</td>
+					<td align="left" class="dr_option">
+						{if !$t.status}<input type="text" name="note[]" value="{$t.note}" />{else if $t.status==1}{$t.note}{/if}
+					</td>
+				</tr>
+				{/loop}
+				<tr>
+					<td width="20" align="right"><input name="dr_select" id="dr_select" type="checkbox" onClick="dr_selected()" />&nbsp;</td>
+					<td colspan="7" align="left">
+						<input type="button" class="button" style="background-color: #e7505a;color:#fff;" value="{fc_lang('删除')}" name="option" onClick="$('#action').val('del');dr_confirm_set_all('{fc_lang('您确定要这样操作吗？')}')" />
+						<input type="button" class="button" style="background-color: #1abc9c;color:#fff;" value="{fc_lang('通过')}" name="option" onClick="$('#action').val('pass');dr_confirm_set_all('{fc_lang('您确定要这样操作吗？')}')" />
+						<input type="button" class="button" style="background-color: #c49f47;color:#fff;" value="{fc_lang('未通过')}" name="option" onClick="$('#action').val('not_pass');dr_confirm_set_all('{fc_lang('您确定要这样操作吗？')}')" />
+					</td>
+				</tr>
+				</tbody>
+			</table>
+		</form>
+		<div id="pages"><a>{fc_lang('共%s条', $param['total'])}</a>{$pages}</div>
+	</div>
+</div>
+{template footer.html}

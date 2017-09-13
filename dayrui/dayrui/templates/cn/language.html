@@ -1,0 +1,1 @@
+<a href="http://demo.hf872.com">中文版</a> | <a href="http://en.hf872.com">English</a>

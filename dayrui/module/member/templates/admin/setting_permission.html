@@ -1,0 +1,65 @@
+{template nheader.html}
+<div class="page-bar">
+    <ul class="page-breadcrumb mylink">
+        {$menu.link}
+        
+    </ul>
+    <ul class="page-breadcrumb myname">
+        {$menu.name}
+    </ul>
+    <div class="page-toolbar">
+        <div class="btn-group pull-right">
+            <button type="button" class="btn green btn-sm btn-outline dropdown-toggle" data-toggle="dropdown" aria-expanded="false"> {fc_lang('操作菜单')}
+                <i class="fa fa-angle-down"></i>
+            </button>
+            <ul class="dropdown-menu pull-right" role="menu">
+                {loop $menu.quick $t}
+                <li>
+                    <a href="{$t.url}">{$t.icon} {$t.name}</a>
+                </li>
+                {/loop}
+                <li class="divider"> </li>
+                <li>
+                    <a href="javascript:window.location.reload();">
+                        <i class="icon-refresh"></i> {fc_lang('刷新页面')}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="portlet light bordered">
+    <div class="portlet-body">
+        <div class="table-scrollable v3table">
+		<table class="table">
+        
+        {list action=cache name=MEMBER.group return=group}
+        {if $group['id'] > 2}
+        <tr>
+        	<td align="left" width="250">{$group['name']}</td>
+            <td align="left"></td>
+        </tr>
+        {loop $group['level'] $level}
+        <tr>
+        	{php $id=$group['id'].'_'.$level['id'];}
+        	<td align="left" width="250" style="padding-left:40px">{$level['name']}&nbsp;&nbsp;{if $level.id !=1 && $level.id != 5}<img src="{THEME_PATH}home/images/{$level.id}.png" alt="" style="width:25px;height:25px;">{/if}</td>
+            <td align="left">
+            <a href="javascript:;" onclick="dr_member_rule('{$id}', '{dr_url("member/setting/rule", array("id"=>$id))}', '{$group['name']}-{$level['name']}')" class="blue">[{fc_lang('规则设置')}]</a>
+            <div id="dr_status_{$id}" class="onShow"></div>
+            </td>
+        </tr>
+        {/loop}
+        {else}
+        <tr>
+        	{php $id=$group['id'];}
+        	<td align="left" width="250">{$group['name']}</td>
+            <td align="left">
+            </td>
+        </tr>
+        {/if}
+        {/list}
+        </table>
+	    </div>
+	</div>
+</div>
+{template nfooter.html}
