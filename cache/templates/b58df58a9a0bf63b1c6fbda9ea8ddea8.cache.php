@@ -42,13 +42,13 @@
                     <ul>
                         <li> <a href="<?php echo SITE_URL; ?>" title="<?php echo SITE_TITLE; ?>">首页</a> </li>
                         <?php $return = $this->list_tag("action=navigator type=0 pid=0 num=6"); if ($return) extract($return); $count=count($return); if (is_array($return)) { foreach ($return as $key=>$t) { ?>
-                        <li> <a title="<?php echo $t['name']; ?>" href="<?php echo $t['url']; ?>" target="_parent"><?php echo $t['name']; ?></a>
+                        <li> <a title="<?php echo $t['name']; ?>" href="<?php echo $t['url']; ?>" <?php if ($t['target']) { ?>target="_blank"<?php } ?>><?php echo $t['name']; ?></a>
                             <ul>
                                 <?php if ($t['child']) {  $return_t2 = $this->list_tag("action=navigator pid=$t[id]  return=t2"); if ($return_t2) extract($return_t2); $count_t2=count($return_t2); if (is_array($return_t2)) { foreach ($return_t2 as $key_t2=>$t2) { ?>
-                                <li> <a title="<?php echo $t2['name']; ?>" href="<?php echo $t2['url']; ?>" onfocus="this.blur()" style="width:150px;"> <?php echo $t2['name']; ?></a>
+                                <li> <a title="<?php echo $t2['name']; ?>" <?php if ($t['target']) { ?>target="_blank"<?php } ?> href="<?php echo $t2['url']; ?>" onfocus="this.blur()" style="width:150px;"> <?php echo $t2['name']; ?></a>
                                     <ul>
                                         <?php if ($t2['child']) {  $return_t3 = $this->list_tag("action=navigator pid=$t2[id]  return=t3"); if ($return_t3) extract($return_t3); $count_t3=count($return_t3); if (is_array($return_t3)) { foreach ($return_t3 as $key_t3=>$t3) { ?>
-                                        <li><a title="<?php echo $t3['name']; ?>" href="<?php echo $t3['url']; ?>" onfocus="this.blur()"> <?php echo $t3['name']; ?></a> </li>
+                                        <li><a title="<?php echo $t3['name']; ?>" <?php if ($t['target']) { ?>target="_blank"<?php } ?> href="<?php echo $t3['url']; ?>" onfocus="this.blur()"> <?php echo $t3['name']; ?></a> </li>
                                         <?php } }  } ?>
                                     </ul>
                                 </li>

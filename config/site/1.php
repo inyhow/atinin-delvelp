@@ -27,7 +27,7 @@ return array(
 	'SITE_TITLE'                    => '福建省联标国际发展有限公司', //网站首页SEO标题
 	'SITE_KEYWORDS'                 => '', //网站SEO关键字
 	'SITE_DESCRIPTION'              => '', //网站SEO描述信息
-	'SITE_DOMAIN'                   => '', //网站的域名
+	'SITE_DOMAIN'                   => 'demo.hf872.com', //网站的域名
 	'SITE_DOMAINS'                  => '', //网站的其他域名
 	'SITE_NAVIGATOR'                => ',,,,,,,,,', //网站导航信息，多个导航逗号分开
 	'SITE_IMAGE_CONTENT'            => 0, //是否内容编辑器显示水印图片

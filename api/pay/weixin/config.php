@@ -15,7 +15,7 @@
 
 return array(
 
-	'appid'     => 'wx5c985ba9c4d6ec86', //wx5c985ba9c4d6ec86
+	'appid'     => 'wx5c985ba9c4d6ec86x', //wx5c985ba9c4d6ec86x
 	'appsecret' => '47e77105805581115cb007957311558b', //47e77105805581115cb007957311558b
 	'mchid'     => 1346618701, //1346618701
 	'key'       => 'Topkuaijiyouyaofuqianleweishenme', //Topkuaijiyouyaofuqianleweishenme

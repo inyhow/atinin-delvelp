@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost:3306
--- 生成日期: 2017 年 09 月 07 日 19:53
+-- 生成日期: 2017 年 09 月 18 日 16:48
 -- 服务器版本: 5.6.35
 -- PHP 版本: 5.3.21
 
@@ -642,15 +642,13 @@ CREATE TABLE IF NOT EXISTS `rs_1_form` (
   `setting` text COMMENT '配置信息',
   PRIMARY KEY (`id`),
   UNIQUE KEY `table` (`table`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='表单模型表' AUTO_INCREMENT=6 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='表单模型表' AUTO_INCREMENT=9 ;
 
 --
 -- 转存表中的数据 `rs_1_form`
 --
 
 INSERT INTO `rs_1_form` (`id`, `name`, `table`, `setting`) VALUES
-(2, '服务商', 'service', 'a:5:{s:4:\\"icon\\";s:0:\\"\\";s:4:\\"post\\";s:1:\\"1\\";s:4:\\"send\\";s:0:\\"\\";s:8:\\"template\\";s:0:\\"\\";s:6:\\"rt_url\\";s:0:\\"\\";}'),
-(4, '顾问咨询', 'adviser', 'a:5:{s:4:\\"icon\\";s:0:\\"\\";s:4:\\"post\\";s:1:\\"1\\";s:4:\\"send\\";s:0:\\"\\";s:8:\\"template\\";s:0:\\"\\";s:6:\\"rt_url\\";s:0:\\"\\";}'),
 (5, '申请注册', 'zhuce', 'a:5:{s:4:\\"icon\\";s:0:\\"\\";s:4:\\"post\\";s:1:\\"1\\";s:4:\\"send\\";s:0:\\"\\";s:8:\\"template\\";s:0:\\"\\";s:6:\\"rt_url\\";s:0:\\"\\";}');
 
 -- --------------------------------------------------------
@@ -704,110 +702,6 @@ CREATE TABLE IF NOT EXISTS `rs_1_form_account_data_0` (
 INSERT INTO `rs_1_form_account_data_0` (`id`, `uid`) VALUES
 (5, 16),
 (6, 0);
-
--- --------------------------------------------------------
-
---
--- 表的结构 `rs_1_form_adviser`
---
-
-CREATE TABLE IF NOT EXISTS `rs_1_form_adviser` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `title` varchar(255) DEFAULT NULL COMMENT '主题',
-  `uid` int(10) unsigned DEFAULT '0' COMMENT '录入者uid',
-  `author` varchar(100) DEFAULT NULL COMMENT '录入者账号',
-  `inputip` varchar(30) DEFAULT NULL COMMENT '录入者ip',
-  `inputtime` int(10) unsigned NOT NULL COMMENT '录入时间',
-  `displayorder` tinyint(3) NOT NULL DEFAULT '0' COMMENT '排序值',
-  `tableid` smallint(5) unsigned NOT NULL COMMENT '附表id',
-  `detail` text,
-  `a_phone` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `uid` (`uid`),
-  KEY `inputtime` (`inputtime`),
-  KEY `displayorder` (`displayorder`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='顾问咨询表单表' AUTO_INCREMENT=5 ;
-
---
--- 转存表中的数据 `rs_1_form_adviser`
---
-
-INSERT INTO `rs_1_form_adviser` (`id`, `title`, `uid`, `author`, `inputip`, `inputtime`, `displayorder`, `tableid`, `detail`, `a_phone`) VALUES
-(1, '福建润商网络', 1, 'admin', '127.0.0.1', 1470641221, 0, 0, 'kyujt', '14759167496'),
-(2, '你好', 17, '花开瓣夏', '61.131.85.18', 1471397857, 0, 0, '你好', '18659139690'),
-(3, '你好', 17, '花开瓣夏', '61.131.85.18', 1471397858, 0, 0, '你好', '18659139690'),
-(4, '正航软件', 17, '花开瓣夏', '61.131.85.18', 1471424576, 0, 0, '', '18659139690');
-
--- --------------------------------------------------------
-
---
--- 表的结构 `rs_1_form_adviser_data_0`
---
-
-CREATE TABLE IF NOT EXISTS `rs_1_form_adviser_data_0` (
-  `id` int(10) unsigned NOT NULL,
-  `uid` int(10) unsigned DEFAULT '0' COMMENT '录入者uid',
-  UNIQUE KEY `id` (`id`),
-  KEY `uid` (`uid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='顾问咨询表单附表';
-
---
--- 转存表中的数据 `rs_1_form_adviser_data_0`
---
-
-INSERT INTO `rs_1_form_adviser_data_0` (`id`, `uid`) VALUES
-(1, 1),
-(2, 17),
-(3, 17),
-(4, 17);
-
--- --------------------------------------------------------
-
---
--- 表的结构 `rs_1_form_service`
---
-
-CREATE TABLE IF NOT EXISTS `rs_1_form_service` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `title` varchar(255) DEFAULT NULL COMMENT '主题',
-  `uid` int(10) unsigned DEFAULT '0' COMMENT '录入者uid',
-  `author` varchar(100) DEFAULT NULL COMMENT '录入者账号',
-  `inputip` varchar(30) DEFAULT NULL COMMENT '录入者ip',
-  `inputtime` int(10) unsigned NOT NULL COMMENT '录入时间',
-  `displayorder` tinyint(3) NOT NULL DEFAULT '0' COMMENT '排序值',
-  `tableid` smallint(5) unsigned NOT NULL COMMENT '附表id',
-  `mobile` char(100) DEFAULT NULL,
-  `name` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `uid` (`uid`),
-  KEY `inputtime` (`inputtime`),
-  KEY `displayorder` (`displayorder`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='服务商表单表' AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- 表的结构 `rs_1_form_service_data_0`
---
-
-CREATE TABLE IF NOT EXISTS `rs_1_form_service_data_0` (
-  `id` int(10) unsigned NOT NULL,
-  `uid` int(10) unsigned DEFAULT '0' COMMENT '录入者uid',
-  UNIQUE KEY `id` (`id`),
-  KEY `uid` (`uid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='服务商表单附表';
-
---
--- 转存表中的数据 `rs_1_form_service_data_0`
---
-
-INSERT INTO `rs_1_form_service_data_0` (`id`, `uid`) VALUES
-(1, 1),
-(2, 1),
-(3, 1),
-(4, 1),
-(5, 0),
-(6, 35);
 
 -- --------------------------------------------------------
 
@@ -881,7 +775,7 @@ CREATE TABLE IF NOT EXISTS `rs_1_job_form_wyzp` (
 --
 
 INSERT INTO `rs_1_job_form_wyzp` (`id`, `cid`, `uid`, `author`, `inputip`, `inputtime`, `title`, `url`, `subject`, `tableid`, `mobile`) VALUES
-(1, 1, 1, 'admin', '127.0.0.1', 1465353166, '招聘 会计出纳人员', 'http://www.topkuaiji.com/index.php?s=job&c=show&id=1', '111', 0, NULL);
+(1, 1, 1, 'admin', '127.0.0.1', 1465353166, '招聘 会计出纳人员', '/index.php?s=job&c=show&id=1', '111', 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -1002,7 +896,7 @@ CREATE TABLE IF NOT EXISTS `rs_1_navigator` (
   KEY `mark` (`mark`),
   KEY `extend` (`extend`),
   KEY `pid` (`pid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='网站导航表' AUTO_INCREMENT=34 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='网站导航表' AUTO_INCREMENT=42 ;
 
 --
 -- 转存表中的数据 `rs_1_navigator`
@@ -1011,7 +905,7 @@ CREATE TABLE IF NOT EXISTS `rs_1_navigator` (
 INSERT INTO `rs_1_navigator` (`id`, `pid`, `pids`, `type`, `name`, `title`, `url`, `thumb`, `show`, `mark`, `extend`, `child`, `childids`, `target`, `displayorder`) VALUES
 (1, 0, '0', 0, '服务方案', '服务方案', 'publish.html', '', 1, 'page-1', 1, 1, '1,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22', 0, 0),
 (2, 0, '0', 0, '申请注册', '申请注册', '/index.php?c=page&amp;id=22', '', 1, '', 0, 0, '2', 0, 0),
-(3, 0, '0', 0, '操作平台', '操作平台', 'index.php?s=member&amp;c=login&amp;m=index', '', 1, '', 0, 0, '3', 0, 0),
+(3, 0, '0', 0, '操作平台', '操作平台', 'index.php?s=member&amp;c=login&amp;m=index', '', 1, '', 0, 1, '3,35,38', 1, 0),
 (4, 0, '0', 0, '业务拍档', '业务拍档', 'http://demo.hf872.com/index.php?c=page&id=2', '', 1, 'page-2', 0, 0, '4', 0, 0),
 (5, 0, '0', 0, '联标商城', '联标商城', '/shop.html', '', 0, '', 0, 0, '5', 0, 0),
 (6, 0, '0', 0, '关于我们', '', 'http://demo.hf872.com/index.php?c=page&id=3', '', 1, 'page-3', 1, 1, '6,23,26,33,24,27', 0, 0),
@@ -1036,7 +930,9 @@ INSERT INTO `rs_1_navigator` (`id`, `pid`, `pids`, `type`, `name`, `title`, `url
 (26, 6, '0,6', 0, '合作伙伴', '', 'http://demo.hf872.com/news-list-partner.html', '', 1, 'module-news-2', 0, 0, '26', 0, 2),
 (27, 6, '0,6', 0, '联标学院', '联标学院', 'http://demo.hf872.com/news-list-study.html', '', 1, 'module-news-3', 0, 0, '27', 0, 5),
 (28, 0, '0', 4, '联标发展', '联标发展', 'http://www.baidu.com', '', 1, '', 0, 0, '28', 0, 0),
-(33, 6, '0,6', 0, '新闻动态', '新闻动态', 'http://demo.hf872.com/news-list-news.html', '', 1, 'module-news-1', 0, 0, '33', 0, 3);
+(33, 6, '0,6', 0, '新闻动态', '新闻动态', 'http://demo.hf872.com/news-list-news.html', '', 1, 'module-news-1', 0, 0, '33', 0, 3),
+(35, 3, '0,3', 0, '登录T8', '', 'http://t8.atinin.cn:8082/Login.aspx', '', 1, '', 0, 0, '35', 1, 0),
+(38, 3, '0,3', 0, '订单查询', '', 'http://t8.atinin.cn:8099/', '', 1, '', 0, 0, '38', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -2433,7 +2329,7 @@ CREATE TABLE IF NOT EXISTS `rs_1_page` (
   KEY `pid` (`pid`),
   KEY `show` (`show`),
   KEY `displayorder` (`displayorder`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='单页表' AUTO_INCREMENT=24 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='单页表' AUTO_INCREMENT=27 ;
 
 --
 -- 转存表中的数据 `rs_1_page`
@@ -2495,7 +2391,7 @@ CREATE TABLE IF NOT EXISTS `rs_1_poster` (
 
 INSERT INTO `rs_1_poster` (`id`, `sid`, `name`, `value`, `uid`, `username`, `price`, `starttime`, `endtime`, `inputtime`, `clicks`, `displayorder`, `status`) VALUES
 (7, 1, 'banner1', 'a:5:{s:3:\\"url\\";s:22:\\"http://demo.hf872.com/\\";s:4:\\"file\\";s:4:\\"1104\\";s:4:\\"text\\";N;s:4:\\"code\\";N;s:5:\\"color\\";N;}', 1, 'admin', 0.00, 1496811066, 0, 1496811081, 1, 0, 1),
-(2, 1, 'banner2', 'a:5:{s:3:\\"url\\";s:21:\\"http://demo.hf872.com\\";s:4:\\"file\\";s:4:\\"1105\\";s:4:\\"text\\";N;s:4:\\"code\\";N;s:5:\\"color\\";N;}', 1, 'admin', 0.00, 1496246400, 0, 1496583561, 1, 0, 1),
+(2, 1, 'banner2', 'a:5:{s:3:\\"url\\";s:21:\\"http://demo.hf872.com\\";s:4:\\"file\\";s:4:\\"1105\\";s:4:\\"text\\";N;s:4:\\"code\\";N;s:5:\\"color\\";N;}', 1, 'admin', 0.00, 1496246400, 0, 1496583561, 2, 0, 1),
 (3, 2, 'banner1', 'a:5:{s:3:\\"url\\";s:0:\\"\\";s:4:\\"file\\";s:4:\\"1079\\";s:4:\\"text\\";N;s:4:\\"code\\";N;s:5:\\"color\\";N;}', 1, 'admin', 0.00, 1496591238, 0, 1496591331, 0, 0, 1),
 (5, 3, 'Banner', 'a:5:{s:3:\\"url\\";s:0:\\"\\";s:4:\\"file\\";s:4:\\"1097\\";s:4:\\"text\\";N;s:4:\\"code\\";N;s:5:\\"color\\";N;}', 1, 'admin', 0.00, 1496719091, 0, 1496719102, 0, 0, 1),
 (8, 5, 'Banner', 'a:5:{s:3:\\"url\\";s:0:\\"\\";s:4:\\"file\\";s:4:\\"1130\\";s:4:\\"text\\";N;s:4:\\"code\\";N;s:5:\\"color\\";N;}', 1, 'admin', 0.00, 1498031158, 0, 1498031222, 0, 0, 1),
@@ -2889,7 +2785,7 @@ CREATE TABLE IF NOT EXISTS `rs_1_shop` (
 --
 
 INSERT INTO `rs_1_shop` (`id`, `catid`, `title`, `thumb`, `keywords`, `description`, `hits`, `uid`, `author`, `status`, `url`, `link_id`, `tableid`, `inputip`, `inputtime`, `updatetime`, `comments`, `displayorder`, `order_price`, `order_volume`, `order_quantity`, `favorites`, `avgsort`, `fj_area`) VALUES
-(51, 7, '供需链管理系统', '1111', '12,供应链,供应链管理,管理系统', '供需链管理系统', 138, 1, 'admin', 9, 'http://demo.hf872.com/shop-show-51.html', 0, 0, '::1', 1493191766, 1498137699, 0, 0, 12.00, 12, '12', 1, 0.00, 2),
+(51, 7, '供需链管理系统', '1111', '12,供应链,供应链管理,管理系统', '供需链管理系统', 139, 1, 'admin', 9, 'http://demo.hf872.com/shop-show-51.html', 0, 0, '::1', 1493191766, 1498137699, 0, 0, 12.00, 12, '12', 1, 0.00, 2),
 (52, 7, '供应链金融系统', '1114', '', '供应链金融系统', 2, 1, 'admin', 9, 'http://demo.hf872.com/shop-show-52.html', 0, 0, '192.168.1.80', 1498138419, 1498465657, 0, 0, 0.00, 0, '', 0, 0.00, 1);
 
 -- --------------------------------------------------------
@@ -3229,7 +3125,7 @@ INSERT INTO `rs_1_shop_hits` (`id`, `hits`, `day_hits`, `week_hits`, `month_hits
 (2, 1, 1, 1, 1, 1),
 (13, 1, 1, 1, 1, 1),
 (19, 1, 1, 1, 1, 1),
-(51, 138, 1, 1, 141, 115),
+(51, 139, 1, 1, 1, 115),
 (52, 2, 2, 3, 3, 1);
 
 -- --------------------------------------------------------
@@ -3936,7 +3832,7 @@ CREATE TABLE IF NOT EXISTS `rs_2_navigator` (
   KEY `mark` (`mark`),
   KEY `extend` (`extend`),
   KEY `pid` (`pid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='网站导航表' AUTO_INCREMENT=34 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='网站导航表' AUTO_INCREMENT=36 ;
 
 --
 -- 转存表中的数据 `rs_2_navigator`
@@ -3945,7 +3841,7 @@ CREATE TABLE IF NOT EXISTS `rs_2_navigator` (
 INSERT INTO `rs_2_navigator` (`id`, `pid`, `pids`, `type`, `name`, `title`, `url`, `thumb`, `show`, `mark`, `extend`, `child`, `childids`, `target`, `displayorder`) VALUES
 (1, 0, '0', 0, 'Services', 'Service Solution', 'publish.html', '', 1, 'page-1', 1, 1, '1,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22', 0, 0),
 (2, 0, '0', 0, 'Register', 'Register', '/index.php?c=page&amp;id=22', '', 1, '', 0, 0, '2', 0, 0),
-(3, 0, '0', 0, 'Platform', 'Operating Platform', 'index.php?s=member&amp;c=login&amp;m=index', '', 1, '', 0, 0, '3', 0, 0),
+(3, 0, '0', 0, 'Platform', 'Operating Platform', 'index.php?s=member&amp;c=login&amp;m=index', '', 1, '', 1, 1, '3,34,35', 1, 0),
 (4, 0, '0', 0, 'Partner', 'Business Partner', 'http://en.hf872.com/index.php?c=page&id=2', '', 1, 'page-2', 0, 0, '4', 0, 0),
 (5, 0, '0', 0, 'A&amp;T Mall', 'A&amp;T mall', '/shop.html', '', 0, '', 0, 0, '5', 0, 0),
 (6, 0, '0', 0, 'About', '', 'http://en.hf872.com/index.php?c=page&id=3', '', 1, 'page-3', 1, 1, '6,23,26,33,24,27', 0, 0),
@@ -3970,7 +3866,9 @@ INSERT INTO `rs_2_navigator` (`id`, `pid`, `pids`, `type`, `name`, `title`, `url
 (26, 6, '0,6', 0, 'Cooperative partner', '', 'http://en.hf872.com/index.php?s=news&c=category&id=2', '', 1, 'module-news-2', 0, 0, '26', 0, 2),
 (27, 6, '0,6', 0, 'A&T School', 'A&T School', 'http://en.hf872.com/index.php?s=news&c=category&id=3', '', 1, 'module-news-3', 0, 0, '27', 0, 5),
 (28, 0, '0', 4, 'A&T Development', 'A&T Development', 'http://www.baidu.com', '', 1, '', 0, 0, '28', 0, 0),
-(33, 6, '0,6', 0, 'News', 'News', 'http://en.hf872.com/index.php?s=news&c=category&id=1', '', 1, 'module-news-1', 0, 0, '33', 0, 3);
+(33, 6, '0,6', 0, 'News', 'News', 'http://en.hf872.com/index.php?s=news&c=category&id=1', '', 1, 'module-news-1', 0, 0, '33', 0, 3),
+(34, 3, '0,3', 0, 'Login T8', '', 'http://t8.atinin.cn:8082/Login.aspx', '', 1, '', 1, 0, '34', 1, 0),
+(35, 3, '0,3', 0, 'order tracking', '', 'http://t8.atinin.cn:8099/', '', 1, '', 1, 0, '35', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -5515,7 +5413,7 @@ CREATE TABLE IF NOT EXISTS `rs_admin` (
 --
 
 INSERT INTO `rs_admin` (`uid`, `realname`, `usermenu`, `color`) VALUES
-(1, '网站创始人', '', 'light2');
+(1, '网站创始人', '', 'blue');
 
 -- --------------------------------------------------------
 
@@ -5533,7 +5431,7 @@ CREATE TABLE IF NOT EXISTS `rs_admin_login` (
   KEY `uid` (`uid`),
   KEY `loginip` (`loginip`),
   KEY `logintime` (`logintime`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='登录日志记录' AUTO_INCREMENT=264 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='登录日志记录' AUTO_INCREMENT=270 ;
 
 --
 -- 转存表中的数据 `rs_admin_login`
@@ -5800,7 +5698,13 @@ INSERT INTO `rs_admin_login` (`id`, `uid`, `loginip`, `logintime`, `useragent`) 
 (260, 1, '61.154.16.95', 1498700770, 'Windows 10 Chrome 50.0.2661.102'),
 (261, 1, '61.154.16.95', 1498785784, 'Windows 10 Chrome 50.0.2661.102'),
 (262, 1, '220.200.1.90', 1503141360, 'Windows 7 Chrome 45.0.2454.101'),
-(263, 1, '220.200.1.90', 1503220800, 'Windows 7 Chrome 45.0.2454.101');
+(263, 1, '220.200.1.90', 1503220800, 'Windows 7 Chrome 45.0.2454.101'),
+(264, 1, '117.25.52.20', 1505460770, 'Windows 10 Chrome 50.0.2661.102'),
+(265, 1, '220.200.1.90', 1505464501, 'Windows 7 Chrome 49.0.2623.75'),
+(266, 1, '220.200.1.90', 1505526339, 'Windows 7 Chrome 49.0.2623.75'),
+(267, 1, '220.200.1.90', 1505614048, 'Windows 7 Chrome 49.0.2623.75'),
+(268, 1, '117.25.52.20', 1505721493, 'Windows 10 Chrome 50.0.2661.102'),
+(269, 1, '220.200.1.90', 1505723185, 'Windows 7 Chrome 49.0.2623.75');
 
 -- --------------------------------------------------------
 
@@ -5824,7 +5728,7 @@ CREATE TABLE IF NOT EXISTS `rs_admin_menu` (
   KEY `mark` (`mark`),
   KEY `hidden` (`hidden`),
   KEY `uri` (`uri`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='后台菜单表' AUTO_INCREMENT=3025 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='后台菜单表' AUTO_INCREMENT=3081 ;
 
 --
 -- 转存表中的数据 `rs_admin_menu`
@@ -5973,7 +5877,7 @@ INSERT INTO `rs_admin_menu` (`id`, `pid`, `name`, `uri`, `url`, `mark`, `hidden`
 (1449, 1447, '开账申请', 'admin/form_account/index', NULL, 'site-from', 0, 0, 'fa fa-table'),
 (1450, 1447, '顾问咨询', 'admin/form_adviser/index', NULL, 'site-from', 0, 0, 'fa fa-table'),
 (253, 15, '广告管理', 'adm/admin/poster/index', '', 'app-adm', 0, 0, 'icon-eye-open'),
-(3023, 3, '表单内容', '', NULL, 'form', 0, 4, 'fa fa-table'),
+(3079, 3, '表单内容', '', NULL, 'form', 0, 4, 'fa fa-table'),
 (261, 260, '在线记账', 'admin/form_zxjz/index', NULL, 'site-from', 0, 0, 'sticky-note-o'),
 (263, 262, '在线记账', 'admin/form_zxjz/index', NULL, 'site-from', 0, 0, 'sticky-note-o'),
 (265, 264, '在线记账', 'admin/form_zxjz/index', NULL, 'site-from', 0, 0, 'sticky-note-o'),
@@ -7752,7 +7656,43 @@ INSERT INTO `rs_admin_menu` (`id`, `pid`, `name`, `uri`, `url`, `mark`, `hidden`
 (3019, 3017, '顾问咨询', 'admin/form_adviser/index', NULL, 'site-from', 0, 0, 'fa fa-table'),
 (3020, 3017, '申请注册', 'admin/form_zhuce/index', NULL, 'site-from', 0, 0, 'fa fa-table'),
 (3022, 3021, '申请注册', 'admin/form_zhuce/index', NULL, 'site-from', 0, 0, 'fa fa-table'),
-(3024, 3023, '申请注册', 'admin/form_zhuce/index', NULL, 'site-from', 0, 0, 'fa fa-table');
+(3024, 3023, '申请注册', 'admin/form_zhuce/index', NULL, 'site-from', 0, 0, 'fa fa-table'),
+(3026, 3025, '服务商', 'admin/form_service/index', NULL, 'site-from', 0, 0, 'fa fa-table'),
+(3027, 3025, '顾问咨询', 'admin/form_adviser/index', NULL, 'site-from', 0, 0, 'fa fa-table'),
+(3028, 3025, '申请注册', 'admin/form_zhuce/index', NULL, 'site-from', 0, 0, 'fa fa-table'),
+(3030, 3029, '申请注册', 'admin/form_zhuce/index', NULL, 'site-from', 0, 0, 'fa fa-table'),
+(3032, 3031, '服务商', 'admin/form_service/index', NULL, 'site-from', 0, 0, 'fa fa-table'),
+(3033, 3031, '顾问咨询', 'admin/form_adviser/index', NULL, 'site-from', 0, 0, 'fa fa-table'),
+(3034, 3031, '申请注册', 'admin/form_zhuce/index', NULL, 'site-from', 0, 0, 'fa fa-table'),
+(3036, 3035, '申请注册', 'admin/form_zhuce/index', NULL, 'site-from', 0, 0, 'fa fa-table'),
+(3038, 3037, '服务商', 'admin/form_service/index', NULL, 'site-from', 0, 0, 'fa fa-table'),
+(3039, 3037, '顾问咨询', 'admin/form_adviser/index', NULL, 'site-from', 0, 0, 'fa fa-table'),
+(3040, 3037, '申请注册', 'admin/form_zhuce/index', NULL, 'site-from', 0, 0, 'fa fa-table'),
+(3042, 3041, '申请注册', 'admin/form_zhuce/index', NULL, 'site-from', 0, 0, 'fa fa-table'),
+(3044, 3043, '服务商', 'admin/form_service/index', NULL, 'site-from', 0, 0, 'fa fa-table'),
+(3045, 3043, '顾问咨询', 'admin/form_adviser/index', NULL, 'site-from', 0, 0, 'fa fa-table'),
+(3046, 3043, '申请注册', 'admin/form_zhuce/index', NULL, 'site-from', 0, 0, 'fa fa-table'),
+(3048, 3047, '申请注册', 'admin/form_zhuce/index', NULL, 'site-from', 0, 0, 'fa fa-table'),
+(3050, 3049, '服务商', 'admin/form_service/index', NULL, 'site-from', 0, 0, 'fa fa-table'),
+(3051, 3049, '顾问咨询', 'admin/form_adviser/index', NULL, 'site-from', 0, 0, 'fa fa-table'),
+(3052, 3049, '申请注册', 'admin/form_zhuce/index', NULL, 'site-from', 0, 0, 'fa fa-table'),
+(3054, 3053, '申请注册', 'admin/form_zhuce/index', NULL, 'site-from', 0, 0, 'fa fa-table'),
+(3056, 3055, '服务商', 'admin/form_service/index', NULL, 'site-from', 0, 0, 'fa fa-table'),
+(3057, 3055, '顾问咨询', 'admin/form_adviser/index', NULL, 'site-from', 0, 0, 'fa fa-table'),
+(3058, 3055, '申请注册', 'admin/form_zhuce/index', NULL, 'site-from', 0, 0, 'fa fa-table'),
+(3060, 3059, '申请注册', 'admin/form_zhuce/index', NULL, 'site-from', 0, 0, 'fa fa-table'),
+(3062, 3061, '操作平台', 'admin/form_caozuopingtai/index', NULL, 'site-from', 0, 0, 'fa fa-table'),
+(3063, 3061, '申请注册', 'admin/form_zhuce/index', NULL, 'site-from', 0, 0, 'fa fa-table'),
+(3065, 3064, '操作平台', 'admin/form_caozuopingtai/index', NULL, 'site-from', 0, 0, 'fa fa-table'),
+(3066, 3064, '登陆T8', 'admin/form_denglut8/index', NULL, 'site-from', 0, 0, 'fa fa-table'),
+(3067, 3064, '申请注册', 'admin/form_zhuce/index', NULL, 'site-from', 0, 0, 'fa fa-table'),
+(3068, 3064, '订单查询', 'admin/form_dingdanchaxun/index', NULL, 'site-from', 0, 0, 'fa fa-table'),
+(3070, 3069, '申请注册', 'admin/form_zhuce/index', NULL, 'site-from', 0, 0, 'fa fa-table'),
+(3072, 3071, '申请注册', 'admin/form_zhuce/index', NULL, 'site-from', 0, 0, 'fa fa-table'),
+(3074, 3073, '申请注册', 'admin/form_zhuce/index', NULL, 'site-from', 0, 0, 'fa fa-table'),
+(3076, 3075, '申请注册', 'admin/form_zhuce/index', NULL, 'site-from', 0, 0, 'fa fa-table'),
+(3078, 3077, '申请注册', 'admin/form_zhuce/index', NULL, 'site-from', 0, 0, 'fa fa-table'),
+(3080, 3079, '申请注册', 'admin/form_zhuce/index', NULL, 'site-from', 0, 0, 'fa fa-table');
 
 -- --------------------------------------------------------
 
@@ -7786,55 +7726,12 @@ CREATE TABLE IF NOT EXISTS `rs_admin_notice` (
 --
 
 INSERT INTO `rs_admin_notice` (`id`, `type`, `msg`, `uri`, `to_rid`, `to_uid`, `status`, `uid`, `username`, `updatetime`, `inputtime`) VALUES
-(8, 'content', '在线咨询 新内容审核', 'answer/admin/home/verifyedit/id/8', 0, 0, 1, 1, 'admin', 0, 1470651764),
-(34, 'content', '求职 修改内容审核', 'qiuzhi/admin/home/verifyedit/id/11', 0, 0, 3, 1, 'admin', 1473036229, 1473036173),
-(45, 'content', '在线咨询 新内容审核', 'answer/admin/home/verifyedit/id/32', 0, 0, 3, 1, 'admin', 1474612154, 1474331543),
-(46, 'content', '求职 新内容审核', 'qiuzhi/admin/home/verifyedit/id/25', 0, 0, 3, 1, 'admin', 1474611445, 1474611344),
-(18, 'content', '在线咨询 新内容审核', 'answer/admin/home/verifyedit/id/16', 0, 0, 3, 1, 'admin', 1471851067, 1471424476),
-(19, 'content', '在线咨询 新内容审核', 'answer/admin/home/verifyedit/id/17', 0, 0, 3, 1, 'admin', 1471851067, 1471851036),
-(20, 'content', '在线咨询 新内容审核', 'answer/admin/home/verifyedit/id/18', 0, 0, 3, 1, 'admin', 1471854480, 1471854467),
-(21, 'content', '在线咨询 新内容审核', 'answer/admin/home/verifyedit/id/19', 0, 0, 3, 1, 'admin', 1471855068, 1471855021),
-(22, 'content', '在线咨询 新内容审核', 'answer/admin/home/verifyedit/id/20', 0, 0, 3, 1, 'admin', 1471855068, 1471855021),
-(23, 'content', '新评论审核', 'answer/admin/comment/show/tid/0/id/6', 0, 0, 1, 1, 'admin', 0, 1471944755),
-(24, 'content', '在线咨询 新内容审核', 'answer/admin/home/verifyedit/id/21', 0, 0, 3, 1, 'admin', 1472805916, 1472189963),
-(25, 'content', '在线咨询 新内容审核', 'answer/admin/home/verifyedit/id/22', 0, 0, 3, 1, 'admin', 1472805916, 1472190015),
-(26, 'content', '在线咨询 新内容审核', 'answer/admin/home/verifyedit/id/23', 0, 0, 3, 1, 'admin', 1472805916, 1472199929),
-(27, 'content', '在线咨询 新内容审核', 'answer/admin/home/verifyedit/id/24', 0, 0, 3, 1, 'admin', 1472805916, 1472200114),
-(28, 'content', '在线咨询 新内容审核', 'answer/admin/home/verifyedit/id/25', 0, 0, 3, 1, 'admin', 1472805905, 1472200130),
-(29, 'content', '在线咨询 新内容审核', 'answer/admin/home/verifyedit/id/26', 0, 0, 3, 1, 'admin', 1472805916, 1472200883),
-(30, 'content', '求职 新内容审核', 'qiuzhi/admin/home/verifyedit/id/10', 0, 0, 3, 1, 'admin', 1472802294, 1472632489),
-(31, 'content', '求职 新内容审核', 'qiuzhi/admin/home/verifyedit/id/11', 0, 0, 3, 1, 'admin', 1472698707, 1472632503),
-(32, 'content', '求职 修改内容审核', 'qiuzhi/admin/home/verifyedit/id/11', 0, 0, 3, 1, 'admin', 1472802269, 1472719099),
-(33, 'content', '求职 新内容审核', 'qiuzhi/admin/home/verifyedit/id/12', 0, 0, 3, 1, 'admin', 1472804664, 1472804464),
-(47, 'content', '求职 新内容审核', 'qiuzhi/admin/home/verifyedit/id/26', 0, 0, 3, 1, 'admin', 1474941413, 1474611585),
-(49, 'content', '在线咨询 新内容审核', 'answer/admin/home/verifyedit/id/33', 0, 0, 1, 1, 'admin', 0, 1474611942),
 (50, 'content', '在线咨询 新内容审核', 'answer/admin/home/verifyedit/id/34', 0, 0, 0, 0, '', 0, 1474611994),
-(51, 'content', '在线咨询 新内容审核', 'answer/admin/home/verifyedit/id/35', 0, 0, 3, 1, 'admin', 1474612154, 1474612060),
-(52, 'content', '在线咨询 新内容审核', 'answer/admin/home/verifyedit/id/36', 0, 0, 3, 1, 'admin', 1474612154, 1474612110),
 (53, 'content', '在线咨询 新内容审核', 'answer/admin/home/verifyedit/id/37', 0, 0, 0, 0, '', 0, 1474612179),
 (54, 'content', '新评论审核', 'answer/admin/comment/show/tid/0/id/8', 0, 0, 0, 0, '', 0, 1474938731),
 (55, 'content', '新评论审核', 'answer/admin/comment/show/tid/0/id/9', 0, 0, 0, 0, '', 0, 1474938796),
 (56, 'content', '新评论审核', 'answer/admin/comment/show/tid/0/id/10', 0, 0, 0, 0, '', 0, 1474939009),
-(57, 'content', '在线咨询 新内容审核', 'answer/admin/home/verifyedit/id/38', 0, 0, 3, 1, 'admin', 1474939458, 1474939396),
-(58, 'content', '在线咨询 新内容审核', 'answer/admin/home/verifyedit/id/39', 0, 0, 3, 1, 'admin', 1475973153, 1474939642),
-(59, 'content', '在线咨询 新内容审核', 'answer/admin/home/verifyedit/id/41', 0, 0, 3, 1, 'admin', 1475973141, 1474940932),
-(60, 'content', '求职 新内容审核', 'qiuzhi/admin/home/verifyedit/id/28', 0, 0, 3, 1, 'admin', 1474941413, 1474941380),
-(61, 'content', '在线咨询 新内容审核', 'answer/admin/home/verifyedit/id/43', 0, 0, 1, 1, 'admin', 0, 1474965815),
-(62, 'content', '在线咨询 新内容审核', 'answer/admin/home/verifyedit/id/45', 0, 0, 1, 1, 'admin', 0, 1474966142),
-(63, 'content', '在线咨询 新内容审核', 'answer/admin/home/verifyedit/id/46', 0, 0, 1, 1, 'admin', 0, 1475108449),
-(65, 'content', '在线咨询 新内容审核', 'answer/admin/home/verifyedit/id/48', 0, 0, 1, 1, 'admin', 0, 1475129553),
-(66, 'content', '在线咨询 新内容审核', 'answer/admin/home/verifyedit/id/49', 0, 0, 1, 1, 'admin', 0, 1475129916),
-(68, 'content', '求职 新内容审核', 'qiuzhi/admin/home/verifyedit/id/32', 0, 0, 1, 1, 'admin', 0, 1475130447),
-(71, 'content', '求职 新内容审核', 'qiuzhi/admin/home/verifyedit/id/35', 0, 0, 1, 1, 'admin', 0, 1475139372),
-(72, 'content', '求职 新内容审核', 'qiuzhi/admin/home/verifyedit/id/36', 0, 0, 1, 1, 'admin', 0, 1475139499),
-(73, 'content', '求职 修改内容审核', 'qiuzhi/admin/home/verifyedit/id/19', 0, 0, 1, 1, 'admin', 0, 1475139712),
-(74, 'content', '在线咨询 新内容审核', 'answer/admin/home/verifyedit/id/51', 0, 0, 1, 1, 'admin', 0, 1475140344),
-(75, 'content', '在线咨询 新内容审核', 'answer/admin/home/verifyedit/id/52', 0, 0, 1, 1, 'admin', 0, 1475140427),
-(76, 'content', '在线咨询 新内容审核', 'answer/admin/home/verifyedit/id/53', 0, 0, 1, 1, 'admin', 0, 1475142907),
-(77, 'content', '在线咨询 新内容审核', 'answer/admin/home/verifyedit/id/54', 0, 0, 1, 1, 'admin', 0, 1475219687),
 (80, 'content', '新评论审核', 'shop/admin/comment/show/tid/0/id/1', 0, 0, 1, 51, '18060616876', 0, 1476084698),
-(83, 'member', '新会员注册审核', 'member/admin/home/index/field/uid/keyword/66', 0, 0, 3, 1, 'admin', 1498030048, 1496201607),
-(84, 'member', '新会员注册审核', 'member/admin/home/index/field/uid/keyword/67', 0, 0, 1, 1, 'admin', 0, 1496205817),
 (85, 'member', '新会员注册审核', 'member/admin/home/index/field/uid/keyword/68', 0, 0, 0, 0, '', 0, 1498786026);
 
 -- --------------------------------------------------------
@@ -7966,7 +7863,6 @@ INSERT INTO `rs_attachment` (`id`, `uid`, `author`, `siteid`, `related`, `tablei
 (88, 1, 'admin', 1, 'rs_1_poster-22', 1, 0, 50033, 'png', '605a0ea14b1a5695401888c1bf0284cc'),
 (89, 1, 'admin', 1, 'rs_1_poster-23', 1, 0, 32430, 'png', 'bbece5b5412b115e991fa0d1fee82a19'),
 (90, 1, 'admin', 1, 'rs_1_poster-24', 1, 0, 189645, 'png', '6f3ea690d2841024ff1620e08d7ec148'),
-(91, 1, 'admin', 1, 'rs_member_auth-1', 1, 0, 38461, 'jpg', '11b66c01b105503962ff4d9ee15965d0'),
 (249, 1, 'admin', 1, 'rs_1_poster-17', 1, 0, 105820, 'jpg', '4428a478bab27f14b1e13c1a1f49e6d6'),
 (1056, 1, 'admin', 1, 'rs_1_news-148', 1, 0, 45507, 'jpg', '667dd6d603ed2dbce146bfe68f577f00'),
 (1101, 1, 'admin', 1, 'rs_1_poster-7', 1, 0, 102769, 'jpg', 'f5d07fce980179b09bf180dbc0342b32'),
@@ -7983,7 +7879,6 @@ INSERT INTO `rs_attachment` (`id`, `uid`, `author`, `siteid`, `related`, `tablei
 (159, 1, 'admin', 1, 'rs_1_poster-15', 1, 0, 190853, 'png', '19a9f2a7d4980d6b5c277051b1351317'),
 (160, 1, 'admin', 1, 'rs_1_poster-12', 1, 0, 164751, 'png', '14c8c16d868d7a7e44d7c5f3959be363'),
 (894, 1, 'admin', 1, 'rs_1_poster-22', 1, 0, 34836, 'jpg', 'ccd30d8027e4956325ab983d49a842c2'),
-(162, 1, 'admin', 1, 'rs_member_auth-1', 1, 0, 152699, 'png', '90b603ffaca1f8c066c45accb73c60de'),
 (1069, 1, 'admin', 1, 'rs_1_poster-8', 1, 0, 40868, 'png', 'f4f4e58bf879e467353b93e83a5102cc'),
 (1055, 1, 'admin', 1, 'rs_1_news-147', 1, 0, 418632, 'jpg', '54b9def08e87e3946045a3df9323b84d'),
 (1104, 1, 'admin', 1, 'rs_1_poster-7', 1, 0, 817562, 'jpg', 'c8e382de00e14a5bd242c84bb826d0e9'),
@@ -8275,7 +8170,6 @@ INSERT INTO `rs_attachment_1` (`id`, `uid`, `author`, `related`, `filename`, `fi
 (88, 1, 'admin', 'rs_1_poster-22', 'ad11', 'png', 50033, '201608/d68278f335.png', 0, 'a:2:{s:6:\\"height\\";i:101;s:5:\\"width\\";i:1199;}', 1470880358),
 (89, 1, 'admin', 'rs_1_poster-23', 'ad12', 'png', 32430, '201608/790fce7748.png', 0, 'a:2:{s:6:\\"height\\";i:191;s:5:\\"width\\";i:214;}', 1470880493),
 (90, 1, 'admin', 'rs_1_poster-24', 'banner07', 'png', 189645, '201608/6de0ec93d6.png', 0, 'a:2:{s:6:\\"height\\";i:564;s:5:\\"width\\";i:1922;}', 1470880814),
-(91, 1, 'admin', 'rs_member_auth-1', 'IMG_6891_1', 'jpg', 38461, '201608/5848da887b.jpg', 0, 'a:2:{s:6:\\"height\\";i:434;s:5:\\"width\\";i:400;}', 1470975406),
 (752, 1, 'admin', 'rs_1_poster-5', '首页浮窗广告1', 'jpg', 37724, '201610/5fb5173c5e.jpg', 0, 'a:2:{s:6:\\"height\\";i:300;s:5:\\"width\\";i:70;}', 1476417920),
 (750, 1, 'admin', 'rs_1_poster-5', '首页浮窗广告左', 'jpg', 27771, '201610/03789d5285.jpg', 0, 'a:2:{s:6:\\"height\\";i:300;s:5:\\"width\\";i:70;}', 1476412680),
 (701, 1, 'admin', 'rs_1_news-87', '正航软件', 'jpg', 36239, '201610/7da6425ac7.jpg', 0, 'a:2:{s:6:\\"height\\";i:134;s:5:\\"width\\";i:224;}', 1476320295),
@@ -8285,7 +8179,6 @@ INSERT INTO `rs_attachment_1` (`id`, `uid`, `author`, `related`, `filename`, `fi
 (158, 1, 'admin', 'rs_1_poster-14', 'ad21', 'png', 268667, '201608/17c5cd93a8.png', 0, 'a:2:{s:6:\\"height\\";i:476;s:5:\\"width\\";i:319;}', 1471572645),
 (159, 1, 'admin', 'rs_1_poster-15', 'ad22', 'png', 190853, '201608/9dcbefb97a.png', 0, 'a:2:{s:6:\\"height\\";i:475;s:5:\\"width\\";i:319;}', 1471572679),
 (160, 1, 'admin', 'rs_1_poster-12', 'ad23', 'png', 164751, '201608/bea97c6928.png', 0, 'a:2:{s:6:\\"height\\";i:476;s:5:\\"width\\";i:319;}', 1471572709),
-(162, 1, 'admin', 'rs_member_auth-1', 'accounting', 'png', 152699, '201608/973aa0091b.png', 0, 'a:2:{s:6:\\"height\\";i:276;s:5:\\"width\\";i:368;}', 1472453463),
 (1055, 1, 'admin', 'rs_1_news-147', '68560cb53f935b3 (1)', 'jpg', 418632, '201704/9612933ce8.jpg', 0, 'a:2:{s:6:\\"height\\";i:458;s:5:\\"width\\";i:1200;}', 1491366731),
 (1056, 1, 'admin', 'rs_1_news-148', '40561a34a8c6c53', 'jpg', 45507, '201704/cb478736bd.jpg', 0, 'a:2:{s:6:\\"height\\";i:511;s:5:\\"width\\";i:1200;}', 1491366777),
 (1104, 1, 'admin', 'rs_1_poster-7', '1', 'jpg', 817562, '201706/2e4888dedf.jpg', 0, 'a:2:{s:6:\\"height\\";i:900;s:5:\\"width\\";i:1920;}', 1497405228),
@@ -8818,7 +8711,7 @@ CREATE TABLE IF NOT EXISTS `rs_field` (
   `displayorder` tinyint(3) NOT NULL COMMENT '排序',
   PRIMARY KEY (`id`),
   KEY `list` (`relatedid`,`disabled`,`issystem`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='字段表' AUTO_INCREMENT=334 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='字段表' AUTO_INCREMENT=336 ;
 
 --
 -- 转存表中的数据 `rs_field`
@@ -8842,15 +8735,11 @@ INSERT INTO `rs_field` (`id`, `name`, `fieldname`, `fieldtype`, `relatedid`, `re
 (45, '描述', 'description', 'Textarea', 6, 'module', 1, 1, 1, 0, 1, 1, 'a:2:{s:6:\\"option\\";a:4:{s:5:\\"width\\";i:500;s:6:\\"height\\";i:60;s:9:\\"fieldtype\\";s:7:\\"VARCHAR\\";s:11:\\"fieldlength\\";s:3:\\"255\\";}s:8:\\"validate\\";a:2:{s:3:\\"xss\\";i:1;s:6:\\"filter\\";s:12:\\"dr_clearhtml\\";}}', 8),
 (46, '多图展示', 'duotu', 'Image', 6, 'module', 1, 0, 1, 1, 1, 0, 'a:2:{s:6:\\"option\\";a:4:{s:5:\\"width\\";s:3:\\"80%\\";s:4:\\"size\\";s:1:\\"5\\";s:5:\\"count\\";s:1:\\"5\\";s:10:\\"uploadpath\\";s:0:\\"\\";}s:8:\\"validate\\";a:9:{s:8:\\"required\\";s:1:\\"0\\";s:7:\\"pattern\\";s:0:\\"\\";s:9:\\"errortips\\";s:0:\\"\\";s:6:\\"isedit\\";s:1:\\"0\\";s:3:\\"xss\\";s:1:\\"0\\";s:5:\\"check\\";s:0:\\"\\";s:6:\\"filter\\";s:0:\\"\\";s:4:\\"tips\\";s:0:\\"\\";s:8:\\"formattr\\";s:0:\\"\\";}}', 0),
 (47, '内容', 'content', 'Ueditor', 6, 'module', 1, 0, 1, 1, 1, 0, 'a:2:{s:6:\\"option\\";a:3:{s:4:\\"mode\\";i:1;s:5:\\"width\\";s:3:\\"90%\\";s:6:\\"height\\";i:400;}s:8:\\"validate\\";a:2:{s:3:\\"xss\\";i:1;s:8:\\"required\\";i:1;}}', 9),
-(194, '需求', 'title', 'Text', 2, 'form-1', 1, 1, 1, 1, 0, 0, 'a:3:{s:6:\\"option\\";a:5:{s:5:\\"width\\";s:3:\\"400\\";s:10:\\"is_mb_auto\\";s:1:\\"0\\";s:5:\\"value\\";s:0:\\"\\";s:9:\\"fieldtype\\";s:7:\\"VARCHAR\\";s:11:\\"fieldlength\\";s:3:\\"255\\";}s:8:\\"validate\\";a:8:{s:8:\\"required\\";s:1:\\"1\\";s:7:\\"pattern\\";s:0:\\"\\";s:9:\\"errortips\\";s:0:\\"\\";s:3:\\"xss\\";s:1:\\"1\\";s:5:\\"check\\";s:0:\\"\\";s:6:\\"filter\\";s:0:\\"\\";s:4:\\"tips\\";s:0:\\"\\";s:8:\\"formattr\\";s:0:\\"\\";}s:8:\\"is_right\\";s:1:\\"0\\";}', 0),
-(229, '主题', 'title', 'Text', 4, 'form-1', 1, 1, 1, 1, 1, 0, 'a:2:{s:6:\\"option\\";a:3:{s:5:\\"width\\";i:400;s:9:\\"fieldtype\\";s:7:\\"VARCHAR\\";s:11:\\"fieldlength\\";s:3:\\"255\\";}s:8:\\"validate\\";a:2:{s:3:\\"xss\\";i:1;s:8:\\"required\\";i:1;}}', 0),
-(230, '详细说明', 'detail', 'Textarea', 4, 'form-1', 1, 1, 0, 1, 0, 0, 'a:3:{s:6:\\"option\\";a:4:{s:5:\\"width\\";s:0:\\"\\";s:10:\\"is_mb_auto\\";s:1:\\"0\\";s:6:\\"height\\";s:0:\\"\\";s:5:\\"value\\";s:0:\\"\\";}s:8:\\"validate\\";a:7:{s:8:\\"required\\";s:1:\\"0\\";s:7:\\"pattern\\";s:0:\\"\\";s:9:\\"errortips\\";s:0:\\"\\";s:5:\\"check\\";s:0:\\"\\";s:6:\\"filter\\";s:0:\\"\\";s:4:\\"tips\\";s:0:\\"\\";s:8:\\"formattr\\";s:0:\\"\\";}s:8:\\"is_right\\";s:1:\\"0\\";}', 0),
 (145, '标题', 'title', 'Text', 12, 'module', 1, 1, 1, 1, 0, 0, 'a:4:{s:6:\\"option\\";a:5:{s:5:\\"width\\";s:3:\\"400\\";s:10:\\"is_mb_auto\\";s:1:\\"0\\";s:5:\\"value\\";s:0:\\"\\";s:9:\\"fieldtype\\";s:7:\\"VARCHAR\\";s:11:\\"fieldlength\\";s:3:\\"255\\";}s:8:\\"validate\\";a:8:{s:8:\\"required\\";s:1:\\"1\\";s:7:\\"pattern\\";s:0:\\"\\";s:9:\\"errortips\\";s:0:\\"\\";s:3:\\"xss\\";s:1:\\"1\\";s:5:\\"check\\";s:0:\\"\\";s:6:\\"filter\\";s:0:\\"\\";s:4:\\"tips\\";s:0:\\"\\";s:8:\\"formattr\\";s:48:\\"onblur=\\"check_title();get_keywords(\\''keywords\\'');\\"\\";}s:8:\\"is_right\\";s:1:\\"0\\";s:11:\\"show_member\\";a:3:{i:0;s:1:\\"0\\";i:1;s:1:\\"1\\";i:2;s:1:\\"2\\";}}', 1),
 (146, '缩略图', 'thumb', 'File', 12, 'module', 1, 1, 1, 0, 0, 1, 'a:3:{s:6:\\"option\\";a:3:{s:4:\\"size\\";s:2:\\"10\\";s:3:\\"ext\\";s:11:\\"jpg,gif,png\\";s:10:\\"uploadpath\\";s:0:\\"\\";}s:8:\\"validate\\";a:7:{s:8:\\"required\\";s:1:\\"0\\";s:7:\\"pattern\\";s:0:\\"\\";s:9:\\"errortips\\";s:0:\\"\\";s:5:\\"check\\";s:0:\\"\\";s:6:\\"filter\\";s:0:\\"\\";s:4:\\"tips\\";s:0:\\"\\";s:8:\\"formattr\\";s:0:\\"\\";}s:8:\\"is_right\\";s:1:\\"0\\";}', 0),
 (147, '关键字', 'keywords', 'Text', 12, 'module', 1, 1, 1, 0, 1, 1, 'a:2:{s:6:\\"option\\";a:3:{s:5:\\"width\\";i:400;s:9:\\"fieldtype\\";s:7:\\"VARCHAR\\";s:11:\\"fieldlength\\";s:3:\\"255\\";}s:8:\\"validate\\";a:2:{s:3:\\"xss\\";i:1;s:8:\\"formattr\\";s:22:\\" data-role=\\"tagsinput\\"\\";}}', 0),
 (148, '问题补充', 'description', 'Textarea', 12, 'module', 1, 1, 1, 0, 0, 1, 'a:4:{s:6:\\"option\\";a:4:{s:5:\\"width\\";s:0:\\"\\";s:10:\\"is_mb_auto\\";s:1:\\"0\\";s:6:\\"height\\";s:0:\\"\\";s:5:\\"value\\";s:0:\\"\\";}s:8:\\"validate\\";a:8:{s:8:\\"required\\";s:1:\\"0\\";s:7:\\"pattern\\";s:0:\\"\\";s:9:\\"errortips\\";s:0:\\"\\";s:3:\\"xss\\";s:1:\\"1\\";s:5:\\"check\\";s:0:\\"\\";s:6:\\"filter\\";s:12:\\"dr_clearhtml\\";s:4:\\"tips\\";s:0:\\"\\";s:8:\\"formattr\\";s:0:\\"\\";}s:8:\\"is_right\\";s:1:\\"0\\";s:11:\\"show_member\\";a:4:{i:0;s:1:\\"0\\";i:1;s:1:\\"1\\";i:2;s:1:\\"2\\";i:3;s:1:\\"4\\";}}', 0),
 (149, '问题补充', 'content', 'Ueditor', 12, 'module', 1, 0, 1, 1, 0, 0, 'a:3:{s:6:\\"option\\";a:14:{s:5:\\"width\\";s:3:\\"90%\\";s:6:\\"height\\";s:3:\\"400\\";s:9:\\"autofloat\\";s:1:\\"0\\";s:10:\\"autoheight\\";s:1:\\"0\\";s:8:\\"autodown\\";s:1:\\"0\\";s:6:\\"divtop\\";s:1:\\"0\\";s:4:\\"page\\";s:1:\\"0\\";s:4:\\"mode\\";s:1:\\"1\\";s:4:\\"tool\\";s:29:\\"\\''bold\\'', \\''italic\\'', \\''underline\\''\\";s:5:\\"mode2\\";s:1:\\"1\\";s:5:\\"tool2\\";s:29:\\"\\''bold\\'', \\''italic\\'', \\''underline\\''\\";s:5:\\"mode3\\";s:1:\\"1\\";s:5:\\"tool3\\";s:29:\\"\\''bold\\'', \\''italic\\'', \\''underline\\''\\";s:5:\\"value\\";s:0:\\"\\";}s:8:\\"validate\\";a:8:{s:8:\\"required\\";s:1:\\"0\\";s:7:\\"pattern\\";s:0:\\"\\";s:9:\\"errortips\\";s:0:\\"\\";s:3:\\"xss\\";s:1:\\"1\\";s:5:\\"check\\";s:0:\\"\\";s:6:\\"filter\\";s:0:\\"\\";s:4:\\"tips\\";s:0:\\"\\";s:8:\\"formattr\\";s:0:\\"\\";}s:8:\\"is_right\\";s:1:\\"0\\";}', 5),
-(231, '联系方式', 'a_phone', 'Text', 4, 'form-1', 1, 1, 0, 1, 0, 0, 'a:3:{s:6:\\"option\\";a:5:{s:5:\\"width\\";s:0:\\"\\";s:10:\\"is_mb_auto\\";s:1:\\"0\\";s:5:\\"value\\";s:0:\\"\\";s:9:\\"fieldtype\\";s:0:\\"\\";s:11:\\"fieldlength\\";s:0:\\"\\";}s:8:\\"validate\\";a:7:{s:8:\\"required\\";s:1:\\"1\\";s:7:\\"pattern\\";s:16:\\"/^(1)[0-9]{10}$/\\";s:9:\\"errortips\\";s:0:\\"\\";s:5:\\"check\\";s:0:\\"\\";s:6:\\"filter\\";s:0:\\"\\";s:4:\\"tips\\";s:0:\\"\\";s:8:\\"formattr\\";s:0:\\"\\";}s:8:\\"is_right\\";s:1:\\"0\\";}', 0),
 (172, '认证类型', 'auth_type', 'Radio', 0, 'table-member_auth', 1, 1, 1, 0, 0, 1, 'a:2:{s:6:\\"option\\";a:4:{s:7:\\"options\\";s:17:\\"个人|0\n企业|1\\";s:5:\\"value\\";s:0:\\"\\";s:9:\\"fieldtype\\";s:7:\\"TINYINT\\";s:11:\\"fieldlength\\";s:1:\\"1\\";}s:8:\\"validate\\";a:9:{s:8:\\"required\\";s:1:\\"1\\";s:7:\\"pattern\\";s:0:\\"\\";s:9:\\"errortips\\";s:0:\\"\\";s:6:\\"isedit\\";s:1:\\"0\\";s:3:\\"xss\\";s:1:\\"0\\";s:5:\\"check\\";s:0:\\"\\";s:6:\\"filter\\";s:0:\\"\\";s:4:\\"tips\\";s:0:\\"\\";s:8:\\"formattr\\";s:34:\\" onChange=\\"dr_my_auth(this.value)\\"\\";}}', 0),
 (173, '认证名称', 'auth_name', 'Text', 0, 'table-member_auth', 1, 1, 1, 0, 0, 1, 'a:3:{s:6:\\"option\\";a:5:{s:5:\\"width\\";s:3:\\"200\\";s:10:\\"is_mb_auto\\";s:1:\\"0\\";s:5:\\"value\\";s:24:\\"会计从业资格证书\\";s:9:\\"fieldtype\\";s:7:\\"VARCHAR\\";s:11:\\"fieldlength\\";s:3:\\"100\\";}s:8:\\"validate\\";a:7:{s:8:\\"required\\";s:1:\\"1\\";s:7:\\"pattern\\";s:0:\\"\\";s:9:\\"errortips\\";s:0:\\"\\";s:5:\\"check\\";s:0:\\"\\";s:6:\\"filter\\";s:0:\\"\\";s:4:\\"tips\\";s:0:\\"\\";s:8:\\"formattr\\";s:0:\\"\\";}s:8:\\"is_right\\";s:1:\\"0\\";}', 0),
 (174, '证件号码', 'auth_sn', 'Text', 0, 'table-member_auth', 1, 1, 1, 1, 0, 0, 'a:2:{s:6:\\"option\\";a:5:{s:5:\\"width\\";s:3:\\"300\\";s:5:\\"ispwd\\";s:1:\\"0\\";s:5:\\"value\\";s:0:\\"\\";s:9:\\"fieldtype\\";s:7:\\"VARCHAR\\";s:11:\\"fieldlength\\";s:3:\\"100\\";}s:8:\\"validate\\";a:9:{s:8:\\"required\\";s:1:\\"1\\";s:7:\\"pattern\\";s:0:\\"\\";s:9:\\"errortips\\";s:0:\\"\\";s:6:\\"isedit\\";s:1:\\"0\\";s:3:\\"xss\\";s:1:\\"0\\";s:5:\\"check\\";s:0:\\"\\";s:6:\\"filter\\";s:0:\\"\\";s:4:\\"tips\\";s:0:\\"\\";s:8:\\"formattr\\";s:0:\\"\\";}}', 3),
@@ -8858,8 +8747,6 @@ INSERT INTO `rs_field` (`id`, `name`, `fieldname`, `fieldtype`, `relatedid`, `re
 (176, '手机号码', 'auth_phone', 'Text', 0, 'table-member_auth', 1, 1, 1, 1, 0, 0, 'a:2:{s:6:\\"option\\";a:5:{s:5:\\"width\\";s:3:\\"200\\";s:5:\\"ispwd\\";s:1:\\"0\\";s:5:\\"value\\";s:7:\\"{phone}\\";s:9:\\"fieldtype\\";s:7:\\"VARCHAR\\";s:11:\\"fieldlength\\";s:3:\\"100\\";}s:8:\\"validate\\";a:9:{s:8:\\"required\\";s:1:\\"1\\";s:7:\\"pattern\\";s:0:\\"\\";s:9:\\"errortips\\";s:0:\\"\\";s:6:\\"isedit\\";s:1:\\"0\\";s:3:\\"xss\\";s:1:\\"0\\";s:5:\\"check\\";s:0:\\"\\";s:6:\\"filter\\";s:0:\\"\\";s:4:\\"tips\\";s:0:\\"\\";s:8:\\"formattr\\";s:0:\\"\\";}}', 5),
 (232, '手机号码', 'mobile', 'Text', 12, 'module', 1, 1, 0, 1, 0, 0, 'a:3:{s:6:\\"option\\";a:5:{s:5:\\"width\\";s:0:\\"\\";s:10:\\"is_mb_auto\\";s:1:\\"0\\";s:5:\\"value\\";s:0:\\"\\";s:9:\\"fieldtype\\";s:0:\\"\\";s:11:\\"fieldlength\\";s:0:\\"\\";}s:8:\\"validate\\";a:7:{s:8:\\"required\\";s:1:\\"0\\";s:7:\\"pattern\\";s:16:\\"/^[0-9-]{6,13}$/\\";s:9:\\"errortips\\";s:0:\\"\\";s:5:\\"check\\";s:0:\\"\\";s:6:\\"filter\\";s:0:\\"\\";s:4:\\"tips\\";s:0:\\"\\";s:8:\\"formattr\\";s:0:\\"\\";}s:8:\\"is_right\\";s:1:\\"0\\";}', 2),
 (193, '相关文章', 'related', 'Related', 1, 'module', 1, 0, 0, 1, 0, 0, 'a:3:{s:6:\\"option\\";a:3:{s:6:\\"module\\";s:4:\\"news\\";s:5:\\"width\\";s:3:\\"90%\\";s:5:\\"limit\\";s:0:\\"\\";}s:8:\\"validate\\";a:7:{s:8:\\"required\\";s:1:\\"0\\";s:7:\\"pattern\\";s:0:\\"\\";s:9:\\"errortips\\";s:0:\\"\\";s:5:\\"check\\";s:0:\\"\\";s:6:\\"filter\\";s:0:\\"\\";s:4:\\"tips\\";s:0:\\"\\";s:8:\\"formattr\\";s:0:\\"\\";}s:8:\\"is_right\\";s:1:\\"0\\";}', 0),
-(195, '电话', 'mobile', 'Text', 2, 'form-1', 1, 1, 0, 1, 0, 0, 'a:3:{s:6:\\"option\\";a:5:{s:5:\\"width\\";s:0:\\"\\";s:10:\\"is_mb_auto\\";s:1:\\"0\\";s:5:\\"value\\";s:0:\\"\\";s:9:\\"fieldtype\\";s:4:\\"CHAR\\";s:11:\\"fieldlength\\";s:0:\\"\\";}s:8:\\"validate\\";a:7:{s:8:\\"required\\";s:1:\\"1\\";s:7:\\"pattern\\";s:16:\\"/^[0-9-]{6,13}$/\\";s:9:\\"errortips\\";s:12:\\"您的电话\\";s:5:\\"check\\";s:0:\\"\\";s:6:\\"filter\\";s:0:\\"\\";s:4:\\"tips\\";s:0:\\"\\";s:8:\\"formattr\\";s:0:\\"\\";}s:8:\\"is_right\\";s:1:\\"0\\";}', 0),
-(196, '姓名', 'name', 'Text', 2, 'form-1', 1, 1, 0, 1, 0, 0, 'a:3:{s:6:\\"option\\";a:5:{s:5:\\"width\\";s:0:\\"\\";s:10:\\"is_mb_auto\\";s:1:\\"0\\";s:5:\\"value\\";s:0:\\"\\";s:9:\\"fieldtype\\";s:7:\\"VARCHAR\\";s:11:\\"fieldlength\\";s:0:\\"\\";}s:8:\\"validate\\";a:7:{s:8:\\"required\\";s:1:\\"1\\";s:7:\\"pattern\\";s:0:\\"\\";s:9:\\"errortips\\";s:0:\\"\\";s:5:\\"check\\";s:0:\\"\\";s:6:\\"filter\\";s:0:\\"\\";s:4:\\"tips\\";s:0:\\"\\";s:8:\\"formattr\\";s:0:\\"\\";}s:8:\\"is_right\\";s:1:\\"0\\";}', 0),
 (212, '公司全称', 'company_name', 'Text', 0, 'member', 1, 1, 0, 1, 0, 0, 'a:4:{s:6:\\"option\\";a:5:{s:5:\\"width\\";s:3:\\"50%\\";s:10:\\"is_mb_auto\\";s:1:\\"0\\";s:5:\\"value\\";s:0:\\"\\";s:9:\\"fieldtype\\";s:0:\\"\\";s:11:\\"fieldlength\\";s:0:\\"\\";}s:8:\\"validate\\";a:7:{s:8:\\"required\\";s:1:\\"0\\";s:7:\\"pattern\\";s:0:\\"\\";s:9:\\"errortips\\";s:0:\\"\\";s:5:\\"check\\";s:0:\\"\\";s:6:\\"filter\\";s:0:\\"\\";s:4:\\"tips\\";s:0:\\"\\";s:8:\\"formattr\\";s:0:\\"\\";}s:8:\\"is_right\\";s:1:\\"0\\";s:11:\\"show_member\\";a:2:{i:0;s:1:\\"1\\";i:1;s:1:\\"3\\";}}', 2),
 (213, '所属行业', 'industry', 'Text', 0, 'member', 1, 1, 0, 1, 0, 0, 'a:4:{s:6:\\"option\\";a:5:{s:5:\\"width\\";s:3:\\"50%\\";s:10:\\"is_mb_auto\\";s:1:\\"0\\";s:5:\\"value\\";s:0:\\"\\";s:9:\\"fieldtype\\";s:0:\\"\\";s:11:\\"fieldlength\\";s:0:\\"\\";}s:8:\\"validate\\";a:7:{s:8:\\"required\\";s:1:\\"0\\";s:7:\\"pattern\\";s:0:\\"\\";s:9:\\"errortips\\";s:0:\\"\\";s:5:\\"check\\";s:0:\\"\\";s:6:\\"filter\\";s:0:\\"\\";s:4:\\"tips\\";s:0:\\"\\";s:8:\\"formattr\\";s:0:\\"\\";}s:8:\\"is_right\\";s:1:\\"0\\";s:11:\\"show_member\\";a:4:{i:0;s:1:\\"0\\";i:1;s:1:\\"1\\";i:2;s:1:\\"2\\";i:3;s:1:\\"3\\";}}', 3),
 (214, '企业规模', 'scale', 'Text', 0, 'member', 1, 1, 0, 1, 0, 0, 'a:4:{s:6:\\"option\\";a:5:{s:5:\\"width\\";s:3:\\"50%\\";s:10:\\"is_mb_auto\\";s:1:\\"0\\";s:5:\\"value\\";s:0:\\"\\";s:9:\\"fieldtype\\";s:0:\\"\\";s:11:\\"fieldlength\\";s:0:\\"\\";}s:8:\\"validate\\";a:7:{s:8:\\"required\\";s:1:\\"0\\";s:7:\\"pattern\\";s:0:\\"\\";s:9:\\"errortips\\";s:0:\\"\\";s:5:\\"check\\";s:0:\\"\\";s:6:\\"filter\\";s:0:\\"\\";s:4:\\"tips\\";s:0:\\"\\";s:8:\\"formattr\\";s:0:\\"\\";}s:8:\\"is_right\\";s:1:\\"0\\";s:11:\\"show_member\\";a:4:{i:0;s:1:\\"0\\";i:1;s:1:\\"1\\";i:2;s:1:\\"2\\";i:3;s:1:\\"3\\";}}', 4),
@@ -9572,7 +9459,7 @@ CREATE TABLE IF NOT EXISTS `rs_member` (
 --
 
 INSERT INTO `rs_member` (`uid`, `email`, `username`, `password`, `salt`, `name`, `phone`, `avatar`, `money`, `freeze`, `spend`, `score`, `experience`, `adminid`, `groupid`, `levelid`, `overdue`, `regip`, `regtime`, `randcode`, `ismobile`, `displayorder`) VALUES
-(1, '383272361@qq.com', 'admin', '88909df6de7eb06b18d801e22f06bda2', '34970bf226', '毕俊', '13600805100', '1', 10299.00, 0.00, 0.00, 10341, 100000509, 1, 3, 10, 4294967295, '', 0, 0, 0, 0),
+(1, '383272361@qq.com', 'admin', '88909df6de7eb06b18d801e22f06bda2', '34970bf226', '毕俊', '13600805100', '1', 10299.00, 0.00, 0.00, 10356, 100000524, 1, 3, 10, 4294967295, '', 0, 0, 0, 0),
 (66, 'admin11@163.com', 'admin11', 'd0c46c5521cdb30616d74342fb30bb62', '704afe0739', '', '13813813888', '', 0.00, 0.00, 0.00, 30, 10, 0, 4, 5, 0, '192.168.1.80', 1496201607, 0, 0, 0),
 (67, 'admin13@163.com', 'admin13', '6a736c51b0f5e16a44ec2e28cec5e2ae', '788d986905', '', '13813813889', '', 0.00, 0.00, 0.00, 20, 0, 0, 1, 0, 0, '192.168.1.80', 1496205817, 0, 0, 0),
 (68, '123456@qq.com', 'text', 'ff7620bb157497814426d7ae61295902', '087408522c', '', '12345678910', '', 0.00, 0.00, 0.00, 25, 5, 0, 4, 5, 0, '61.154.16.95', 1498786026, 0, 0, 0);
@@ -9627,13 +9514,6 @@ CREATE TABLE IF NOT EXISTS `rs_member_auth` (
   KEY `edittime` (`edittime`),
   KEY `status` (`status`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='会员实名认证管理';
-
---
--- 转存表中的数据 `rs_member_auth`
---
-
-INSERT INTO `rs_member_auth` (`uid`, `username`, `auth_type`, `auth_name`, `auth_sn`, `auth_image`, `auth_phone`, `inputip`, `inputtime`, `euid`, `editor`, `edittime`, `note`, `status`, `auth_personal`, `company_nature`) VALUES
-(1, 'admin', 0, '', '5435', '162', '13600805100', '120.35.4.185', 1472453469, 0, '', 0, '', 0, '4', NULL);
 
 -- --------------------------------------------------------
 
@@ -9756,7 +9636,7 @@ CREATE TABLE IF NOT EXISTS `rs_member_login` (
   KEY `uid` (`uid`),
   KEY `loginip` (`loginip`),
   KEY `logintime` (`logintime`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='登录日志记录' AUTO_INCREMENT=500 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='登录日志记录' AUTO_INCREMENT=506 ;
 
 --
 -- 转存表中的数据 `rs_member_login`
@@ -9764,19 +9644,19 @@ CREATE TABLE IF NOT EXISTS `rs_member_login` (
 
 INSERT INTO `rs_member_login` (`id`, `uid`, `oauthid`, `loginip`, `logintime`, `useragent`) VALUES
 (169, 2, '', '120.35.4.185', 1473402647, 'Windows 7 Chrome 45.0.2454.101'),
-(490, 1, '', '61.154.16.95', 1498459494, 'Windows 10 Chrome 50.0.2661.102'),
-(494, 1, '', '58.217.233.173', 1498629456, 'Windows 7 Chrome 47.0.2526.73'),
+(503, 1, '', '220.200.1.90', 1505614048, 'Windows 7 Chrome 49.0.2623.75'),
 (499, 1, '', '220.200.1.90', 1503232427, 'Windows 7 Chrome 45.0.2454.101'),
-(489, 1, '', '220.249.190.25', 1498447688, 'Windows 10 Chrome 50.0.2661.102'),
+(502, 1, '', '220.200.1.90', 1505526339, 'Windows 7 Chrome 49.0.2623.75'),
 (496, 1, '', '61.154.16.95', 1498785138, 'Windows 10 Chrome 50.0.2661.102'),
 (484, 66, '', '192.168.1.80', 1498030058, 'Windows 7 Chrome 47.0.2526.73'),
 (495, 1, '', '61.154.16.95', 1498700770, 'Windows 10 Chrome 50.0.2661.102'),
 (491, 66, '', '58.217.245.118', 1498465631, 'Windows 7 Chrome 47.0.2526.73'),
-(493, 1, '', '61.154.16.95', 1498615483, 'Windows 10 Chrome 50.0.2661.102'),
+(505, 1, '', '220.200.1.90', 1505723185, 'Windows 7 Chrome 49.0.2623.75'),
 (497, 68, '', '61.154.16.95', 1498786192, 'Windows 10 Chrome 50.0.2661.102'),
-(488, 1, '', '58.217.245.118', 1498443912, 'Windows 7 Chrome 47.0.2526.73'),
-(492, 1, '', '61.154.16.95', 1498545016, 'Windows 10 Chrome 50.0.2661.102'),
-(498, 1, '', '220.200.1.90', 1503141360, 'Windows 7 Chrome 45.0.2454.101');
+(501, 1, '', '220.200.1.90', 1505464501, 'Windows 7 Chrome 49.0.2623.75'),
+(504, 1, '', '117.25.52.20', 1505721493, 'Windows 10 Chrome 50.0.2661.102'),
+(498, 1, '', '220.200.1.90', 1503141360, 'Windows 7 Chrome 45.0.2454.101'),
+(500, 1, '', '117.25.52.20', 1505460770, 'Windows 10 Chrome 50.0.2661.102');
 
 -- --------------------------------------------------------
 
@@ -10163,6 +10043,13 @@ CREATE TABLE IF NOT EXISTS `rs_member_online` (
   KEY `time` (`time`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='会员在线情况表' AUTO_INCREMENT=69 ;
 
+--
+-- 转存表中的数据 `rs_member_online`
+--
+
+INSERT INTO `rs_member_online` (`uid`, `time`) VALUES
+(1, 1505724536);
+
 -- --------------------------------------------------------
 
 --
@@ -10227,7 +10114,7 @@ CREATE TABLE IF NOT EXISTS `rs_member_scorelog` (
   KEY `type` (`type`),
   KEY `mark` (`mark`),
   KEY `inputtime` (`inputtime`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='得分日志' AUTO_INCREMENT=675 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='得分日志' AUTO_INCREMENT=681 ;
 
 --
 -- 转存表中的数据 `rs_member_scorelog`
@@ -10488,7 +10375,13 @@ INSERT INTO `rs_member_scorelog` (`id`, `uid`, `type`, `value`, `mark`, `note`, 
 (671, 1, 1, 5, 'login', '每日登陆', 1498785558),
 (672, 68, 1, 10, '', '注册送10金币', 1498786026),
 (673, 68, 0, 5, 'login', '每日登陆', 1498786192),
-(674, 68, 1, 5, 'login', '每日登陆', 1498786192);
+(674, 68, 1, 5, 'login', '每日登陆', 1498786192),
+(675, 1, 0, 5, 'login', '每日登陆', 1505464578),
+(676, 1, 1, 5, 'login', '每日登陆', 1505464578),
+(677, 1, 0, 5, 'login', '每日登陆', 1505625471),
+(678, 1, 1, 5, 'login', '每日登陆', 1505625471),
+(679, 1, 0, 5, 'login', '每日登陆', 1505702112),
+(680, 1, 1, 5, 'login', '每日登陆', 1505702112);
 
 -- --------------------------------------------------------
 
@@ -10509,7 +10402,7 @@ CREATE TABLE IF NOT EXISTS `rs_member_setting` (
 INSERT INTO `rs_member_setting` (`name`, `value`) VALUES
 ('member', 'a:18:{s:8:\\"complete\\";s:1:\\"1\\";s:8:\\"pagesize\\";s:2:\\"20\\";s:6:\\"domain\\";a:1:{i:1;s:0:\\"\\";}s:7:\\"urlrule\\";s:1:\\"0\\";s:8:\\"register\\";s:1:\\"1\\";s:8:\\"regfield\\";a:3:{i:0;s:8:\\"username\\";i:1;s:5:\\"phone\\";i:2;s:5:\\"email\\";}s:9:\\"regverify\\";s:1:\\"2\\";s:9:\\"regiptime\\";s:0:\\"\\";s:11:\\"regnamerule\\";s:0:\\"\\";s:11:\\"regnotallow\\";s:0:\\"\\";s:9:\\"logincode\\";s:1:\\"1\\";s:11:\\"loginexpire\\";s:5:\\"86400\\";s:7:\\"ucenter\\";s:1:\\"0\\";s:10:\\"ucentercfg\\";s:0:\\"\\";s:5:\\"field\\";s:0:\\"\\";s:7:\\"mbfield\\";s:0:\\"\\";s:10:\\"mergefield\\";s:173:\\"					</div>\r\n				</div>\r\n<div class=\\"portlet light\\" id=\\"dr_{name}\\">\r\n					<div class=\\"portlet-title mytitle\\">\r\n						{text}\r\n					</div>\r\n<div class=\\"portlet-body\\">\r\n{value}\\";s:12:\\"mbmergefield\\";s:173:\\"					</div>\r\n				</div>\r\n<div class=\\"portlet light\\" id=\\"dr_{name}\\">\r\n					<div class=\\"portlet-title mytitle\\">\r\n						{text}\r\n					</div>\r\n<div class=\\"portlet-body\\">\r\n{value}\\";}'),
 ('permission', 'a:14:{i:1;a:13:{s:16:\\"login_experience\\";s:1:\\"1\\";s:11:\\"login_score\\";s:1:\\"0\\";s:17:\\"avatar_experience\\";s:2:\\"10\\";s:12:\\"avatar_score\\";s:1:\\"0\\";s:19:\\"complete_experience\\";s:2:\\"10\\";s:14:\\"complete_score\\";s:1:\\"0\\";s:15:\\"bang_experience\\";s:2:\\"10\\";s:10:\\"bang_score\\";s:1:\\"0\\";s:14:\\"jie_experience\\";s:3:\\"-10\\";s:9:\\"jie_score\\";s:1:\\"0\\";s:17:\\"update_experience\\";s:1:\\"1\\";s:12:\\"update_score\\";s:1:\\"0\\";s:10:\\"attachsize\\";s:1:\\"0\\";}i:2;a:14:{s:16:\\"login_experience\\";s:1:\\"5\\";s:11:\\"login_score\\";s:1:\\"0\\";s:17:\\"avatar_experience\\";s:2:\\"10\\";s:12:\\"avatar_score\\";s:1:\\"0\\";s:19:\\"complete_experience\\";s:2:\\"10\\";s:14:\\"complete_score\\";s:1:\\"0\\";s:15:\\"bang_experience\\";s:2:\\"10\\";s:10:\\"bang_score\\";s:1:\\"0\\";s:14:\\"jie_experience\\";s:3:\\"-10\\";s:9:\\"jie_score\\";s:1:\\"0\\";s:17:\\"update_experience\\";s:1:\\"1\\";s:12:\\"update_score\\";s:1:\\"0\\";s:11:\\"is_download\\";s:1:\\"1\\";s:10:\\"attachsize\\";s:1:\\"5\\";}s:3:\\"3_1\\";a:7:{s:16:\\"login_experience\\";s:1:\\"5\\";s:11:\\"login_score\\";s:1:\\"5\\";s:17:\\"avatar_experience\\";s:2:\\"10\\";s:12:\\"avatar_score\\";s:2:\\"10\\";s:19:\\"complete_experience\\";s:2:\\"10\\";s:14:\\"complete_score\\";s:2:\\"10\\";s:9:\\"is_upload\\";s:1:\\"1\\";}s:3:\\"3_2\\";a:7:{s:16:\\"login_experience\\";s:1:\\"5\\";s:11:\\"login_score\\";s:1:\\"5\\";s:17:\\"avatar_experience\\";s:2:\\"10\\";s:12:\\"avatar_score\\";s:2:\\"10\\";s:19:\\"complete_experience\\";s:2:\\"10\\";s:14:\\"complete_score\\";s:2:\\"10\\";s:9:\\"is_upload\\";s:1:\\"1\\";}s:3:\\"3_3\\";a:7:{s:16:\\"login_experience\\";s:1:\\"5\\";s:11:\\"login_score\\";s:1:\\"5\\";s:17:\\"avatar_experience\\";s:2:\\"10\\";s:12:\\"avatar_score\\";s:2:\\"10\\";s:19:\\"complete_experience\\";s:2:\\"10\\";s:14:\\"complete_score\\";s:2:\\"10\\";s:9:\\"is_upload\\";s:1:\\"1\\";}s:3:\\"3_4\\";a:7:{s:16:\\"login_experience\\";s:1:\\"5\\";s:11:\\"login_score\\";s:1:\\"5\\";s:17:\\"avatar_experience\\";s:2:\\"10\\";s:12:\\"avatar_score\\";s:2:\\"10\\";s:19:\\"complete_experience\\";s:2:\\"10\\";s:14:\\"complete_score\\";s:2:\\"10\\";s:9:\\"is_upload\\";s:1:\\"1\\";}s:3:\\"4_5\\";a:7:{s:16:\\"login_experience\\";s:1:\\"5\\";s:11:\\"login_score\\";s:1:\\"5\\";s:17:\\"avatar_experience\\";s:2:\\"10\\";s:12:\\"avatar_score\\";s:2:\\"10\\";s:19:\\"complete_experience\\";s:2:\\"10\\";s:14:\\"complete_score\\";s:2:\\"10\\";s:9:\\"is_upload\\";s:1:\\"1\\";}s:3:\\"4_6\\";a:7:{s:16:\\"login_experience\\";s:1:\\"5\\";s:11:\\"login_score\\";s:1:\\"5\\";s:17:\\"avatar_experience\\";s:2:\\"10\\";s:12:\\"avatar_score\\";s:2:\\"10\\";s:19:\\"complete_experience\\";s:2:\\"10\\";s:14:\\"complete_score\\";s:2:\\"10\\";s:9:\\"is_upload\\";s:1:\\"1\\";}s:3:\\"4_7\\";a:7:{s:16:\\"login_experience\\";s:1:\\"5\\";s:11:\\"login_score\\";s:1:\\"5\\";s:17:\\"avatar_experience\\";s:2:\\"10\\";s:12:\\"avatar_score\\";s:2:\\"10\\";s:19:\\"complete_experience\\";s:2:\\"10\\";s:14:\\"complete_score\\";s:2:\\"10\\";s:9:\\"is_upload\\";s:1:\\"1\\";}s:3:\\"4_8\\";a:7:{s:16:\\"login_experience\\";s:2:\\"10\\";s:11:\\"login_score\\";s:1:\\"0\\";s:17:\\"avatar_experience\\";s:2:\\"10\\";s:12:\\"avatar_score\\";s:1:\\"0\\";s:19:\\"complete_experience\\";s:2:\\"10\\";s:14:\\"complete_score\\";s:1:\\"0\\";s:9:\\"is_upload\\";s:1:\\"1\\";}s:4:\\"3_10\\";a:8:{s:16:\\"login_experience\\";s:1:\\"5\\";s:11:\\"login_score\\";s:1:\\"5\\";s:17:\\"avatar_experience\\";s:2:\\"10\\";s:12:\\"avatar_score\\";s:2:\\"10\\";s:19:\\"complete_experience\\";s:2:\\"10\\";s:14:\\"complete_score\\";s:2:\\"10\\";s:9:\\"is_upload\\";s:1:\\"1\\";s:10:\\"attachsize\\";s:7:\\"1000000\\";}s:4:\\"4_11\\";a:7:{s:16:\\"login_experience\\";s:1:\\"5\\";s:11:\\"login_score\\";s:1:\\"5\\";s:17:\\"avatar_experience\\";s:2:\\"10\\";s:12:\\"avatar_score\\";s:2:\\"10\\";s:19:\\"complete_experience\\";s:2:\\"10\\";s:14:\\"complete_score\\";s:2:\\"10\\";s:9:\\"is_upload\\";s:1:\\"1\\";}s:3:\\"3_9\\";a:7:{s:16:\\"login_experience\\";s:1:\\"5\\";s:11:\\"login_score\\";s:1:\\"5\\";s:17:\\"avatar_experience\\";s:2:\\"10\\";s:12:\\"avatar_score\\";s:2:\\"10\\";s:19:\\"complete_experience\\";s:2:\\"10\\";s:14:\\"complete_score\\";s:2:\\"10\\";s:9:\\"is_upload\\";s:1:\\"1\\";}s:4:\\"4_12\\";a:7:{s:16:\\"login_experience\\";s:1:\\"5\\";s:11:\\"login_score\\";s:1:\\"5\\";s:17:\\"avatar_experience\\";s:2:\\"10\\";s:12:\\"avatar_score\\";s:2:\\"10\\";s:19:\\"complete_experience\\";s:2:\\"10\\";s:14:\\"complete_score\\";s:2:\\"10\\";s:9:\\"is_upload\\";s:1:\\"1\\";}}'),
-('pay', 'a:2:{s:3:\\"use\\";a:3:{i:0;s:6:\\"alipay\\";i:1;s:9:\\"chinabank\\";i:2;s:6:\\"weixin\\";}s:5:\\"order\\";a:3:{s:6:\\"alipay\\";s:1:\\"0\\";s:6:\\"weixin\\";s:1:\\"2\\";s:9:\\"chinabank\\";s:1:\\"3\\";}}'),
+('pay', 'a:2:{s:3:\\"use\\";a:3:{i:0;s:9:\\"chinabank\\";i:1;s:6:\\"alipay\\";i:2;s:6:\\"weixin\\";}s:5:\\"order\\";a:3:{s:6:\\"alipay\\";s:1:\\"0\\";s:6:\\"weixin\\";s:1:\\"2\\";s:9:\\"chinabank\\";s:1:\\"3\\";}}'),
 ('space', 'a:14:{s:6:\\"domain\\";s:0:\\"\\";s:5:\\"theme\\";s:4:\\"home\\";s:8:\\"template\\";s:7:\\"default\\";s:7:\\"urlrule\\";s:1:\\"0\\";s:8:\\"category\\";s:1:\\"1\\";s:5:\\"title\\";s:0:\\"\\";s:8:\\"keywords\\";s:0:\\"\\";s:11:\\"description\\";s:0:\\"\\";s:4:\\"flag\\";a:9:{i:1;a:1:{s:4:\\"name\\";s:12:\\"达人空间\\";}i:2;a:1:{s:4:\\"name\\";s:12:\\"推荐空间\\";}i:3;a:1:{s:4:\\"name\\";s:0:\\"\\";}i:4;a:1:{s:4:\\"name\\";s:0:\\"\\";}i:5;a:1:{s:4:\\"name\\";s:0:\\"\\";}i:6;a:1:{s:4:\\"name\\";s:0:\\"\\";}i:7;a:1:{s:4:\\"name\\";s:0:\\"\\";}i:8;a:1:{s:4:\\"name\\";s:0:\\"\\";}i:9;a:1:{s:4:\\"name\\";s:0:\\"\\";}}s:11:\\"spacedomain\\";s:0:\\"\\";s:11:\\"notindomain\\";s:0:\\"\\";s:13:\\"sns_post_time\\";s:0:\\"\\";s:12:\\"sns_post_num\\";s:0:\\"\\";s:4:\\"open\\";i:0;}');
 
 -- --------------------------------------------------------
@@ -10580,7 +10473,7 @@ CREATE TABLE IF NOT EXISTS `rs_site` (
 --
 
 INSERT INTO `rs_site` (`id`, `name`, `domain`, `setting`) VALUES
-(1, '福建省联标国际发展有限公司', '', 'a:16:{s:10:\\"SITE_CLOSE\\";s:1:\\"0\\";s:14:\\"SITE_CLOSE_MSG\\";s:19:\\"网站升级中....\\";s:9:\\"SITE_NAME\\";s:39:\\"福建省联标国际发展有限公司\\";s:16:\\"SITE_TIME_FORMAT\\";s:0:\\"\\";s:13:\\"SITE_LANGUAGE\\";s:5:\\"zh-cn\\";s:10:\\"SITE_THEME\\";s:7:\\"default\\";s:13:\\"SITE_TEMPLATE\\";s:2:\\"cn\\";s:13:\\"SITE_TIMEZONE\\";s:1:\\"8\\";s:12:\\"SITE_SEOJOIN\\";s:1:\\"_\\";s:10:\\"SITE_TITLE\\";s:39:\\"福建省联标国际发展有限公司\\";s:13:\\"SITE_KEYWORDS\\";s:0:\\"\\";s:16:\\"SITE_DESCRIPTION\\";s:0:\\"\\";s:11:\\"SITE_DOMAIN\\";N;s:12:\\"SITE_DOMAINS\\";s:0:\\"\\";s:14:\\"SITE_NAVIGATOR\\";s:9:\\",,,,,,,,,\\";s:18:\\"SITE_IMAGE_CONTENT\\";i:0;}'),
+(1, '福建省联标国际发展有限公司', 'demo.hf872.com', 'a:16:{s:10:\\"SITE_CLOSE\\";s:1:\\"0\\";s:14:\\"SITE_CLOSE_MSG\\";s:19:\\"网站升级中....\\";s:9:\\"SITE_NAME\\";s:39:\\"福建省联标国际发展有限公司\\";s:16:\\"SITE_TIME_FORMAT\\";s:0:\\"\\";s:13:\\"SITE_LANGUAGE\\";s:5:\\"zh-cn\\";s:10:\\"SITE_THEME\\";s:7:\\"default\\";s:13:\\"SITE_TEMPLATE\\";s:2:\\"cn\\";s:13:\\"SITE_TIMEZONE\\";s:1:\\"8\\";s:12:\\"SITE_SEOJOIN\\";s:1:\\"_\\";s:10:\\"SITE_TITLE\\";s:39:\\"福建省联标国际发展有限公司\\";s:13:\\"SITE_KEYWORDS\\";s:0:\\"\\";s:16:\\"SITE_DESCRIPTION\\";s:0:\\"\\";s:11:\\"SITE_DOMAIN\\";N;s:12:\\"SITE_DOMAINS\\";s:0:\\"\\";s:14:\\"SITE_NAVIGATOR\\";s:9:\\",,,,,,,,,\\";s:18:\\"SITE_IMAGE_CONTENT\\";i:0;}'),
 (2, 'A&T INTERNATIONAL', 'en.hf872.com', 'a:16:{s:10:\\"SITE_CLOSE\\";s:1:\\"0\\";s:14:\\"SITE_CLOSE_MSG\\";s:19:\\"网站升级中....\\";s:9:\\"SITE_NAME\\";s:17:\\"A&T INTERNATIONAL\\";s:16:\\"SITE_TIME_FORMAT\\";s:0:\\"\\";s:13:\\"SITE_LANGUAGE\\";s:5:\\"zh-cn\\";s:10:\\"SITE_THEME\\";s:7:\\"default\\";s:13:\\"SITE_TEMPLATE\\";s:2:\\"en\\";s:13:\\"SITE_TIMEZONE\\";s:1:\\"8\\";s:12:\\"SITE_SEOJOIN\\";s:1:\\"_\\";s:10:\\"SITE_TITLE\\";s:0:\\"\\";s:13:\\"SITE_KEYWORDS\\";s:0:\\"\\";s:16:\\"SITE_DESCRIPTION\\";s:0:\\"\\";s:11:\\"SITE_DOMAIN\\";N;s:12:\\"SITE_DOMAINS\\";s:0:\\"\\";s:14:\\"SITE_NAVIGATOR\\";s:9:\\",,,,,,,,,\\";s:18:\\"SITE_IMAGE_CONTENT\\";i:0;}');
 
 -- --------------------------------------------------------

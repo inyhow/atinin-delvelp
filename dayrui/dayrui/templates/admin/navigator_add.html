@@ -44,7 +44,37 @@ function dr_select_category(id) {
     }
 }
 </script>
+<div class="page-bar">
+    <ul class="page-breadcrumb mylink">
+        {$menu.link}
 
+    </ul>
+    <ul class="page-breadcrumb myname">
+        {$menu.name}
+    </ul>
+    <div class="page-toolbar">
+        <div class="btn-group pull-right">
+            <button type="button" class="btn green btn-sm btn-outline dropdown-toggle" data-toggle="dropdown" aria-expanded="false" data-hover="dropdown"> {fc_lang('操作菜单')}
+                <i class="fa fa-angle-down"></i>
+            </button>
+            <ul class="dropdown-menu pull-right" role="menu">
+                {loop $menu.quick $t}
+                <li>
+                    <a href="{$t.url}">{$t.icon} {$t.name}</a>
+                </li>
+                {/loop}
+                <li class="divider"> </li>
+                <li>
+                    <a href="javascript:window.location.reload();">
+                        <i class="icon-refresh"></i> {fc_lang('刷新页面')}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<h3 class="page-title">
+    <small>{fc_lang('导航是给用户提供浏览方向及分类指引的重要功能，例如首页头部导航、底部链接信息、侧边链接、顶端链接、友情链接等，根据实际情况来调用')}</small>
+</h3>
 <form class="form-horizontal" action="" method="post" id="myform" name="myform" style="margin-top:30px;margin-bottom: 70px;">
     <div class="portlet light bordered">
 
@@ -56,7 +86,23 @@ function dr_select_category(id) {
         <div class="portlet-body">
             <div class="portlet-body form">
                 <div class="form-body">
-                    
+
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">{fc_lang('分类')}：</label>
+                        <div class="col-md-9">
+                            <label>{$select}</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">{fc_lang('类型')}：</label>
+                        <div class="col-md-9">
+                            <div class="radio-list">
+                                <label class="radio-inline"><input {if $data.id}disabled{/if} type="radio" name="ntype" {if $ntype == 0} checked{/if} value="0" onclick="dr_nav(0)" /> {fc_lang('链接')}</label>
+                                <label class="radio-inline"><input {if $data.id}disabled{/if} type="radio" name="ntype" {if $ntype == 1} checked{/if} value="1" onclick="dr_nav(1)" /> {fc_lang('单页')}</label>
+                                <label class="radio-inline"><input {if $data.id}disabled{/if} type="radio" name="ntype" {if $ntype == 2} checked{/if} value="2" onclick="dr_nav(2)" /> {fc_lang('模块')}</label>
+                            </div>
+                        </div>
+                    </div>
                     <div class="form-group nav_1">
                         <label class="col-md-2 control-label">{fc_lang('选择单页')}：</label>
                         <div class="col-md-9">

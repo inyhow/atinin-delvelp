@@ -56,6 +56,37 @@ function dr_theme(id) {
 
 <form action="" class="form-horizontal" method="post" name="myform" id="myform" onsubmit="return dr_form_check()">
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <div class="portlet light bordered myfbody">
         <div class="portlet-title tabbable-line">
             <input type="hidden" name="page" id="mypage" value="<?php echo $page; ?>">
@@ -64,10 +95,22 @@ function dr_theme(id) {
                     <a href="#tab_0" data-toggle="tab" onclick="$('#mypage').val('0')"> <i class="fa fa-cog"></i> <?php echo fc_lang('基本设置'); ?> </a>
                 </li>
                 
+
+
+
+
+
+
                 <li class="<?php if ($page==3) { ?>active<?php } ?>">
                     <a href="#tab_3" data-toggle="tab" onclick="$('#mypage').val('3')"> <i class="fa fa-internet-explorer"></i> <?php echo fc_lang('SEO设置'); ?> </a>
                 </li>
                 
+
+
+
+
+
+
                 <li class="<?php if ($page==5) { ?>active<?php } ?>">
                     <a href="#tab_5" data-toggle="tab" onclick="$('#mypage').val('5')"> <i class="fa fa-tint"></i> <?php echo fc_lang('导航名称'); ?> </a>
                 </li>
@@ -101,6 +144,7 @@ function dr_theme(id) {
                             <label class="col-md-2 control-label"><?php echo fc_lang('网站名称'); ?>：</label>
                             <div class="col-md-9">
                                 <label><input class="form-control" type="text" name="data[SITE_NAME]" id="dr_name" value="<?php echo $data['SITE_NAME']; ?>"></label>
+
                             </div>
                         </div>
                         <div class="form-group">
@@ -123,6 +167,16 @@ function dr_theme(id) {
                             </div>
                         </div>
                        
+
+
+
+
+
+
+
+
+
+
                         <div class="form-group" id="dr_theme_html">
 
                         </div>
@@ -183,6 +237,79 @@ function dr_theme(id) {
                     </div>
                 </div>
                 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 <div class="tab-pane <?php if ($page==3) { ?>active<?php } ?> " id="tab_3">
                     <div class="form-body">
                         <div class="form-group">
@@ -216,6 +343,127 @@ function dr_theme(id) {
                     </div>
                 </div>
                 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 <div class="tab-pane  <?php if ($page==5) { ?>active<?php } ?>" id="tab_5">
                     <div class="form-body">
 
@@ -231,6 +479,29 @@ function dr_theme(id) {
 
                     </div>
                 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
             </div>
         </div>

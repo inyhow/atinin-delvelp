@@ -15,7 +15,7 @@
 
 return array(
 
-	'username'  => '2944557691@qq.com', //2944557691@qq.com
+	'username'  => '2944557691@qq.comx', //2944557691@qq.comx
 	'id'        => '2088221900026022', //2088221900026022
 	'key'       => '4pi8jmd1ej1oz85fbk6lot4bpqdfzx13', //4pi8jmd1ej1oz85fbk6lot4bpqdfzx13
 	'name'      => '支付宝', //支付宝

@@ -42,13 +42,13 @@
                     <ul>
                         <li> <a href="{SITE_URL}" title="{SITE_TITLE}">首页</a> </li>
                         {list action=navigator type=0 pid=0 num=6}
-                        <li> <a title="{$t.name}" href="{$t.url}" target="_parent">{$t.name}</a>
+                        <li> <a title="{$t.name}" href="{$t.url}" {if $t.target}target="_blank"{/if}>{$t.name}</a>
                             <ul>
                                 {if $t.child} {list action=navigator pid=$t.id return=t2}
-                                <li> <a title="{$t2.name}" href="{$t2.url}" onfocus="this.blur()" style="width:150px;"> {$t2.name}</a>
+                                <li> <a title="{$t2.name}" {if $t.target}target="_blank"{/if} href="{$t2.url}" onfocus="this.blur()" style="width:150px;"> {$t2.name}</a>
                                     <ul>
                                         {if $t2.child} {list action=navigator pid=$t2.id return=t3}
-                                        <li><a title="{$t3.name}" href="{$t3.url}" onfocus="this.blur()"> {$t3.name}</a> </li>
+                                        <li><a title="{$t3.name}" {if $t.target}target="_blank"{/if} href="{$t3.url}" onfocus="this.blur()"> {$t3.name}</a> </li>
                                         {/list} {/if}
                                     </ul>
                                 </li>

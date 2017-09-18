@@ -15,6 +15,7 @@
 
 return array(
 
+	'demo.hf872.com'                => 1,
 	'en.hf872.com'                  => 2,
 
 );

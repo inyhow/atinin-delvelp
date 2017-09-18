@@ -2,6 +2,7 @@
 <div class="page-bar">
 	<ul class="page-breadcrumb mylink">
 		<?php echo $menu['link']; ?>
+
 	</ul>
 	<ul class="page-breadcrumb myname">
 		<?php echo $menu['name']; ?>
@@ -28,12 +29,16 @@
 </div>
 <h3 class="page-title">
 	<small><?php echo fc_lang('站点是系统的核心部分，各个站点数据独立，可以设置站点分库管理'); ?></small>
+
 </h3>
+
 <div class="portlet light bordered">
 	<div class="portlet-body">
 		<div class="table-scrollable v3table">
 				<form action="" method="post" name="myform" id="myform">
+
 					<table class="table">
+
 						<thead>
 						<tr>
 							<th width="20" align="right"></th>
@@ -54,14 +59,8 @@
 							<td align="left"><input class="input-text" style="height: 25px;" type="text" name="data[<?php echo $sid; ?>][domain]" value="<?php echo $t['domain']; ?>" required /></td>
 							<td align="left" class="dr_option">
 								<a class="ago" href="http://<?php echo $t['domain'];  echo SITE_PATH; ?>" target="_blank"> <i class="fa fa-paper-plane"></i> <?php echo fc_lang('访问'); ?></a><?php if ($this->ci->is_auth('site/config')) { ?><a class="aedit" href="<?php echo dr_url('site/config',array('id' => $sid)); ?>"> <i class="fa fa-cog"></i> <?php echo fc_lang('配置'); ?></a><?php }  if ($this->ci->is_auth('site/del') && $sid > 1) { ?><a class="adel" href="javascript:;" onClick="return dr_confirm_url('<?php echo fc_lang('您确定要这样操作吗？'); ?>','<?php echo dr_url('site/del', array('id' => $t['id'])); ?>');"> <i class="fa fa-trash"></i> <?php echo fc_lang('删除'); ?></a><?php } ?>
-								<span id="dr_domain_<?php echo $sid; ?>"></span>
-								<script type="text/javascript">
-									$.get("<?php echo dr_url('home/domain', array('domain' => $t['domain'])); ?>", function(data){
-										if (data) {
-											$("#dr_domain_<?php echo $sid; ?>").html("<a href='<?php echo dr_url('site/config',array('id'=>$sid)); ?>' style='color:red;'>域名解析异常</a>");
-										}
-									});
-								</script>
+						
+
 							</td>
 						</tr>
 						<?php }  } } ?>
@@ -77,5 +76,6 @@
 		</div>
 	</div>
 </div>
+
 
 <?php if ($fn_include = $this->_include("nfooter.html")) include($fn_include); ?>
